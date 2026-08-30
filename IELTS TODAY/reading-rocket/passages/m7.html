@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bonus Mock Test — Avazbek Reader Booster</title>
+<link rel="stylesheet" href="../assets/shared.css">
+<style>
+.mock-tabs{display:flex; gap:10px; margin-bottom:20px; flex-wrap:wrap;}
+.mock-tab{flex:1; min-width:140px; text-align:center; padding:12px; border-radius:10px; border:1px solid var(--ink-line); background:var(--ink-1); cursor:pointer; font-size:.85rem; font-weight:700;}
+.mock-tab.active{border-color:var(--gold); background:var(--gold-dim); color:var(--gold-soft);}
+.glossary-item{padding:10px 4px;border-bottom:1px solid var(--ink-line);}
+.glossary-item:last-child{border-bottom:none;}
+.glossary-item .w{font-family:var(--serif);color:var(--gold-soft);font-size:1.05rem;}
+.glossary-item .uz{color:var(--gold);font-size:.85rem;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand">
+      <div class="brand-ring"><img src="../assets/avazbek.png" alt="Avazbek"></div>
+      <div class="brand-text">
+        <h1>Avazbek <em>Reader Booster</em></h1>
+        <div class="tag">Full Mock Test</div>
+      </div>
+    </div>
+    <button class="back-btn" onclick="location.href='../index.html'">&larr; Home</button>
+  </div>
+
+  <div id="home" class="section active">
+    <div class="hero">
+      <div class="eyebrow">Bonus Full Mock Test</div>
+      <h1>Bonus Mock Test</h1>
+      <p class="byline">The Cycle of Cranberry Production &middot; Dark Chocolate's Health-giving Benefits &middot; All in the Family</p>
+      <p class="passage-tag">3 passages &middot; <b>40</b> questions total &middot; ~60 minutes</p>
+    </div>
+    <div class="menu">
+      <div class="menu-card" onclick="arbGo('test')">
+        <div class="num">📝</div>
+        <h3>Start the Mock Test</h3>
+        <p>Read all three passages and answer all 40 questions.</p>
+      </div>
+      <div class="menu-card" onclick="arbGo('glossary')">
+        <div class="num">🗂️</div>
+        <h3>Key Vocabulary</h3>
+        <p>Review challenging words from all three passages before you start.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="glossary" class="section">
+    <div class="section-head">
+      <button class="back-btn" onclick="arbGo('home')">&larr; Back</button>
+      <h2>Key Vocabulary</h2>
+      <div class="sub">Challenging words from this mock test's three passages.</div>
+    </div>
+    <div class="card" id="glossaryList"></div>
+  </div>
+
+  <div id="test" class="section">
+    <div class="section-head">
+      <button class="back-btn" onclick="arbGo('home')">&larr; Back</button>
+      <h2>Bonus Mock Test</h2>
+    </div>
+    <div class="timer-bar">
+      <span id="timerDisplay">60:00</span>
+      <input class="timer-input" id="tMin" value="60"> min
+      <input class="timer-input" id="tSec" value="0"> sec
+      <button class="tbtn" onclick="timer.set()">Set</button>
+      <button class="tbtn" onclick="timer.start()">Start</button>
+      <button class="tbtn" onclick="timer.pause()">Pause</button>
+      <button class="tbtn" onclick="timer.reset()">Reset</button>
+      <div class="timeup-banner" id="timeupBanner">Time is up! Finish your answers and check your score.</div>
+    </div>
+    <div class="mock-tabs">
+      <div class="mock-tab active" onclick="showPassage(1)">Passage 1</div>
+      <div class="mock-tab" onclick="showPassage(2)">Passage 2</div>
+      <div class="mock-tab" onclick="showPassage(3)">Passage 3</div>
+    </div>
+
+  <div class="mock-passage" id="passage_1" style="">
+    <div class="player">
+      <button class="play-btn" id="playBtn1">&#9654;</button>
+      <button class="stop-btn" id="stopBtn1">&#9632;</button>
+      <div class="player-status">
+        <div class="pl-title" id="plTitle1">Listen to Passage 1</div>
+        <div class="pl-sub" id="plSub1">American accent &middot; tap play to start</div>
+      </div>
+      <select class="rate-select" id="rateSelect1">
+        <option value="0.8">0.8&times; slow</option>
+        <option value="1" selected>1&times; normal</option>
+        <option value="1.2">1.2&times; fast</option>
+      </select>
+    </div>
+    <div class="article" id="articleBody1">
+      <h1 style="font-size:1.5rem">The Cycle of Cranberry Production</h1>
+      <div class="art-sub">The story of a unique North American crop (bonus review)</div>
+      <p>Cranberries are among the few fruits native to North America that have been grown commercially for centuries. These small, crimson berries thrive only in very unique environmental conditions, particularly in soil that is both sandy and acidic. Since ordinary farmland cannot provide this delicate balance, cranberries are generally cultivated in low-lying areas called bogs.</p>
+      <p>Many bogs now used for cranberry farming were formed thousands of years ago when retreating glaciers carved deep hollows known as kettle ponds. Over time, these basins became lined with layers of sand and clay, producing a natural filtration system. The clay bottom acts as a protective barrier, preventing harmful substances from entering the pond and preserving the clean water essential for healthy vines.</p>
+      <p>Long before the arrival of European settlers, the Wampanoag people made practical use of the berry in several ways. The fruit's sharp taste lent itself to preservation techniques; communities developed methods of drying and combining cranberries with other foods to extend their usefulness. In addition to dietary uses, the Wampanoag also employed the berry in first-aid traditions: crushed fruit was applied to sores and minor wounds.</p>
+      <p>When Europeans first arrived in the seventeenth century, rather than attempting to transplant European varieties, the newcomers adopted the native species already adapted to regional conditions. In the early nineteenth century, one Massachusetts grower, Captain Henry Hall, observed that windblown sand reaching his beds improved fruit quality and yield. Hall's practice of controlling the land and surface materials was an important step toward systematic cranberry farming.</p>
+      <p>In winter farmers often choose to flood the bogs, forming a protective layer that freezes and insulates the vines from extreme cold. Sand is scattered on the ice so that, when thawed, the particles work into the bed and improve overall drainage. Farmers also remove trees and scrub beside the bogs so that air can move through the site more freely.</p>
+      <p>With the coming of spring, controlled water applications may be used to shield budding shoots from sudden frosts. Growers perform routine maintenance on channels, pumps and irrigation lines and take steps to reduce pest pressure. Farmers inspect beds for any sign of weed emergence that would compete with the crop for nutrients and light.</p>
+      <p>As autumn nears, the bogs are flooded again so that the buoyant berries float and can be separated from the vines, easing collection.</p>
+    </div>
+    <div class="card" style="margin-top:24px">
+      <h2 style="font-family:var(--serif);font-weight:400;margin-top:0">Questions 1–13</h2>
+<div class="rubric"><b>Questions 1–7.</b> Do the following statements agree with the information given? Choose <b>TRUE</b>, <b>FALSE</b> or <b>NOT GIVEN</b>.</div>
+<div class="q-block" data-q="1">
+<div><span class="q-num">1.</span>The cranberry requires a specific soil type to enable it to grow successfully.</div>
+<label class="opt-row"><input type="radio" name="q1" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q1" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q1" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="2">
+<div><span class="q-num">2.</span>A layer of clay protects kettle ponds from harmful substances which could affect the water quality.</div>
+<label class="opt-row"><input type="radio" name="q2" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q2" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q2" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="3">
+<div><span class="q-num">3.</span>In the past, the Wampanoag people had to consume most cranberries shortly after picking them.</div>
+<label class="opt-row"><input type="radio" name="q3" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q3" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q3" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="4">
+<div><span class="q-num">4.</span>The Wampanoag people took advantage of the medicinal properties of cranberries.</div>
+<label class="opt-row"><input type="radio" name="q4" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q4" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q4" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="5">
+<div><span class="q-num">5.</span>The first settlers in North America brought European varieties of cranberry with them when they arrived.</div>
+<label class="opt-row"><input type="radio" name="q5" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q5" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q5" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="6">
+<div><span class="q-num">6.</span>Captain Hall tried growing other fruit crops before cultivating cranberries.</div>
+<label class="opt-row"><input type="radio" name="q6" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q6" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q6" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="7">
+<div><span class="q-num">7.</span>It took a long time for Captain Hall's methods of cultivation to become popular among other cranberry producers.</div>
+<label class="opt-row"><input type="radio" name="q7" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q7" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q7" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="rubric"><b>Questions 8–13.</b> Complete the notes below. Write <b>ONE WORD ONLY</b> from the passage for each answer.</div>
+<div class="q-block" data-q="8">
+<div><span class="q-num">8.</span>Growers _____ the bogs to protect vines.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="9">
+<div><span class="q-num">9.</span>Sand is put on bogs to increase _____ and encourage growth.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="10">
+<div><span class="q-num">10.</span>Trees are removed to promote the movement of _____.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="11">
+<div><span class="q-num">11.</span>_____ is supplied to protect against frost.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="12">
+<div><span class="q-num">12.</span>_____ is done to control pests.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="13">
+<div><span class="q-num">13.</span>Growers check for _____ growth.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+    </div>
+  </div>
+
+  <div class="mock-passage" id="passage_2" style="display:none">
+    <div class="player">
+      <button class="play-btn" id="playBtn2">&#9654;</button>
+      <button class="stop-btn" id="stopBtn2">&#9632;</button>
+      <div class="player-status">
+        <div class="pl-title" id="plTitle2">Listen to Passage 2</div>
+        <div class="pl-sub" id="plSub2">American accent &middot; tap play to start</div>
+      </div>
+      <select class="rate-select" id="rateSelect2">
+        <option value="0.8">0.8&times; slow</option>
+        <option value="1" selected>1&times; normal</option>
+        <option value="1.2">1.2&times; fast</option>
+      </select>
+    </div>
+    <div class="article" id="articleBody2">
+      <h1 style="font-size:1.5rem">Dark Chocolate's Health-giving Benefits</h1>
+      <div class="art-sub">Researchers investigate whether cocoa flavanols reduce heart disease risk (bonus review)</div>
+      <p>Dark chocolate is gaining a reputation as a heart-healthy food. Ginger Hultin, a spokesperson for the Academy of Nutrition and Dietetics, says cocoa contains antioxidants and could benefit the cardiovascular system, including potentially lowering blood pressure.</p>
+      <p>Dark chocolate's health benefits come from its cocoa flavanols, a type of polyphenol. During digestion, cocoa is broken down into smaller chemical compounds thought to have anti-inflammatory and antioxidant properties. In 2013, the European Food Safety Authority approved the claim that cocoa flavanols help maintain normal blood pressure.</p>
+      <p>Researchers have pointed out that people may digest cocoa differently. Variations in gut bacteria can influence how flavanols are processed and absorbed in the body.</p>
+      <p>Data from the Physicians' Health Study suggests chocolate intake is associated with a reduced risk of Type 2 diabetes in younger, normal-weight men. Howard Sesso notes that if benefits are attributable to flavanol content, dark chocolate should in theory confer greater benefits than milk chocolate. Researchers are investigating daily supplements of cocoa flavanols to see if they reduce heart disease and stroke risk.</p>
+      <p>Results from the large European Prospective Investigation of Cancer, EPIC-Norfolk study, suggest the amount of flavanols the average person consumes is unlikely to do much to reduce cardiovascular disease risk compared with medicine. Overweight individuals may not receive the same protective effects as younger, normal-weight men.</p>
+      <p>Product packaging does not specify amounts of cocoa flavanols, only percent cacao, making it hard to equate cacao percentage with flavanol content. Cocoa may also appear as cocoa powder, cocoa butter, or concentrated cocoa extracts.</p>
+      <p>Chocolate products are typically high in calories and fats, so Sesso says it's best not to think of dark chocolate as a health food. Moderation is key. Hultin recommends a varied diet of fruits, vegetables, whole grains and beans for fiber, while still enjoying a bit of cocoa for an added boost of flavor and antioxidants.</p>
+    </div>
+    <div class="card" style="margin-top:24px">
+      <h2 style="font-family:var(--serif);font-weight:400;margin-top:0">Questions 14–26</h2>
+<div class="rubric"><b>Questions 14–18.</b> This passage has seven paragraphs, A–G. Which paragraph contains the following information?</div>
+<div class="q-block" data-q="14">
+<div><span class="q-num">14.</span>A description of different kinds of cocoa used in chocolate production</div>
+<label class="opt-row"><input type="radio" name="q14" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q14" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q14" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q14" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q14" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q14" value="F"><span><b>F</b> </span></label>
+<label class="opt-row"><input type="radio" name="q14" value="G"><span><b>G</b> </span></label>
+</div>
+<div class="q-block" data-q="15">
+<div><span class="q-num">15.</span>An explanation that chemicals produced during cocoa digestion may reduce the risks of diseases</div>
+<label class="opt-row"><input type="radio" name="q15" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q15" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q15" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q15" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q15" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q15" value="F"><span><b>F</b> </span></label>
+<label class="opt-row"><input type="radio" name="q15" value="G"><span><b>G</b> </span></label>
+</div>
+<div class="q-block" data-q="16">
+<div><span class="q-num">16.</span>A reference to a group of people who may not benefit from eating chocolate</div>
+<label class="opt-row"><input type="radio" name="q16" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q16" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q16" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q16" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q16" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q16" value="F"><span><b>F</b> </span></label>
+<label class="opt-row"><input type="radio" name="q16" value="G"><span><b>G</b> </span></label>
+</div>
+<div class="q-block" data-q="17">
+<div><span class="q-num">17.</span>An example of a specific way cocoa can be added into a beverage</div>
+<label class="opt-row"><input type="radio" name="q17" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q17" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q17" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q17" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q17" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q17" value="F"><span><b>F</b> </span></label>
+<label class="opt-row"><input type="radio" name="q17" value="G"><span><b>G</b> </span></label>
+</div>
+<div class="q-block" data-q="18">
+<div><span class="q-num">18.</span>Information about differences in the way people digest cocoa</div>
+<label class="opt-row"><input type="radio" name="q18" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q18" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q18" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q18" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q18" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q18" value="F"><span><b>F</b> </span></label>
+<label class="opt-row"><input type="radio" name="q18" value="G"><span><b>G</b> </span></label>
+</div>
+<div class="rubric"><b>Questions 19–22.</b> Match each statement with the correct person or organisation, A–D. <i>A Ginger Hultin, B European Food Safety Authority, C Howard Sesso, D EPIC-Norfolk.</i></div>
+<div class="q-block" data-q="19">
+<div><span class="q-num">19.</span>Eating cocoa together with dietary fiber may improve health.</div>
+<label class="opt-row"><input type="radio" name="q19" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q19" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q19" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q19" value="D"><span><b>D</b> </span></label>
+</div>
+<div class="q-block" data-q="20">
+<div><span class="q-num">20.</span>Dark chocolate consumption could reduce medical spending in the future.</div>
+<label class="opt-row"><input type="radio" name="q20" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q20" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q20" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q20" value="D"><span><b>D</b> </span></label>
+</div>
+<div class="q-block" data-q="21">
+<div><span class="q-num">21.</span>Dark chocolate should not be considered a replacement for medicine.</div>
+<label class="opt-row"><input type="radio" name="q21" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q21" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q21" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q21" value="D"><span><b>D</b> </span></label>
+</div>
+<div class="q-block" data-q="22">
+<div><span class="q-num">22.</span>The amount of cocoa required for health benefits remains uncertain.</div>
+<label class="opt-row"><input type="radio" name="q22" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q22" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q22" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q22" value="D"><span><b>D</b> </span></label>
+</div>
+<div class="rubric"><b>Questions 23–26.</b> Complete the sentences below. Write <b>ONE WORD ONLY</b> from the passage for each answer.</div>
+<div class="q-block" data-q="23">
+<div><span class="q-num">23.</span>The digestive process turns cocoa into less complex chemical _____.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="24">
+<div><span class="q-num">24.</span>The _____ would vary according to chocolate type, with dark chocolate outperforming milk chocolate.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="25">
+<div><span class="q-num">25.</span>Dark chocolate should not be regarded as healthy due to its richness of calories and _____.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="26">
+<div><span class="q-num">26.</span>In Hultin's view, dietary diversity is the best strategy for acquiring _____.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+    </div>
+  </div>
+
+  <div class="mock-passage" id="passage_3" style="display:none">
+    <div class="player">
+      <button class="play-btn" id="playBtn3">&#9654;</button>
+      <button class="stop-btn" id="stopBtn3">&#9632;</button>
+      <div class="player-status">
+        <div class="pl-title" id="plTitle3">Listen to Passage 3</div>
+        <div class="pl-sub" id="plSub3">American accent &middot; tap play to start</div>
+      </div>
+      <select class="rate-select" id="rateSelect3">
+        <option value="0.8">0.8&times; slow</option>
+        <option value="1" selected>1&times; normal</option>
+        <option value="1.2">1.2&times; fast</option>
+      </select>
+    </div>
+    <div class="article" id="articleBody3">
+      <h1 style="font-size:1.5rem">All in the Family</h1>
+      <div class="art-sub">A person's brothers and sisters can have a powerful effect on their adult behaviour</div>
+      <p>We can choose our friends, the saying goes, but we cannot choose our family of origin. Our parents provide the genetic material and make powerful early role models, but even more influential in determining what kind of adult we will become are our brothers and sisters — our siblings. They occupy a position of unique intimacy in our lives and cast a longer shadow than many recognize or are prepared to acknowledge. A sibling relationship is the most enduring relationship many of us will ever have, less emotionally intense than the bonds we form with our spouses and our own children, if only because they started when we were so young.</p>
+      <p>Surprising new research by Dr Gene Brody found that having older children who do well in school and are well liked by other children leads to parental 'basking' — increasing mothers' self-esteem. It is clear that in turn this is associated with more positive parenting of younger children, who display fewer behavioural problems as a result. Conversely, parents who get a difficult first child may in turn experience a negative spiral of household tension.</p>
+      <p>International sports star Piri Weepu is a rugby hard man, but at least some of his tough temperament was forged long ago in the family home. His older brother Billy started rugby-tackling little Piri when he was just four — to 'harden him up'. It seemed to work. There are as many such stories as there are families: in the formative hothouse of the family, siblings interact in complex ways with the powerful force fields of parents, genetics and personality already at work. It starts with birth order, which determines play roles: the firstborn leader, the middle-child mediator and the rebellious youngest. These are roles that can stick for life.</p>
+      <p>Clinical psychologist Claire Cartwright says she has clients who believe, and it might not have been true, that they were treated differently from their siblings, that one child in the family was preferred over others. They are quite convinced that the parental judgments on them all those years ago were harsher, and that they were the ones who always got into trouble. Later, in the workplace, such a person might be particularly defensive, and so behave in a way more prone to attracting harsh judgements.</p>
+      <p>However, the research shows that being Mummy or Daddy's favourite has its own traps. If you were the easy-going, co-operative child at home, you probably excelled at pleasing parents and, later, bosses. But you might, as an adult, find it hard to be assertive with authority figures and lack direction. On the other hand, the sibling who is disruptive and annoying as a child may be able to reinterpret that role later, turning those attention-seeking characteristics into strengths like determination and leadership.</p>
+      <p>How is it that full siblings, despite sharing DNA, can turn out so differently? One answer is that, in fact, each sibling grows up in a different family, a unique micro-culture. For example, the firstborn is, for a while, an only child, and therefore has a completely different experience of the parents than those born later. The parents themselves are growing up too, weathering hardship or good fortune, so one sibling might experience stability and closeness while another might be raised in the midst of crisis.</p>
+      <p>Of course, there are many positive aspects of sibling relationships. Annette Henderson, a lecturer in psychology, says firstborn children learn vocabulary more quickly than their siblings because they are not competing to spend one-on-one time with parents. But younger children in turn benefit from unintentional instruction from their bigger brothers and sisters, acquiring entire phrases and an understanding of social concepts such as politeness. Similarly, a Cambridge University study of 140 children found that even when there is a great deal of conflict, siblings will still create a rich world of play and make-believe that extends them developmentally. A 2003 research paper studied adolescents from 185 families over two years, finding that those who changed, to differentiate themselves from their siblings, increased the amount of warmth they gained from parents, and also developed stronger personalities and a better sense of their own identity.</p>
+      <p>Another consideration is that many families today are smaller and more intimate than their historical counterparts. This may be advantageous because siblings tend to know each other better and remain lifelong friends compared to children from bigger or more widely spaced families, who perhaps lose touch with one another after leaving home. Then there was a 2010 American study which found that having a sister, whether younger or older, meant that 10- to 14-year-olds were less likely to feel lonely, unloved, self-conscious or fearful. The same study found that having a loving sibling of either gender promoted good deeds, such as helping a neighbor around the house or helping other children at school.</p>
+    </div>
+    <div class="card" style="margin-top:24px">
+      <h2 style="font-family:var(--serif);font-weight:400;margin-top:0">Questions 27–40</h2>
+<div class="rubric"><b>Questions 27–30.</b> Do the following statements agree with the views of the writer? Choose <b>YES</b>, <b>NO</b> or <b>NOT GIVEN</b>.</div>
+<div class="q-block" data-q="27">
+<div><span class="q-num">27.</span>Parents and siblings play equal roles in shaping people's adult personalities.</div>
+<label class="opt-row"><input type="radio" name="q27" value="YES"><span><b>YES</b> </span></label>
+<label class="opt-row"><input type="radio" name="q27" value="NO"><span><b>NO</b> </span></label>
+<label class="opt-row"><input type="radio" name="q27" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="28">
+<div><span class="q-num">28.</span>People's first social relationships tend to be with siblings of their own gender.</div>
+<label class="opt-row"><input type="radio" name="q28" value="YES"><span><b>YES</b> </span></label>
+<label class="opt-row"><input type="radio" name="q28" value="NO"><span><b>NO</b> </span></label>
+<label class="opt-row"><input type="radio" name="q28" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="29">
+<div><span class="q-num">29.</span>People's relationships with their siblings tend to receive less attention when they marry.</div>
+<label class="opt-row"><input type="radio" name="q29" value="YES"><span><b>YES</b> </span></label>
+<label class="opt-row"><input type="radio" name="q29" value="NO"><span><b>NO</b> </span></label>
+<label class="opt-row"><input type="radio" name="q29" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="30">
+<div><span class="q-num">30.</span>Parental 'basking' is advantageous for later siblings.</div>
+<label class="opt-row"><input type="radio" name="q30" value="YES"><span><b>YES</b> </span></label>
+<label class="opt-row"><input type="radio" name="q30" value="NO"><span><b>NO</b> </span></label>
+<label class="opt-row"><input type="radio" name="q30" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="rubric"><b>Questions 31–34.</b> Choose the correct letter, A, B, C or D.</div>
+<div class="q-block" data-q="31">
+<div><span class="q-num">31.</span>What point does the writer make about birth order in the third paragraph?</div>
+<label class="opt-row"><input type="radio" name="q31" value="A"><span><b>A</b> Its role is underestimated by parents.</span></label>
+<label class="opt-row"><input type="radio" name="q31" value="B"><span><b>B</b> It may shape the characteristics of adults.</span></label>
+<label class="opt-row"><input type="radio" name="q31" value="C"><span><b>C</b> Its importance decreases as children grow up.</span></label>
+<label class="opt-row"><input type="radio" name="q31" value="D"><span><b>D</b> It has more influence on personality than genetics.</span></label>
+</div>
+<div class="q-block" data-q="32">
+<div><span class="q-num">32.</span>What are we told about some of Claire Cartwright's clients?</div>
+<label class="opt-row"><input type="radio" name="q32" value="A"><span><b>A</b> Their parents treated them fairly.</span></label>
+<label class="opt-row"><input type="radio" name="q32" value="B"><span><b>B</b> They were treated harshly by their siblings.</span></label>
+<label class="opt-row"><input type="radio" name="q32" value="C"><span><b>C</b> Their perceptions of childhood may be inaccurate.</span></label>
+<label class="opt-row"><input type="radio" name="q32" value="D"><span><b>D</b> They have closer relations with their siblings as adults.</span></label>
+</div>
+<div class="q-block" data-q="33">
+<div><span class="q-num">33.</span>What is the writer's main point about siblings in the fifth paragraph?</div>
+<label class="opt-row"><input type="radio" name="q33" value="A"><span><b>A</b> Parents tend to repeat their own parents' mistakes.</span></label>
+<label class="opt-row"><input type="radio" name="q33" value="B"><span><b>B</b> Favored children are likely to make good leaders as adults.</span></label>
+<label class="opt-row"><input type="radio" name="q33" value="C"><span><b>C</b> Negative characteristics in children can become positive in adults.</span></label>
+<label class="opt-row"><input type="radio" name="q33" value="D"><span><b>D</b> Attention-seeking children are unlikely to please bosses in later life.</span></label>
+</div>
+<div class="q-block" data-q="34">
+<div><span class="q-num">34.</span>Which of the following best summarises the writer's argument in the sixth paragraph?</div>
+<label class="opt-row"><input type="radio" name="q34" value="A"><span><b>A</b> Many children have a favourite parent.</span></label>
+<label class="opt-row"><input type="radio" name="q34" value="B"><span><b>B</b> Parenting skills improve with later children.</span></label>
+<label class="opt-row"><input type="radio" name="q34" value="C"><span><b>C</b> Siblings are born with different personalities.</span></label>
+<label class="opt-row"><input type="radio" name="q34" value="D"><span><b>D</b> The family environment may change over time.</span></label>
+</div>
+<div class="rubric"><b>Questions 35–40.</b> Complete the summary using the word list: <i>A parental love, B imaginative games, C physical development, D generous behaviour, E strong marriages, F greater individuality, G learning experiences, H career success, I closer relationships, J healthy competition, K mental well-being.</i> Type the word/phrase itself.</div>
+<div class="q-block" data-q="35">
+<div><span class="q-num">35.</span>Annette Henderson suggests that young children's interactions with older siblings involve ___.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="36">
+<div><span class="q-num">36.</span>A Cambridge study found that siblings still enjoy ___ even when they have a tendency to fight.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="37">
+<div><span class="q-num">37.</span>Research conducted in 2003 suggests that children develop ___ as a result of seeking attention.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="38">
+<div><span class="q-num">38.</span>The trend for smaller families may mean that today's siblings enjoy ___ as adults.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="39">
+<div><span class="q-num">39.</span>A 2010 American study linked having a sister with ___ among children aged 10–14.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="40">
+<div><span class="q-num">40.</span>Finally, having a sibling may promote ___ according to the same study.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+    </div>
+  </div>
+
+    <div class="submit-bar">
+      <button class="btn btn-gold" onclick="submitMock()">Check all answers</button>
+      <button class="btn" onclick="showKeyWords()">Key word table</button>
+    </div>
+    <div class="score-banner" id="scoreBanner"></div>
+    <div class="card" id="kwCard" style="margin-top:20px;display:none">
+      <h2 style="font-family:var(--serif);font-weight:400;margin-top:0">Key Word Table</h2>
+<table class="kw-table"><tr><th>In the question</th><th>In the passage</th></tr>
+<tr><td class="qtext">Q1 &middot; specific soil type</td><td class="ptext">soil that is both <b>sandy and acidic</b></td></tr>
+<tr><td class="qtext">Q4 &middot; medicinal use</td><td class="ptext">crushed fruit was <b>applied to sores and minor wounds</b></td></tr>
+<tr><td class="qtext">Q5 &middot; brought European varieties</td><td class="ptext">rather than transplanting European varieties, the newcomers <b>adopted the native species</b></td></tr>
+<tr><td class="qtext">Q8 &middot; growers ... the bogs</td><td class="ptext">farmers often choose to <b>flood</b> the bogs</td></tr>
+<tr><td class="qtext">Q11 &middot; supplied against frost</td><td class="ptext">controlled <b>water</b> applications may be used</td></tr>
+<tr><td class="qtext">Q13 &middot; check for ... growth</td><td class="ptext">inspect beds for any sign of <b>weed</b> emergence</td></tr>
+<tr><td class="qtext">Q15 &middot; digestion chemicals reduce risk</td><td class="ptext">broken down into smaller chemical compounds ... <b>anti-inflammatory and antioxidant properties</b></td></tr>
+<tr><td class="qtext">Q16 &middot; group who may not benefit</td><td class="ptext"><b>overweight individuals</b> may not receive the same protective effects</td></tr>
+<tr><td class="qtext">Q20 &middot; reduce future medical spending</td><td class="ptext">the European Food Safety Authority <b>approved the claim</b></td></tr>
+<tr><td class="qtext">Q22 &middot; amount required uncertain</td><td class="ptext">researchers are investigating ... <b>daily supplements</b> ... to see if they reduce risk</td></tr>
+<tr><td class="qtext">Q25 &middot; calories and</td><td class="ptext">chocolate products are typically high in calories and <b>fats</b></td></tr>
+<tr><td class="qtext">Q27 &middot; parents and siblings equal roles</td><td class="ptext">even <b>more influential</b> ... are our brothers and sisters</td></tr>
+<tr><td class="qtext">Q30 &middot; basking advantageous</td><td class="ptext">associated with <b>more positive parenting</b> of younger children</td></tr>
+<tr><td class="qtext">Q31 &middot; birth order point</td><td class="ptext">birth order, which <b>determines play roles</b> ... roles that can stick for life</td></tr>
+<tr><td class="qtext">Q32 &middot; Cartwright's clients</td><td class="ptext">'and it <b>might not have been true</b>' ... their perception may be inaccurate</td></tr>
+<tr><td class="qtext">Q33 &middot; fifth paragraph main point</td><td class="ptext">the sibling who is disruptive ... may <b>reinterpret that role later</b>, turning ... into strengths</td></tr>
+<tr><td class="qtext">Q34 &middot; sixth paragraph argument</td><td class="ptext">the parents themselves are <b>growing up too</b>, weathering hardship or good fortune</td></tr>
+<tr><td class="qtext">Q35 &middot; interactions involve</td><td class="ptext">younger children ... benefit from <b>unintentional instruction</b> ... acquiring entire phrases</td></tr>
+<tr><td class="qtext">Q36 &middot; siblings still enjoy</td><td class="ptext">still create a <b>rich world of play and make-believe</b></td></tr>
+<tr><td class="qtext">Q37 &middot; develop ... seeking attention</td><td class="ptext">increased the amount of warmth ... and developed <b>stronger personalities</b></td></tr>
+<tr><td class="qtext">Q39 &middot; sister linked with</td><td class="ptext">less likely to feel <b>lonely, unloved, self-conscious or fearful</b></td></tr>
+<tr><td class="qtext">Q40 &middot; sibling may promote</td><td class="ptext">promoted <b>good deeds</b>, such as helping a neighbor</td></tr>
+</table>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/catalog.js"></script>
+<script src="../assets/shared.js"></script>
+<script>
+const PASSAGE_ID = 'm7';
+const QUIZ = [{"id": 1, "type": "radio", "answer": "TRUE"}, {"id": 2, "type": "radio", "answer": "TRUE"}, {"id": 3, "type": "radio", "answer": "FALSE"}, {"id": 4, "type": "radio", "answer": "TRUE"}, {"id": 5, "type": "radio", "answer": "FALSE"}, {"id": 6, "type": "radio", "answer": "NOT GIVEN"}, {"id": 7, "type": "radio", "answer": "NOT GIVEN"}, {"id": 8, "type": "text", "answer": "flood"}, {"id": 9, "type": "text", "answer": "drainage"}, {"id": 10, "type": "text", "answer": "air"}, {"id": 11, "type": "text", "answer": "Water"}, {"id": 12, "type": "text", "answer": "maintenance"}, {"id": 13, "type": "text", "answer": "weed"}, {"id": 14, "type": "radio", "answer": "F"}, {"id": 15, "type": "radio", "answer": "B"}, {"id": 16, "type": "radio", "answer": "E"}, {"id": 17, "type": "radio", "answer": "G"}, {"id": 18, "type": "radio", "answer": "C"}, {"id": 19, "type": "radio", "answer": "A"}, {"id": 20, "type": "radio", "answer": "B"}, {"id": 21, "type": "radio", "answer": "D"}, {"id": 22, "type": "radio", "answer": "C"}, {"id": 23, "type": "text", "answer": "compounds"}, {"id": 24, "type": "text", "answer": "benefits"}, {"id": 25, "type": "text", "answer": "fats"}, {"id": 26, "type": "text", "answer": "fiber"}, {"id": 27, "type": "radio", "answer": "NO"}, {"id": 28, "type": "radio", "answer": "NOT GIVEN"}, {"id": 29, "type": "radio", "answer": "NOT GIVEN"}, {"id": 30, "type": "radio", "answer": "YES"}, {"id": 31, "type": "radio", "answer": "B"}, {"id": 32, "type": "radio", "answer": "C"}, {"id": 33, "type": "radio", "answer": "C"}, {"id": 34, "type": "radio", "answer": "D"}, {"id": 35, "type": "text", "answer": ["learning experiences", "G"]}, {"id": 36, "type": "text", "answer": ["imaginative games", "B"]}, {"id": 37, "type": "text", "answer": ["greater individuality", "F"]}, {"id": 38, "type": "text", "answer": ["closer relationships", "I"]}, {"id": 39, "type": "text", "answer": ["mental well-being", "K"]}, {"id": 40, "type": "text", "answer": ["generous behaviour", "D"]}];
+const GLOSSARY = [{"word": "sibling", "pos": "noun", "def": "A brother or sister.", "uz": "aka-uka yoki opa-singil"}, {"word": "intimacy", "pos": "noun", "def": "A close, personal relationship or connection.", "uz": "yaqinlik, samimiylik"}, {"word": "enduring", "pos": "adjective", "def": "Lasting over a long period of time.", "uz": "uzoq davom etadigan"}, {"word": "temperament", "pos": "noun", "def": "A person's natural disposition or character.", "uz": "tabiat, xarakter"}, {"word": "mediator", "pos": "noun", "def": "A person who helps settle a dispute between others.", "uz": "vositachi"}, {"word": "assertive", "pos": "adjective", "def": "Confident and direct in expressing oneself.", "uz": "o'ziga ishongan, qat'iy"}, {"word": "disruptive", "pos": "adjective", "def": "Causing disorder or interruption.", "uz": "tartibni buzuvchi"}, {"word": "differentiate", "pos": "verb", "def": "To recognise or make different from others.", "uz": "farqlamoq, ajratmoq"}, {"word": "counterpart", "pos": "noun", "def": "A person or thing holding a similar position elsewhere.", "uz": "hamkasb, tengdosh"}, {"word": "self-conscious", "pos": "adjective", "def": "Nervous or embarrassed about how one appears to others.", "uz": "o'zini noqulay his qiluvchi"}, {"word": "antioxidant", "pos": "noun", "def": "A substance that protects cells from damage.", "uz": "antioksidant"}, {"word": "cultivate", "pos": "verb", "def": "To prepare and use land for growing crops.", "uz": "yetishtirmoq"}, {"word": "filtration", "pos": "noun", "def": "The process of removing impurities using a filter.", "uz": "filtrlash, tozalash"}];
+
+ArbPlayer('#articleBody1 p', {playBtnId:'playBtn1', stopBtnId:'stopBtn1', titleId:'plTitle1', subId:'plSub1', rateId:'rateSelect1'});
+ArbPlayer('#articleBody2 p', {playBtnId:'playBtn2', stopBtnId:'stopBtn2', titleId:'plTitle2', subId:'plSub2', rateId:'rateSelect2'});
+ArbPlayer('#articleBody3 p', {playBtnId:'playBtn3', stopBtnId:'stopBtn3', titleId:'plTitle3', subId:'plSub3', rateId:'rateSelect3'});
+const timer = ArbTimer({minutes:60});
+ArbHighlighter(['articleBody1','articleBody2','articleBody3']);
+
+document.getElementById('glossaryList').innerHTML = GLOSSARY.map(w =>
+  '<div class="glossary-item"><span class="w">'+w.word+'</span> <span style="color:var(--muted);font-size:.8rem">'+ (w.pos||'') +'</span>' +
+  '<div style="font-size:.88rem;margin-top:2px">'+w.def+'</div><div class="uz">'+w.uz+'</div></div>'
+).join('');
+
+function showPassage(n) {
+  document.querySelectorAll('.mock-passage').forEach((el,i) => el.style.display = (i+1===n) ? '' : 'none');
+  document.querySelectorAll('.mock-tab').forEach((el,i) => el.classList.toggle('active', i+1===n));
+}
+
+function submitMock() {
+  const correct = ArbGradeQuiz(QUIZ, {});
+  const passMark = Math.ceil(QUIZ.length * 0.5);
+  arbSetItem(PASSAGE_ID, { quiz: correct >= passMark, vocab: true, score: correct, total: QUIZ.length });
+  checkAllDone();
+}
+function showKeyWords() {
+  document.getElementById('kwCard').style.display = 'block';
+  document.getElementById('kwCard').scrollIntoView({behavior:'smooth'});
+}
+function checkAllDone() {
+  if (arbIsComplete(PASSAGE_ID)) {
+    let banner = document.getElementById('unlockBanner');
+    if (!banner) {
+      banner = document.createElement('div');
+      banner.id = 'unlockBanner';
+      banner.className = 'score-banner show';
+      banner.style.marginTop = '20px';
+      banner.innerHTML = '<div class="big">🔓 Unlocked!</div><div style="color:var(--muted);font-size:.85rem;margin-top:4px">Great work — the next item is now open.</div><button class="btn btn-gold" style="margin-top:14px" onclick="location.href=\'../index.html\'">Back to map</button>';
+      document.querySelector('.wrap').appendChild(banner);
+    }
+  }
+}
+</script>
+</body>
+</html>

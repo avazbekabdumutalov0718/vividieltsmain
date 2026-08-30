@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Full Mock Test 1 — Avazbek Reader Booster</title>
+<link rel="stylesheet" href="../assets/shared.css">
+<style>
+.mock-tabs{display:flex; gap:10px; margin-bottom:20px; flex-wrap:wrap;}
+.mock-tab{flex:1; min-width:140px; text-align:center; padding:12px; border-radius:10px; border:1px solid var(--ink-line); background:var(--ink-1); cursor:pointer; font-size:.85rem; font-weight:700;}
+.mock-tab.active{border-color:var(--gold); background:var(--gold-dim); color:var(--gold-soft);}
+.glossary-item{padding:10px 4px;border-bottom:1px solid var(--ink-line);}
+.glossary-item:last-child{border-bottom:none;}
+.glossary-item .w{font-family:var(--serif);color:var(--gold-soft);font-size:1.05rem;}
+.glossary-item .uz{color:var(--gold);font-size:.85rem;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand">
+      <div class="brand-ring"><img src="../assets/avazbek.png" alt="Avazbek"></div>
+      <div class="brand-text">
+        <h1>Avazbek <em>Reader Booster</em></h1>
+        <div class="tag">Full Mock Test</div>
+      </div>
+    </div>
+    <button class="back-btn" onclick="location.href='../index.html'">&larr; Home</button>
+  </div>
+
+  <div id="home" class="section active">
+    <div class="hero">
+      <div class="eyebrow">Full Mock Test 1 of 6</div>
+      <h1>Full Mock Test 1</h1>
+      <p class="byline">The Seed Hunters &middot; Bees and Pollination &middot; The Strange World of Sight</p>
+      <p class="passage-tag">3 passages &middot; <b>40</b> questions total &middot; ~60 minutes</p>
+    </div>
+    <div class="menu">
+      <div class="menu-card" onclick="arbGo('test')">
+        <div class="num">📝</div>
+        <h3>Start the Mock Test</h3>
+        <p>Read all three passages and answer all 40 questions.</p>
+      </div>
+      <div class="menu-card" onclick="arbGo('glossary')">
+        <div class="num">🗂️</div>
+        <h3>Key Vocabulary</h3>
+        <p>Review challenging words from all three passages before you start.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="glossary" class="section">
+    <div class="section-head">
+      <button class="back-btn" onclick="arbGo('home')">&larr; Back</button>
+      <h2>Key Vocabulary</h2>
+      <div class="sub">Challenging words from this mock test's three passages.</div>
+    </div>
+    <div class="card" id="glossaryList"></div>
+  </div>
+
+  <div id="test" class="section">
+    <div class="section-head">
+      <button class="back-btn" onclick="arbGo('home')">&larr; Back</button>
+      <h2>Full Mock Test 1</h2>
+    </div>
+    <div class="timer-bar">
+      <span id="timerDisplay">60:00</span>
+      <input class="timer-input" id="tMin" value="60"> min
+      <input class="timer-input" id="tSec" value="0"> sec
+      <button class="tbtn" onclick="timer.set()">Set</button>
+      <button class="tbtn" onclick="timer.start()">Start</button>
+      <button class="tbtn" onclick="timer.pause()">Pause</button>
+      <button class="tbtn" onclick="timer.reset()">Reset</button>
+      <div class="timeup-banner" id="timeupBanner">Time is up! Finish your answers and check your score.</div>
+    </div>
+    <div class="mock-tabs">
+      <div class="mock-tab active" onclick="showPassage(1)">Passage 1</div>
+      <div class="mock-tab" onclick="showPassage(2)">Passage 2</div>
+      <div class="mock-tab" onclick="showPassage(3)">Passage 3</div>
+    </div>
+
+  <div class="mock-passage" id="passage_1" style="">
+    <div class="player">
+      <button class="play-btn" id="playBtn1">&#9654;</button>
+      <button class="stop-btn" id="stopBtn1">&#9632;</button>
+      <div class="player-status">
+        <div class="pl-title" id="plTitle1">Listen to Passage 1</div>
+        <div class="pl-sub" id="plSub1">American accent &middot; tap play to start</div>
+      </div>
+      <select class="rate-select" id="rateSelect1">
+        <option value="0.8">0.8&times; slow</option>
+        <option value="1" selected>1&times; normal</option>
+        <option value="1.2">1.2&times; fast</option>
+      </select>
+    </div>
+    <div class="article" id="articleBody1">
+      <h1 style="font-size:1.5rem">The Seed Hunters</h1>
+      <div class="art-sub">How a global network of scientists is racing against time to preserve the world's plant diversity</div>
+      <p>A. Deep in the remote valleys of Central Asia, in the mountain ranges of South America, and across the dryland savannas of sub-Saharan Africa, a quiet but urgent operation is underway. A scattered network of botanists, ecologists and field collectors — known informally as seed hunters — are combing the world's most biodiverse habitats in search of plant material that may soon cease to exist. Their mission is simple in principle but enormously complex in practice: to collect, catalogue and safely store seeds from wild plant species before habitat destruction, climate change, or other pressures eliminate them forever.</p>
+      <p>B. The Millennium Seed Bank Partnership (MSBP), coordinated by the Royal Botanic Gardens at Kew in the United Kingdom, is the largest and most ambitious of several global seed conservation programmes. By the end of its first phase in 2009, it had banked seeds from ten percent of the world's wild plant species — over 24,000 species in total. Its current target is to have twenty-five percent of the world's wild plant species in storage by 2020, with particular emphasis on species considered at risk of extinction. Partner institutions in more than eighty countries contribute to the bank's collections.</p>
+      <p>C. The process of seed banking is more painstaking than it might initially appear. Not all seeds are suitable for conventional storage — a category of plants known as 'recalcitrant' species produce seeds that die if dried or frozen, making them extremely difficult to preserve using standard methods. Among these are many tropical fruit trees, whose seeds must be kept at precise humidity and temperature levels. For the majority of species, however, seeds can be cleaned, dried to a moisture content of around three to seven percent, sealed in airtight containers, and stored at minus twenty degrees Celsius. Under these conditions, most seeds remain viable for decades; some species have been successfully germinated after over two hundred years in storage.</p>
+      <p>D. Fieldwork is among the most demanding aspects of the seed hunter's role. Collectors must travel to remote and sometimes politically volatile areas, often during narrow seasonal windows when seeds are mature but have not yet dispersed. They must gather samples from multiple individual plants within a population — typically at least fifty — to ensure that the genetic diversity of the species is adequately represented. Collecting too few plants, or selecting individuals that happen to be genetically similar, risks creating a seed bank that preserves the species in name only, without the genetic breadth necessary for long-term survival or adaptation.</p>
+      <p>E. Critics have raised several concerns about seed banking as a conservation strategy. Some argue that it represents a form of 'frozen biodiversity' — a technical fix that allows policymakers to avoid addressing the root causes of habitat destruction. Others point to the risk of institutional failure: seed banks depend on infrastructure, funding, and stable political conditions, none of which can be guaranteed indefinitely. The global seed vault located inside a mountain in Svalbard, Norway, was designed partly to address this vulnerability. Even Svalbard, however, experienced a minor breach in 2017 when melting permafrost allowed water to enter its access tunnel, prompting urgent repairs.</p>
+      <p>F. Despite these challenges, seed hunters and their supporters argue that the banks play a vital and irreplaceable role. Seeds stored today may prove essential for restoring degraded ecosystems, breeding new crop varieties resistant to drought or disease, or discovering pharmaceutical compounds yet unknown to science. The value of any individual species cannot be known in advance; a plant that appears unremarkable today may turn out to carry genes critical to the agricultural systems of tomorrow. In this sense, seed banking is less a solution to the biodiversity crisis than a form of insurance against our own ignorance.</p>
+    </div>
+    <div class="card" style="margin-top:24px">
+      <h2 style="font-family:var(--serif);font-weight:400;margin-top:0">Questions 1–13</h2>
+<div class="rubric"><b>Questions 1–6.</b> Do the following statements agree with the information given? Choose <b>TRUE</b>, <b>FALSE</b> or <b>NOT GIVEN</b>.</div>
+<div class="q-block" data-q="1">
+<div><span class="q-num">1.</span>The Millennium Seed Bank Partnership is based at the Royal Botanic Gardens, Kew.</div>
+<label class="opt-row"><input type="radio" name="q1" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q1" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q1" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="2">
+<div><span class="q-num">2.</span>The MSBP had banked seeds from over 24,000 species by the end of 2009.</div>
+<label class="opt-row"><input type="radio" name="q2" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q2" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q2" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="3">
+<div><span class="q-num">3.</span>All plant seeds can be preserved successfully using the standard drying and freezing method.</div>
+<label class="opt-row"><input type="radio" name="q3" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q3" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q3" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="4">
+<div><span class="q-num">4.</span>Field collectors are required to gather seeds from at least fifty individual plants per population.</div>
+<label class="opt-row"><input type="radio" name="q4" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q4" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q4" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="5">
+<div><span class="q-num">5.</span>The Svalbard Global Seed Vault has never experienced any structural problems.</div>
+<label class="opt-row"><input type="radio" name="q5" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q5" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q5" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="6">
+<div><span class="q-num">6.</span>The writer believes that seed banking alone is sufficient to solve the global biodiversity crisis.</div>
+<label class="opt-row"><input type="radio" name="q6" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q6" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q6" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="rubric"><b>Questions 7–10.</b> Which paragraph (A–F) contains the following information?</div>
+<div class="q-block" data-q="7">
+<div><span class="q-num">7.</span>An explanation of why genetic variety within a seed collection is important</div>
+<label class="opt-row"><input type="radio" name="q7" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q7" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q7" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q7" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q7" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q7" value="F"><span><b>F</b> </span></label>
+</div>
+<div class="q-block" data-q="8">
+<div><span class="q-num">8.</span>A description of a structural problem at a storage facility</div>
+<label class="opt-row"><input type="radio" name="q8" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q8" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q8" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q8" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q8" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q8" value="F"><span><b>F</b> </span></label>
+</div>
+<div class="q-block" data-q="9">
+<div><span class="q-num">9.</span>An argument that the future usefulness of a plant species cannot be predicted</div>
+<label class="opt-row"><input type="radio" name="q9" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q9" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q9" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q9" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q9" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q9" value="F"><span><b>F</b> </span></label>
+</div>
+<div class="q-block" data-q="10">
+<div><span class="q-num">10.</span>Details of the conditions required to store most seeds successfully</div>
+<label class="opt-row"><input type="radio" name="q10" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q10" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q10" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q10" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q10" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q10" value="F"><span><b>F</b> </span></label>
+</div>
+<div class="rubric"><b>Questions 11–13.</b> Choose the correct letter, A, B, C or D.</div>
+<div class="q-block" data-q="11">
+<div><span class="q-num">11.</span>According to the passage, 'recalcitrant' seeds are problematic because they</div>
+<label class="opt-row"><input type="radio" name="q11" value="A"><span><b>A</b> take too long to dry and freeze.</span></label>
+<label class="opt-row"><input type="radio" name="q11" value="B"><span><b>B</b> cannot survive the standard preservation process.</span></label>
+<label class="opt-row"><input type="radio" name="q11" value="C"><span><b>C</b> are too rare to be collected in sufficient numbers.</span></label>
+<label class="opt-row"><input type="radio" name="q11" value="D"><span><b>D</b> produce seeds that are too small for storage containers.</span></label>
+</div>
+<div class="q-block" data-q="12">
+<div><span class="q-num">12.</span>What does the writer suggest about seed banking and environmental policy?</div>
+<label class="opt-row"><input type="radio" name="q12" value="A"><span><b>A</b> It has successfully reduced rates of habitat destruction.</span></label>
+<label class="opt-row"><input type="radio" name="q12" value="B"><span><b>B</b> Some critics think it allows governments to avoid tackling deeper problems.</span></label>
+<label class="opt-row"><input type="radio" name="q12" value="C"><span><b>C</b> It has replaced other forms of conservation in most countries.</span></label>
+<label class="opt-row"><input type="radio" name="q12" value="D"><span><b>D</b> Most scientists consider it the most effective conservation strategy available.</span></label>
+</div>
+<div class="q-block" data-q="13">
+<div><span class="q-num">13.</span>The writer compares seed banking to 'a form of insurance' mainly to suggest that it</div>
+<label class="opt-row"><input type="radio" name="q13" value="A"><span><b>A</b> is expensive but worthwhile.</span></label>
+<label class="opt-row"><input type="radio" name="q13" value="B"><span><b>B</b> protects against risks we cannot fully foresee.</span></label>
+<label class="opt-row"><input type="radio" name="q13" value="C"><span><b>C</b> is guaranteed to succeed in the long term.</span></label>
+<label class="opt-row"><input type="radio" name="q13" value="D"><span><b>D</b> is primarily a commercial rather than scientific enterprise.</span></label>
+</div>
+    </div>
+  </div>
+
+  <div class="mock-passage" id="passage_2" style="display:none">
+    <div class="player">
+      <button class="play-btn" id="playBtn2">&#9654;</button>
+      <button class="stop-btn" id="stopBtn2">&#9632;</button>
+      <div class="player-status">
+        <div class="pl-title" id="plTitle2">Listen to Passage 2</div>
+        <div class="pl-sub" id="plSub2">American accent &middot; tap play to start</div>
+      </div>
+      <select class="rate-select" id="rateSelect2">
+        <option value="0.8">0.8&times; slow</option>
+        <option value="1" selected>1&times; normal</option>
+        <option value="1.2">1.2&times; fast</option>
+      </select>
+    </div>
+    <div class="article" id="articleBody2">
+      <h1 style="font-size:1.5rem">Bees and Pollination</h1>
+      <div class="art-sub">The complex relationship between flowering plants and their most important pollinators</div>
+      <p>A. Of the roughly 352,000 flowering plant species on Earth, approximately eighty-seven percent rely on animal pollinators to reproduce. Among these pollinators, bees are by far the most significant, responsible for the transfer of pollen in a vast range of wild plants and the majority of commercial food crops. Yet the relationship between bees and flowers is far more intricate, and in many respects far stranger, than the simple image of an insect visiting a bloom in search of nectar might suggest.</p>
+      <p>B. Bees evolved alongside flowering plants over tens of millions of years, and the two groups have shaped each other in fundamental ways. Early flowering plants faced the challenge of transferring pollen from one individual to another — a task that, unlike in wind-pollinated species, required the active involvement of an intermediary. Over time, plants that produced rewards attractive to insects gained a reproductive advantage, leading to the elaboration of flowers, nectar and scent. Simultaneously, bees developed anatomical and behavioural adaptations that made them increasingly effective pollen carriers: specialised body hairs that trap pollen grains, complex navigational abilities, and the capacity to learn and remember the characteristics of rewarding plant species.</p>
+      <p>C. The foraging behaviour of bees is governed by a sophisticated calculation of energy costs and benefits. A bee visiting a flower expends energy in flight, handling the flower, and processing the nectar it collects. The decision of which flowers to visit, and how long to spend at each, reflects an evolved tendency to maximise the net energy gain per unit of foraging time. This principle, known as optimal foraging theory, predicts that bees will preferentially visit flowers offering the greatest reward per unit of effort — a prediction borne out by numerous experimental studies.</p>
+      <p>D. Not all interactions between bees and flowers are mutually beneficial. Some plant species have evolved to attract bees while offering no genuine reward. Certain orchids, for example, mimic the appearance and scent of female bees with extraordinary precision, inducing male bees to attempt mating with the flower and thereby depositing or collecting pollen. Other plants produce nectar containing compounds that are mildly toxic or addictive to bees, potentially manipulating the behaviour of their pollinators. These cases illustrate that apparent cooperation between species often masks a more complex underlying dynamic in which each party is, in effect, attempting to exploit the other.</p>
+      <p>E. The decline of bee populations across many parts of the world has raised serious concern among scientists and policymakers. In Europe and North America in particular, both managed honeybee colonies and populations of wild bee species have fallen sharply over recent decades. The causes are multiple and interacting: habitat loss has reduced the availability of diverse flower species; the widespread use of pesticides — particularly a class of chemicals known as neonicotinoids — has been shown to impair bees' navigational abilities and immune function; and the spread of pathogens and parasites, notably the varroa mite, has devastated honeybee colonies worldwide.</p>
+      <p>F. Efforts to address the decline of bee populations have taken a variety of forms. In some jurisdictions, restrictions on the use of neonicotinoid pesticides have been introduced, though these remain contested on economic grounds by agricultural interests. Urban beekeeping has expanded significantly in many cities, both as a commercial activity and as a form of citizen engagement with environmental issues. Perhaps most importantly, there is growing recognition that maintaining diverse, flower-rich habitats is essential not only for bees but for the broader ecosystem services on which food production depends. Whether these measures will prove sufficient to reverse the decline of bee populations remains an open and deeply uncertain question.</p>
+    </div>
+    <div class="card" style="margin-top:24px">
+      <h2 style="font-family:var(--serif);font-weight:400;margin-top:0">Questions 14–26</h2>
+<div class="rubric"><b>Questions 14–19.</b> Complete the summary. Use <b>NO MORE THAN TWO WORDS</b> from the passage for each answer.</div>
+<div class="q-block" data-q="14">
+<div><span class="q-num">14.</span>Plants that offered rewards to insects gained a ___ advantage.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="15">
+<div><span class="q-num">15.</span>Bees developed specialised ___ to trap pollen.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="16">
+<div><span class="q-num">16.</span>A bee's choice of flowers is governed by maximising ___ per unit of foraging time.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="17">
+<div><span class="q-num">17.</span>This principle is known as ___ theory.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="18">
+<div><span class="q-num">18.</span>Certain orchids mimic ___ bees in both appearance and scent.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="19">
+<div><span class="q-num">19.</span>Other plants produce nectar containing ___ compounds that may alter bee behaviour.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="rubric"><b>Questions 20–23.</b> Do the following statements agree with the claims of the writer? Choose <b>YES</b>, <b>NO</b> or <b>NOT GIVEN</b>.</div>
+<div class="q-block" data-q="20">
+<div><span class="q-num">20.</span>The decline in bee populations has been caused by a single, clearly identified factor.</div>
+<label class="opt-row"><input type="radio" name="q20" value="YES"><span><b>YES</b> </span></label>
+<label class="opt-row"><input type="radio" name="q20" value="NO"><span><b>NO</b> </span></label>
+<label class="opt-row"><input type="radio" name="q20" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="21">
+<div><span class="q-num">21.</span>Neonicotinoid pesticides have been shown to affect the navigational abilities of bees.</div>
+<label class="opt-row"><input type="radio" name="q21" value="YES"><span><b>YES</b> </span></label>
+<label class="opt-row"><input type="radio" name="q21" value="NO"><span><b>NO</b> </span></label>
+<label class="opt-row"><input type="radio" name="q21" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="22">
+<div><span class="q-num">22.</span>Restrictions on neonicotinoids have been universally accepted by the agricultural industry.</div>
+<label class="opt-row"><input type="radio" name="q22" value="YES"><span><b>YES</b> </span></label>
+<label class="opt-row"><input type="radio" name="q22" value="NO"><span><b>NO</b> </span></label>
+<label class="opt-row"><input type="radio" name="q22" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="23">
+<div><span class="q-num">23.</span>The writer is confident that current conservation measures will be enough to reverse bee population decline.</div>
+<label class="opt-row"><input type="radio" name="q23" value="YES"><span><b>YES</b> </span></label>
+<label class="opt-row"><input type="radio" name="q23" value="NO"><span><b>NO</b> </span></label>
+<label class="opt-row"><input type="radio" name="q23" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="rubric"><b>Questions 24–26.</b> Choose the correct letter, A, B, C or D.</div>
+<div class="q-block" data-q="24">
+<div><span class="q-num">24.</span>The writer uses the example of orchids that mimic female bees to illustrate that</div>
+<label class="opt-row"><input type="radio" name="q24" value="A"><span><b>A</b> all interactions between bees and plants are ultimately harmful to bees.</span></label>
+<label class="opt-row"><input type="radio" name="q24" value="B"><span><b>B</b> apparent cooperation between species can conceal a more exploitative relationship.</span></label>
+<label class="opt-row"><input type="radio" name="q24" value="C"><span><b>C</b> bees are unable to distinguish between genuine and false flowers.</span></label>
+<label class="opt-row"><input type="radio" name="q24" value="D"><span><b>D</b> plants evolved deceptive strategies before bees evolved to detect them.</span></label>
+</div>
+<div class="q-block" data-q="25">
+<div><span class="q-num">25.</span>According to the passage, which best describes optimal foraging theory?</div>
+<label class="opt-row"><input type="radio" name="q25" value="A"><span><b>A</b> Bees visit the flowers that are most visually attractive to them.</span></label>
+<label class="opt-row"><input type="radio" name="q25" value="B"><span><b>B</b> Bees aim to gather the maximum possible nectar on each foraging trip.</span></label>
+<label class="opt-row"><input type="radio" name="q25" value="C"><span><b>C</b> Bees tend to prefer flowers that offer the greatest reward for the least effort.</span></label>
+<label class="opt-row"><input type="radio" name="q25" value="D"><span><b>D</b> Bees forage according to fixed patterns that do not adapt to changing conditions.</span></label>
+</div>
+<div class="q-block" data-q="26">
+<div><span class="q-num">26.</span>What is the main argument of the final paragraph?</div>
+<label class="opt-row"><input type="radio" name="q26" value="A"><span><b>A</b> Urban beekeeping has solved the problem of declining bee populations.</span></label>
+<label class="opt-row"><input type="radio" name="q26" value="B"><span><b>B</b> Agricultural interests have successfully blocked all restrictions on pesticides.</span></label>
+<label class="opt-row"><input type="radio" name="q26" value="C"><span><b>C</b> A variety of responses to bee decline exist, but the outcome remains uncertain.</span></label>
+<label class="opt-row"><input type="radio" name="q26" value="D"><span><b>D</b> Wildflower meadows are the only effective tool for protecting bee populations.</span></label>
+</div>
+    </div>
+  </div>
+
+  <div class="mock-passage" id="passage_3" style="display:none">
+    <div class="player">
+      <button class="play-btn" id="playBtn3">&#9654;</button>
+      <button class="stop-btn" id="stopBtn3">&#9632;</button>
+      <div class="player-status">
+        <div class="pl-title" id="plTitle3">Listen to Passage 3</div>
+        <div class="pl-sub" id="plSub3">American accent &middot; tap play to start</div>
+      </div>
+      <select class="rate-select" id="rateSelect3">
+        <option value="0.8">0.8&times; slow</option>
+        <option value="1" selected>1&times; normal</option>
+        <option value="1.2">1.2&times; fast</option>
+      </select>
+    </div>
+    <div class="article" id="articleBody3">
+      <h1 style="font-size:1.5rem">The Strange World of Sight</h1>
+      <div class="art-sub">Vision is far more complex — and varied — than most people realise</div>
+      <p>A. We tend to think of vision as a straightforward process: light enters the eye, an image forms, and the brain perceives the world. In reality, what we experience as sight is a remarkable act of construction — an interpretation of incomplete and often ambiguous data, assembled by the brain into a stable and coherent representation of reality. This process is so seamless, so rapid and so automatic that its complexity is easy to overlook.</p>
+      <p>B. The human eye contains approximately 126 million light-sensitive cells. Of these, around 120 million are rods, which are sensitive to low levels of light and are responsible for night vision, but which cannot distinguish colour. The remaining six million are cones, concentrated in the central region of the retina known as the fovea, which are responsible for the sharp, colour vision we use for reading, recognising faces, and most other detail-oriented tasks. The brain receives signals from these cells and must infer the three-dimensional structure of the world from a flat, two-dimensional image.</p>
+      <p>C. Optical illusions provide a useful reminder of the extent to which vision is an interpretive process. Illusions typically work by exploiting the shortcuts and assumptions that the visual system uses to make sense of ambiguous or incomplete information. In the famous Müller-Lyer illusion, two lines of equal length appear to differ in size because of arrow-like marks at their ends that the brain interprets as depth cues. These phenomena are not failures of perception; they are, in a sense, the price paid for a visual system that must make rapid, confident interpretations of an uncertain world.</p>
+      <p>D. The experience of colour adds another layer of complexity. The colours we perceive are not properties of objects in the world; they are constructions of the brain, based on the differential responses of three types of cone cells to different wavelengths of light. People with colour vision deficiency — commonly though inaccurately called colour blindness — have an altered distribution of cone types, leading to difficulty distinguishing certain colour combinations. Paradoxically, some individuals have a fourth type of cone, a condition known as tetrachromacy, potentially giving them the ability to perceive colour distinctions invisible to most humans.</p>
+      <p>E. Vision varies dramatically across the animal kingdom. Mantis shrimps are commonly cited as having the most complex visual systems of any known animal, with up to sixteen types of photoreceptor cells compared to the three found in humans. Yet research suggests that this complexity does not necessarily translate into a richer experience of colour; rather, the mantis shrimp's visual system may be optimised for rapid, parallel processing of colour signals. Eagles, by contrast, have extremely high visual acuity, estimated at four to eight times that of humans. Nocturnal animals such as owls and cats have eyes adapted for low-light vision, with a high proportion of rods and a reflective layer behind the retina known as the tapetum lucidum.</p>
+      <p>F. Perhaps the most striking finding of recent vision research is just how much of what we 'see' is, in fact, filled in by the brain rather than directly registered by the eye. The human retina contains a blind spot — the point at which the optic nerve connects to the eye — where there are no photoreceptors at all. Yet we do not experience a hole in our visual field; the brain seamlessly fills in the missing area using information from the surrounding region. What we see is not the world as it is, but the world as the brain expects it to be.</p>
+    </div>
+    <div class="card" style="margin-top:24px">
+      <h2 style="font-family:var(--serif);font-weight:400;margin-top:0">Questions 27–40</h2>
+<div class="rubric"><b>Questions 27–32.</b> Choose the correct heading for paragraphs A–F.</div>
+<div class="q-block" data-q="27">
+<div><span class="q-num">27.</span>Paragraph A</div>
+<label class="opt-row"><input type="radio" name="q27" value="iv"><span><b>iv</b> Vision as an active process of interpretation</span></label>
+<label class="opt-row"><input type="radio" name="q27" value="iii"><span><b>iii</b> The structure of light-sensitive cells in the human eye</span></label>
+<label class="opt-row"><input type="radio" name="q27" value="vii"><span><b>vii</b> How the brain uses assumptions to interpret visual data</span></label>
+<label class="opt-row"><input type="radio" name="q27" value="v"><span><b>v</b> Colour perception and its variations in humans</span></label>
+<label class="opt-row"><input type="radio" name="q27" value="vi"><span><b>vi</b> The diversity of visual systems across species</span></label>
+<label class="opt-row"><input type="radio" name="q27" value="i"><span><b>i</b> How the brain compensates for gaps in visual information</span></label>
+</div>
+<div class="q-block" data-q="28">
+<div><span class="q-num">28.</span>Paragraph B</div>
+<label class="opt-row"><input type="radio" name="q28" value="iv"><span><b>iv</b> Vision as an active process of interpretation</span></label>
+<label class="opt-row"><input type="radio" name="q28" value="iii"><span><b>iii</b> The structure of light-sensitive cells in the human eye</span></label>
+<label class="opt-row"><input type="radio" name="q28" value="vii"><span><b>vii</b> How the brain uses assumptions to interpret visual data</span></label>
+<label class="opt-row"><input type="radio" name="q28" value="v"><span><b>v</b> Colour perception and its variations in humans</span></label>
+<label class="opt-row"><input type="radio" name="q28" value="vi"><span><b>vi</b> The diversity of visual systems across species</span></label>
+<label class="opt-row"><input type="radio" name="q28" value="i"><span><b>i</b> How the brain compensates for gaps in visual information</span></label>
+</div>
+<div class="q-block" data-q="29">
+<div><span class="q-num">29.</span>Paragraph C</div>
+<label class="opt-row"><input type="radio" name="q29" value="iv"><span><b>iv</b> Vision as an active process of interpretation</span></label>
+<label class="opt-row"><input type="radio" name="q29" value="iii"><span><b>iii</b> The structure of light-sensitive cells in the human eye</span></label>
+<label class="opt-row"><input type="radio" name="q29" value="vii"><span><b>vii</b> How the brain uses assumptions to interpret visual data</span></label>
+<label class="opt-row"><input type="radio" name="q29" value="v"><span><b>v</b> Colour perception and its variations in humans</span></label>
+<label class="opt-row"><input type="radio" name="q29" value="vi"><span><b>vi</b> The diversity of visual systems across species</span></label>
+<label class="opt-row"><input type="radio" name="q29" value="i"><span><b>i</b> How the brain compensates for gaps in visual information</span></label>
+</div>
+<div class="q-block" data-q="30">
+<div><span class="q-num">30.</span>Paragraph D</div>
+<label class="opt-row"><input type="radio" name="q30" value="iv"><span><b>iv</b> Vision as an active process of interpretation</span></label>
+<label class="opt-row"><input type="radio" name="q30" value="iii"><span><b>iii</b> The structure of light-sensitive cells in the human eye</span></label>
+<label class="opt-row"><input type="radio" name="q30" value="vii"><span><b>vii</b> How the brain uses assumptions to interpret visual data</span></label>
+<label class="opt-row"><input type="radio" name="q30" value="v"><span><b>v</b> Colour perception and its variations in humans</span></label>
+<label class="opt-row"><input type="radio" name="q30" value="vi"><span><b>vi</b> The diversity of visual systems across species</span></label>
+<label class="opt-row"><input type="radio" name="q30" value="i"><span><b>i</b> How the brain compensates for gaps in visual information</span></label>
+</div>
+<div class="q-block" data-q="31">
+<div><span class="q-num">31.</span>Paragraph E</div>
+<label class="opt-row"><input type="radio" name="q31" value="iv"><span><b>iv</b> Vision as an active process of interpretation</span></label>
+<label class="opt-row"><input type="radio" name="q31" value="iii"><span><b>iii</b> The structure of light-sensitive cells in the human eye</span></label>
+<label class="opt-row"><input type="radio" name="q31" value="vii"><span><b>vii</b> How the brain uses assumptions to interpret visual data</span></label>
+<label class="opt-row"><input type="radio" name="q31" value="v"><span><b>v</b> Colour perception and its variations in humans</span></label>
+<label class="opt-row"><input type="radio" name="q31" value="vi"><span><b>vi</b> The diversity of visual systems across species</span></label>
+<label class="opt-row"><input type="radio" name="q31" value="i"><span><b>i</b> How the brain compensates for gaps in visual information</span></label>
+</div>
+<div class="q-block" data-q="32">
+<div><span class="q-num">32.</span>Paragraph F</div>
+<label class="opt-row"><input type="radio" name="q32" value="iv"><span><b>iv</b> Vision as an active process of interpretation</span></label>
+<label class="opt-row"><input type="radio" name="q32" value="iii"><span><b>iii</b> The structure of light-sensitive cells in the human eye</span></label>
+<label class="opt-row"><input type="radio" name="q32" value="vii"><span><b>vii</b> How the brain uses assumptions to interpret visual data</span></label>
+<label class="opt-row"><input type="radio" name="q32" value="v"><span><b>v</b> Colour perception and its variations in humans</span></label>
+<label class="opt-row"><input type="radio" name="q32" value="vi"><span><b>vi</b> The diversity of visual systems across species</span></label>
+<label class="opt-row"><input type="radio" name="q32" value="i"><span><b>i</b> How the brain compensates for gaps in visual information</span></label>
+</div>
+<div class="rubric"><b>Questions 33–37.</b> Do the following statements agree with the claims of the writer? Choose <b>YES</b>, <b>NO</b> or <b>NOT GIVEN</b>.</div>
+<div class="q-block" data-q="33">
+<div><span class="q-num">33.</span>The brain receives a flat, two-dimensional image from the retina and must reconstruct depth from it.</div>
+<label class="opt-row"><input type="radio" name="q33" value="YES"><span><b>YES</b> </span></label>
+<label class="opt-row"><input type="radio" name="q33" value="NO"><span><b>NO</b> </span></label>
+<label class="opt-row"><input type="radio" name="q33" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="34">
+<div><span class="q-num">34.</span>Optical illusions occur because the human visual system is fundamentally flawed.</div>
+<label class="opt-row"><input type="radio" name="q34" value="YES"><span><b>YES</b> </span></label>
+<label class="opt-row"><input type="radio" name="q34" value="NO"><span><b>NO</b> </span></label>
+<label class="opt-row"><input type="radio" name="q34" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="35">
+<div><span class="q-num">35.</span>Tetrachromacy is a condition that affects only people with a history of colour vision deficiency in their family.</div>
+<label class="opt-row"><input type="radio" name="q35" value="YES"><span><b>YES</b> </span></label>
+<label class="opt-row"><input type="radio" name="q35" value="NO"><span><b>NO</b> </span></label>
+<label class="opt-row"><input type="radio" name="q35" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="36">
+<div><span class="q-num">36.</span>Mantis shrimps use their large number of photoreceptors to distinguish a wider range of colours than humans.</div>
+<label class="opt-row"><input type="radio" name="q36" value="YES"><span><b>YES</b> </span></label>
+<label class="opt-row"><input type="radio" name="q36" value="NO"><span><b>NO</b> </span></label>
+<label class="opt-row"><input type="radio" name="q36" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="37">
+<div><span class="q-num">37.</span>The brain fills in the blind spot using information from the surrounding visual field.</div>
+<label class="opt-row"><input type="radio" name="q37" value="YES"><span><b>YES</b> </span></label>
+<label class="opt-row"><input type="radio" name="q37" value="NO"><span><b>NO</b> </span></label>
+<label class="opt-row"><input type="radio" name="q37" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="rubric"><b>Questions 38–40.</b> Complete the summary. Use <b>ONE WORD ONLY</b> from the passage for each answer.</div>
+<div class="q-block" data-q="38">
+<div><span class="q-num">38.</span>Rods handle ___ vision.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="39">
+<div><span class="q-num">39.</span>Cones are concentrated in the ___.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="40">
+<div><span class="q-num">40.</span>The rich visual world we experience is shaped by memory, attention, and ___.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+    </div>
+  </div>
+
+    <div class="submit-bar">
+      <button class="btn btn-gold" onclick="submitMock()">Check all answers</button>
+      <button class="btn" onclick="showKeyWords()">Key word table</button>
+    </div>
+    <div class="score-banner" id="scoreBanner"></div>
+    <div class="card" id="kwCard" style="margin-top:20px;display:none">
+      <h2 style="font-family:var(--serif);font-weight:400;margin-top:0">Key Word Table</h2>
+<table class="kw-table"><tr><th>In the question</th><th>In the passage</th></tr>
+<tr><td class="qtext">Q1 &middot; MSBP based at Kew</td><td class="ptext">coordinated by the <b>Royal Botanic Gardens at Kew</b></td></tr>
+<tr><td class="qtext">Q3 &middot; all seeds preservable by standard method</td><td class="ptext"><b>'recalcitrant' species</b> produce seeds that die if dried or frozen</td></tr>
+<tr><td class="qtext">Q5 &middot; Svalbard never had problems</td><td class="ptext">experienced a minor <b>breach</b> in 2017 when melting permafrost allowed water to enter</td></tr>
+<tr><td class="qtext">Q6 &middot; seed banking alone sufficient</td><td class="ptext">seed banking is <b>less a solution</b> ... than a form of insurance</td></tr>
+<tr><td class="qtext">Q9 &middot; future usefulness unpredictable</td><td class="ptext">the value of any individual species <b>cannot be known in advance</b></td></tr>
+<tr><td class="qtext">Q11 &middot; recalcitrant seeds problematic because</td><td class="ptext">produce seeds that <b>die if dried or frozen</b></td></tr>
+<tr><td class="qtext">Q13 &middot; 'a form of insurance' meaning</td><td class="ptext">a way of <b>keeping options open</b> in an uncertain future</td></tr>
+<tr><td class="qtext">Q14 &middot; advantage gained by rewarding plants</td><td class="ptext">gained a <b>reproductive</b> advantage</td></tr>
+<tr><td class="qtext">Q15 &middot; feature that traps pollen</td><td class="ptext">specialised <b>body hairs</b> that trap pollen grains</td></tr>
+<tr><td class="qtext">Q16 &middot; what bees maximise</td><td class="ptext">maximise the <b>net energy gain</b> per unit of foraging time</td></tr>
+<tr><td class="qtext">Q18 &middot; orchids mimic ...</td><td class="ptext">mimic the appearance and scent of <b>female</b> bees</td></tr>
+<tr><td class="qtext">Q20 &middot; single cause of decline</td><td class="ptext">the causes are <b>multiple and interacting</b></td></tr>
+<tr><td class="qtext">Q22 &middot; restrictions universally accepted</td><td class="ptext">remain <b>contested</b> on economic grounds by agricultural interests</td></tr>
+<tr><td class="qtext">Q23 &middot; writer confident measures enough</td><td class="ptext">remains an <b>open and deeply uncertain</b> question</td></tr>
+<tr><td class="qtext">Q27 &middot; Paragraph A heading</td><td class="ptext">sight is a remarkable act of <b>construction</b> ... interpretation</td></tr>
+<tr><td class="qtext">Q30 &middot; Paragraph D heading</td><td class="ptext">people with <b>colour vision deficiency</b> ... tetrachromacy</td></tr>
+<tr><td class="qtext">Q33 &middot; brain reconstructs depth</td><td class="ptext">must infer the <b>three-dimensional structure</b> ... from a flat, two-dimensional image</td></tr>
+<tr><td class="qtext">Q34 &middot; illusions = flawed system</td><td class="ptext">these phenomena are <b>not failures</b> of perception</td></tr>
+<tr><td class="qtext">Q36 &middot; mantis shrimp colour range</td><td class="ptext">this complexity does <b>not necessarily translate</b> into a richer experience of colour</td></tr>
+<tr><td class="qtext">Q37 &middot; brain fills blind spot</td><td class="ptext">the brain seamlessly <b>fills in</b> the missing area using information from the surrounding region</td></tr>
+<tr><td class="qtext">Q39 &middot; cones concentrated in</td><td class="ptext">concentrated in the central region of the retina known as the <b>fovea</b></td></tr>
+</table>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/catalog.js"></script>
+<script src="../assets/shared.js"></script>
+<script>
+const PASSAGE_ID = 'm1';
+const QUIZ = [{"id": 1, "type": "radio", "answer": "TRUE"}, {"id": 2, "type": "radio", "answer": "TRUE"}, {"id": 3, "type": "radio", "answer": "FALSE"}, {"id": 4, "type": "radio", "answer": "TRUE"}, {"id": 5, "type": "radio", "answer": "FALSE"}, {"id": 6, "type": "radio", "answer": "FALSE"}, {"id": 7, "type": "radio", "answer": "D"}, {"id": 8, "type": "radio", "answer": "E"}, {"id": 9, "type": "radio", "answer": "F"}, {"id": 10, "type": "radio", "answer": "C"}, {"id": 11, "type": "radio", "answer": "B"}, {"id": 12, "type": "radio", "answer": "B"}, {"id": 13, "type": "radio", "answer": "B"}, {"id": 14, "type": "text", "answer": "reproductive"}, {"id": 15, "type": "text", "answer": ["body hairs", "hairs"]}, {"id": 16, "type": "text", "answer": ["net energy gain", "energy gain"]}, {"id": 17, "type": "text", "answer": ["optimal foraging", "optimal foraging theory"]}, {"id": 18, "type": "text", "answer": "female"}, {"id": 19, "type": "text", "answer": ["toxic", "addictive"]}, {"id": 20, "type": "radio", "answer": "NO"}, {"id": 21, "type": "radio", "answer": "YES"}, {"id": 22, "type": "radio", "answer": "NO"}, {"id": 23, "type": "radio", "answer": "NO"}, {"id": 24, "type": "radio", "answer": "B"}, {"id": 25, "type": "radio", "answer": "C"}, {"id": 26, "type": "radio", "answer": "C"}, {"id": 27, "type": "radio", "answer": "iv"}, {"id": 28, "type": "radio", "answer": "iii"}, {"id": 29, "type": "radio", "answer": "vii"}, {"id": 30, "type": "radio", "answer": "v"}, {"id": 31, "type": "radio", "answer": "vi"}, {"id": 32, "type": "radio", "answer": "i"}, {"id": 33, "type": "radio", "answer": "YES"}, {"id": 34, "type": "radio", "answer": "NO"}, {"id": 35, "type": "radio", "answer": "NOT GIVEN"}, {"id": 36, "type": "radio", "answer": "NO"}, {"id": 37, "type": "radio", "answer": "YES"}, {"id": 38, "type": "text", "answer": "night"}, {"id": 39, "type": "text", "answer": "fovea"}, {"id": 40, "type": "text", "answer": "prediction"}];
+const GLOSSARY = [{"word": "recalcitrant", "pos": "adjective", "def": "difficult to deal with or control; resistant to standard treatment", "uz": "qaysar, bo'ysunmas"}, {"word": "viable", "pos": "adjective", "def": "capable of working successfully; able to survive or germinate", "uz": "hayotiy, unib chiqa oladigan"}, {"word": "catalogue", "pos": "verb", "def": "to make a systematic and complete list of items", "uz": "ro'yxatga olmoq"}, {"word": "ambitious", "pos": "adjective", "def": "having a strong desire to achieve something great", "uz": "yuqori maqsadli"}, {"word": "breach", "pos": "noun", "def": "a break or gap, especially in a barrier or system of protection", "uz": "buzilish, teshik"}, {"word": "degraded", "pos": "adjective", "def": "reduced in quality or condition", "uz": "buzilgan, yomonlashgan"}, {"word": "pollinator", "pos": "noun", "def": "an animal or insect that transfers pollen between plants", "uz": "changlatuvchi"}, {"word": "forage", "pos": "verb", "def": "to search widely for food", "uz": "oziq-ovqat qidirmoq"}, {"word": "nectar", "pos": "noun", "def": "a sweet liquid produced by flowers to attract pollinators", "uz": "nektar"}, {"word": "mimic", "pos": "verb", "def": "to imitate the appearance or behaviour of something closely", "uz": "taqlid qilmoq"}, {"word": "pesticide", "pos": "noun", "def": "a chemical substance used to kill insects or other pests", "uz": "pestitsid"}, {"word": "pathogen", "pos": "noun", "def": "a microorganism that can cause disease", "uz": "kasallik qo'zg'atuvchi mikroorganizm"}, {"word": "jurisdiction", "pos": "noun", "def": "the official power to make legal decisions within a given area", "uz": "yurisdiksiya, huquqiy hudud"}, {"word": "photoreceptor", "pos": "noun", "def": "a cell that responds to and detects light", "uz": "fotoretseptor (yorug'lik sezgi hujayrasi)"}, {"word": "acuity", "pos": "noun", "def": "sharpness of vision, hearing or thought", "uz": "o'tkirlik (ko'rish yoki fikrlash)"}, {"word": "retina", "pos": "noun", "def": "the light-sensitive layer of tissue at the back of the eye", "uz": "to'r parda (ko'zda)"}, {"word": "nocturnal", "pos": "adjective", "def": "active mainly during the night", "uz": "tungi, kechqurun faol"}, {"word": "seamless", "pos": "adjective", "def": "smooth and continuous, without any breaks or gaps", "uz": "uzluksiz, teshiksiz"}, {"word": "ambiguous", "pos": "adjective", "def": "open to more than one interpretation; not clear", "uz": "noaniq, ikki xil talqin qilinadigan"}, {"word": "intermediary", "pos": "noun", "def": "a person or thing that acts as a link between two others", "uz": "vositachi"}, {"word": "elaboration", "pos": "noun", "def": "the process of adding more detail or complexity to something", "uz": "rivojlantirish, murakkablashtirish"}];
+
+ArbPlayer('#articleBody1 p', {playBtnId:'playBtn1', stopBtnId:'stopBtn1', titleId:'plTitle1', subId:'plSub1', rateId:'rateSelect1'});
+ArbPlayer('#articleBody2 p', {playBtnId:'playBtn2', stopBtnId:'stopBtn2', titleId:'plTitle2', subId:'plSub2', rateId:'rateSelect2'});
+ArbPlayer('#articleBody3 p', {playBtnId:'playBtn3', stopBtnId:'stopBtn3', titleId:'plTitle3', subId:'plSub3', rateId:'rateSelect3'});
+const timer = ArbTimer({minutes:60});
+ArbHighlighter(['articleBody1','articleBody2','articleBody3']);
+
+document.getElementById('glossaryList').innerHTML = GLOSSARY.map(w =>
+  '<div class="glossary-item"><span class="w">'+w.word+'</span> <span style="color:var(--muted);font-size:.8rem">'+ (w.pos||'') +'</span>' +
+  '<div style="font-size:.88rem;margin-top:2px">'+w.def+'</div><div class="uz">'+w.uz+'</div></div>'
+).join('');
+
+function showPassage(n) {
+  document.querySelectorAll('.mock-passage').forEach((el,i) => el.style.display = (i+1===n) ? '' : 'none');
+  document.querySelectorAll('.mock-tab').forEach((el,i) => el.classList.toggle('active', i+1===n));
+}
+
+function submitMock() {
+  const correct = ArbGradeQuiz(QUIZ, {});
+  const passMark = Math.ceil(QUIZ.length * 0.5);
+  arbSetItem(PASSAGE_ID, { quiz: correct >= passMark, vocab: true, score: correct, total: QUIZ.length });
+  checkAllDone();
+}
+function showKeyWords() {
+  document.getElementById('kwCard').style.display = 'block';
+  document.getElementById('kwCard').scrollIntoView({behavior:'smooth'});
+}
+function checkAllDone() {
+  if (arbIsComplete(PASSAGE_ID)) {
+    let banner = document.getElementById('unlockBanner');
+    if (!banner) {
+      banner = document.createElement('div');
+      banner.id = 'unlockBanner';
+      banner.className = 'score-banner show';
+      banner.style.marginTop = '20px';
+      banner.innerHTML = '<div class="big">🔓 Unlocked!</div><div style="color:var(--muted);font-size:.85rem;margin-top:4px">Great work — the next item is now open.</div><button class="btn btn-gold" style="margin-top:14px" onclick="location.href=\'../index.html\'">Back to map</button>';
+      document.querySelector('.wrap').appendChild(banner);
+    }
+  }
+}
+</script>
+</body>
+</html>

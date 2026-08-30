@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Full Mock Test 4 — Avazbek Reader Booster</title>
+<link rel="stylesheet" href="../assets/shared.css">
+<style>
+.mock-tabs{display:flex; gap:10px; margin-bottom:20px; flex-wrap:wrap;}
+.mock-tab{flex:1; min-width:140px; text-align:center; padding:12px; border-radius:10px; border:1px solid var(--ink-line); background:var(--ink-1); cursor:pointer; font-size:.85rem; font-weight:700;}
+.mock-tab.active{border-color:var(--gold); background:var(--gold-dim); color:var(--gold-soft);}
+.glossary-item{padding:10px 4px;border-bottom:1px solid var(--ink-line);}
+.glossary-item:last-child{border-bottom:none;}
+.glossary-item .w{font-family:var(--serif);color:var(--gold-soft);font-size:1.05rem;}
+.glossary-item .uz{color:var(--gold);font-size:.85rem;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand">
+      <div class="brand-ring"><img src="../assets/avazbek.png" alt="Avazbek"></div>
+      <div class="brand-text">
+        <h1>Avazbek <em>Reader Booster</em></h1>
+        <div class="tag">Full Mock Test</div>
+      </div>
+    </div>
+    <button class="back-btn" onclick="location.href='../index.html'">&larr; Home</button>
+  </div>
+
+  <div id="home" class="section active">
+    <div class="hero">
+      <div class="eyebrow">Full Mock Test 4 of 6</div>
+      <h1>Full Mock Test 4</h1>
+      <p class="byline">Effect and Cause &middot; Australia's Camouflaged Creatures &middot; The Pirahã People of Brazil</p>
+      <p class="passage-tag">3 passages &middot; <b>40</b> questions total &middot; ~60 minutes</p>
+    </div>
+    <div class="menu">
+      <div class="menu-card" onclick="arbGo('test')">
+        <div class="num">📝</div>
+        <h3>Start the Mock Test</h3>
+        <p>Read all three passages and answer all 40 questions.</p>
+      </div>
+      <div class="menu-card" onclick="arbGo('glossary')">
+        <div class="num">🗂️</div>
+        <h3>Key Vocabulary</h3>
+        <p>Review challenging words from all three passages before you start.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="glossary" class="section">
+    <div class="section-head">
+      <button class="back-btn" onclick="arbGo('home')">&larr; Back</button>
+      <h2>Key Vocabulary</h2>
+      <div class="sub">Challenging words from this mock test's three passages.</div>
+    </div>
+    <div class="card" id="glossaryList"></div>
+  </div>
+
+  <div id="test" class="section">
+    <div class="section-head">
+      <button class="back-btn" onclick="arbGo('home')">&larr; Back</button>
+      <h2>Full Mock Test 4</h2>
+    </div>
+    <div class="timer-bar">
+      <span id="timerDisplay">60:00</span>
+      <input class="timer-input" id="tMin" value="60"> min
+      <input class="timer-input" id="tSec" value="0"> sec
+      <button class="tbtn" onclick="timer.set()">Set</button>
+      <button class="tbtn" onclick="timer.start()">Start</button>
+      <button class="tbtn" onclick="timer.pause()">Pause</button>
+      <button class="tbtn" onclick="timer.reset()">Reset</button>
+      <div class="timeup-banner" id="timeupBanner">Time is up! Finish your answers and check your score.</div>
+    </div>
+    <div class="mock-tabs">
+      <div class="mock-tab active" onclick="showPassage(1)">Passage 1</div>
+      <div class="mock-tab" onclick="showPassage(2)">Passage 2</div>
+      <div class="mock-tab" onclick="showPassage(3)">Passage 3</div>
+    </div>
+
+  <div class="mock-passage" id="passage_1" style="">
+    <div class="player">
+      <button class="play-btn" id="playBtn1">&#9654;</button>
+      <button class="stop-btn" id="stopBtn1">&#9632;</button>
+      <div class="player-status">
+        <div class="pl-title" id="plTitle1">Listen to Passage 1</div>
+        <div class="pl-sub" id="plSub1">American accent &middot; tap play to start</div>
+      </div>
+      <select class="rate-select" id="rateSelect1">
+        <option value="0.8">0.8&times; slow</option>
+        <option value="1" selected>1&times; normal</option>
+        <option value="1.2">1.2&times; fast</option>
+      </select>
+    </div>
+    <div class="article" id="articleBody1">
+      <h1 style="font-size:1.5rem">Effect and Cause</h1>
+      <div class="art-sub">A chance finding by a Swiss research team explains an event that happened centuries ago around Lake Geneva</div>
+      <p>In the sixth century Gregory of Tours, a chronicler of the Germanic people known as the Franks, wrote of a big rockfall in the year 563 AD in the vicinity of a place called Tauredunum, where the Rhone River spills into Lake Geneva. The debris plunged into the river, and a great mass of water overwhelmed with a sudden and violent flood all that was in its path, demolishing homes, and several people inside the city walls of Geneva were killed. Historians and scientists have long believed that Gregory and another chronicler, Marius of Avenches, who told a similar tale, were describing a tsunami that raced across the lake. But there has not been any direct evidence of it until now.</p>
+      <p>Researchers at the University of Geneva now say they have found that evidence, in the form of a large deposit of sediment in the middle of the lake. In a study published in the journal Nature Geoscience, they also propose the sequence of events that caused the deadly surge. The researchers think that a large boulder crashed down onto soft sediments which had accumulated at the river mouth because of the slowing of the river's flow when it enters the lake. These sediments formed an underwater delta that had several canyon-like channels. When the falling rocks hit the delta, they destabilized the sediments and caused the canyons to collapse. It was this collapse that created the tsunami. The sediments from this collapse would have been propelled towards the lake's centre.</p>
+      <p>Guy Simpson, a lecturer in the University of Geneva's Department of Geology and Paleontology, says the thick layer of sediment, which has the same curved shape as a lens, lies more than 305 metres down in the deepest part of the lake, and was found largely by chance. Katrina Kremer, a University of Geneva doctoral student and the study's lead author, had been conducting seismic soundings searching for thin sediment layers that might be evidence of major floods that had taken place in pre-historic times, long before the event described by Gregory of Tours. 'But we came across this enormous deposit,' Simpson says. 'We didn't know straight away that it was the deposit that caused the sixth-century tsunami. But it was a jumbled mess of sediment. It was quite obvious that it was deposited rapidly.'</p>
+      <p>The researchers then took samples of the sediments and used carbon-dating techniques on remains of leaves and other organic matter they found to determine when the deposit formed. This narrowed the range to a period between the late fourth century and the early seventh century. Other than the rockfall, there is no record of any special event during that period, Simpson says.</p>
+      <p>The researchers estimated that the deposit, which is at least 9.6 kilometres long by 4.8 kilometres wide, and averages about five metres thick, contains more than 248 million cubic metres of material. They ran multiple computer simulations showing that the collapse of that much sediment at the mouth of the Rhone would have caused a tsunami with an estimated height of 7.9 metres at Geneva, where it would have arrived in about 70 minutes. The rockfall itself may have been set off by a major earthquake, as some scientists have speculated.</p>
+      <p>Lake tsunamis, although unusual, are not unknown, says Richard Schweickert, an Emeritus Professor of Geology at the University of Nevada, in Reno, in the United States. He cites evidence that the collapse of part of the shoreline of Lake Tahoe in northern California within the past 20,000 years caused a tsunami with wave heights of about 30 metres. There are two faults under the lake that could have caused an earthquake, he says, and the collapse of the Rhone delta sediments, as calculated by the Swiss researchers, would certainly be capable of pushing a large amount of material into the lake.</p>
+      <p>He suggests that the findings could be corroborated by careful mapping of the shoreline to look for unusual deposits or erosion left behind by the giant waves.</p>
+      <p>Simpson says that the Rhone delta sediments might collapse again, perhaps from an earthquake or even on their own weight. In the sixth century, Geneva was a small community, mostly behind walls on a hill, whereas today it is home to international organisations and about 200,000 people, many living in low-lying areas near the water. Testing the stability of nearby slopes, and creating more detailed models of how a tsunami could affect Geneva today, would provide a more accurate assessment of whether or not this is something the lakeside city should be concerned about.</p>
+      <p>Most tsunamis occur in oceans and are generated by earthquakes. However, the study is a reminder that even a landlocked nation like Switzerland is not immune to catastrophic waves.</p>
+    </div>
+    <div class="card" style="margin-top:24px">
+      <h2 style="font-family:var(--serif);font-weight:400;margin-top:0">Questions 1–13</h2>
+<div class="rubric"><b>Questions 1–7.</b> Do the following statements agree with the information given? Choose <b>TRUE</b>, <b>FALSE</b> or <b>NOT GIVEN</b>.</div>
+<div class="q-block" data-q="1">
+<div><span class="q-num">1.</span>According to Gregory of Tours, the landslide which caused the flood happened near Tauredunum.</div>
+<label class="opt-row"><input type="radio" name="q1" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q1" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q1" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="2">
+<div><span class="q-num">2.</span>The city of Geneva was undamaged by the tsunami that Gregory described.</div>
+<label class="opt-row"><input type="radio" name="q2" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q2" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q2" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="3">
+<div><span class="q-num">3.</span>The work of Marius of Avenches supported the idea that there was a tsunami.</div>
+<label class="opt-row"><input type="radio" name="q3" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q3" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q3" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="4">
+<div><span class="q-num">4.</span>The rocks which fell into the delta were very hard and dense.</div>
+<label class="opt-row"><input type="radio" name="q4" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q4" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q4" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="5">
+<div><span class="q-num">5.</span>Richard Schweickert has published studies on lake tsunamis that have occurred in several countries.</div>
+<label class="opt-row"><input type="radio" name="q5" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q5" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q5" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="6">
+<div><span class="q-num">6.</span>The shoreline of Lake Tahoe has remained unchanged for 20,000 years.</div>
+<label class="opt-row"><input type="radio" name="q6" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q6" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q6" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="7">
+<div><span class="q-num">7.</span>Parts of the population of Geneva now live closer to the lake than was the case in the sixth century.</div>
+<label class="opt-row"><input type="radio" name="q7" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q7" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q7" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="rubric"><b>Questions 8–13.</b> Complete the flow-chart. Choose <b>ONE WORD AND/OR A NUMBER</b> from the passage for each answer.</div>
+<div class="q-block" data-q="8">
+<div><span class="q-num">8.</span>Katrina Kremer was looking for indications of pre-historic _____ that had occurred before the sixth-century event.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="9">
+<div><span class="q-num">9.</span>Researchers extracted samples from the deposit and dated organic material such as _____.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="10">
+<div><span class="q-num">10.</span>Carbon-dating confirmed that the deposit was present in the lake by the beginning of the _____ century.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="11">
+<div><span class="q-num">11.</span>The volume of the deposit was then _____ by the scientists.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="12">
+<div><span class="q-num">12.</span>The researchers established the approximate _____ and speed of the tsunami through computer modelling.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="13">
+<div><span class="q-num">13.</span>A likely cause of the rockfall was a significant _____.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+    </div>
+  </div>
+
+  <div class="mock-passage" id="passage_2" style="display:none">
+    <div class="player">
+      <button class="play-btn" id="playBtn2">&#9654;</button>
+      <button class="stop-btn" id="stopBtn2">&#9632;</button>
+      <div class="player-status">
+        <div class="pl-title" id="plTitle2">Listen to Passage 2</div>
+        <div class="pl-sub" id="plSub2">American accent &middot; tap play to start</div>
+      </div>
+      <select class="rate-select" id="rateSelect2">
+        <option value="0.8">0.8&times; slow</option>
+        <option value="1" selected>1&times; normal</option>
+        <option value="1.2">1.2&times; fast</option>
+      </select>
+    </div>
+    <div class="article" id="articleBody2">
+      <h1 style="font-size:1.5rem">Australia's Camouflaged Creatures</h1>
+      <div class="art-sub">Many species of animal in Australia protect themselves by using camouflage — a way of 'hiding' by blending into the surroundings</div>
+      <p>A. Most species use camouflage to some extent. If they are convincing, they survive to pass their genes on to future generations. After generations of natural selection, animals can develop astonishingly complex camouflage techniques, manipulating shape, colour and movement. 'The principle of camouflage is to make it economically unviable for a predator to pursue a particular species of prey,' explains Professor Mark Elgar, of the University of Melbourne. 'Camouflage increases the search time and, as a consequence, the predator will simply target another species, either because it doesn't see the camouflaged individual or it just finds something more obvious to do.'</p>
+      <p>B. The easiest way for an animal to disguise itself is to be invisible in its surroundings, so to that end, stick and leaf insects have evolved complex camouflage to hide themselves from predators. Many have the texture of sticks or dry leaves, while others imitate living foliage, even the veins in a leaf. Some insects develop blemishes to match the spots caused by disease. A convincing appearance only works if its owner also acts the part, so during the day the creature using this type of camouflage keeps motionless, or sways like a dead leaf in the breeze. If disturbed, it falls to the ground and stays still. Entomologist Paul Zborowski, who has spent decades photographing inconspicuous creatures, rates the desert insects of Central Australia as the most convincingly disguised creatures he's seen. 'It's an incredibly old habitat so the creatures have had a long time to adapt,' Zborowski explains. Most of them behave like stones and don't move all day, feeding only at night.</p>
+      <p>C. A tawny frogmouth sitting motionless on a stump also illustrates the importance of pairing a persuasive costume with behaviour. Professor Gisela Kaplan of the University of New England, in Australia, says the frogmouth's skill at camouflaging is learned behaviour. While adopting a pose may be a reflex of the bird, and can be observed in a hatchling's first week, the ability to choose a backdrop which matches its colouration does not develop for 4-6 months. When the chicks land they are usually highly conspicuous, and their parents try to signal to them to move to a safe location.</p>
+      <p>D. Fixed camouflage is only good against a relatively unchanging environment, so some animals, such as the cuttlefish, have evolved an adaptable disguise. The cuttlefish can almost instantly change its colour, pattern and texture to match its surroundings, using specialised cells and muscles. On Queensland's reefs, scientists have been studying another ocean dweller that uses colour change, although not to blend into the surroundings. Dr Karen Cheney, from the University of Queensland, says the bluestriped fangblenny alters its colouration to mimic other species of fish, allowing it to travel with them and benefit from safety in numbers. Its most impressive impersonation is of the black-with-neon-blue striped cleaner wrasse which eats the parasites on larger fish. Not only does the fangblenny benefit from the reduced predation that comes with the wrasse's beneficial relationships with other fish, but the disguise also lets it get closer to prey. It darts out from the safety of the wrasse's cleaning station to nip at unsuspecting fish passing by, but doesn't attack those coming to be cleaned.</p>
+      <p>E. The most famous form of mimicry, however, is for defence, not attack. Batesian mimicry refers to animals that gain protection from predators by imitating a dangerous organism, often using conspicuous colours. The nineteenth-century naturalist Henry Bates first suggested this camouflage technique after noticing that several Amazonian butterfly species looked the same. The technique was later named after him. In Australian waters, the harmless harlequin snake eel sports the same black and white bandings as the highly toxic, yellow-lipped sea krait, ensuring no predator will attack. However, the success of Batesian mimicry depends on the ratio of mimics to originals. If a predator encounters too many that are edible, it will just assume none of the animals with those markings are dangerous, explains Martyn Robinson, an educational naturalist with the Australian Museum.</p>
+      <p>F. An imitation of a more dangerous creature needn't be exact, just enough to make potential predators hesitate. The hawk moth caterpillar has markings resembling a snake's eyes on its abdomen. When confronted, the caterpillar pulls its head in and the 'eyes' flash open. Whether the potential predator thinks it has seen a snake, or is simply startled, is unclear, but the outcome is that the caterpillar lives to see another day.</p>
+      <p>G. In Queensland's tablelands, the chameleon gecko has another way of making predators hesitate. Its body is brown, but its tail is banded in black and white. Robinson explains that if attacked, the chameleon gecko will drop off its tail, which will wriggle around on the ground. Many lizards do this, but in the case of the chameleon gecko the tail bones actually rub against one another, so it squeaks. 'The predator is, of course, thoroughly absorbed by this black-and-white-striped, wriggling, squeaking thing on the ground, and the gecko can sneak away,' Robinson says. It's a one-time-only trick: the regrown tail is brown, the same as the gecko's body. Such precise disguise and elaborate trickery illustrate the limitless possibilities of nature. But, as Robinson points out, only the most successful illusionists are here to tell the tale.</p>
+    </div>
+    <div class="card" style="margin-top:24px">
+      <h2 style="font-family:var(--serif);font-weight:400;margin-top:0">Questions 14–26</h2>
+<div class="rubric"><b>Questions 14–18.</b> Which section, A–G, contains the following information?</div>
+<div class="q-block" data-q="14">
+<div><span class="q-num">14.</span>A species that signals to its young to move to a place where they are less visible</div>
+<label class="opt-row"><input type="radio" name="q14" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q14" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q14" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q14" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q14" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q14" value="F"><span><b>F</b> </span></label>
+<label class="opt-row"><input type="radio" name="q14" value="G"><span><b>G</b> </span></label>
+</div>
+<div class="q-block" data-q="15">
+<div><span class="q-num">15.</span>An instance where sound is used to help an animal escape</div>
+<label class="opt-row"><input type="radio" name="q15" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q15" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q15" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q15" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q15" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q15" value="F"><span><b>F</b> </span></label>
+<label class="opt-row"><input type="radio" name="q15" value="G"><span><b>G</b> </span></label>
+</div>
+<div class="q-block" data-q="16">
+<div><span class="q-num">16.</span>A feature that can use camouflage to match a range of different backgrounds</div>
+<label class="opt-row"><input type="radio" name="q16" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q16" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q16" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q16" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q16" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q16" value="F"><span><b>F</b> </span></label>
+<label class="opt-row"><input type="radio" name="q16" value="G"><span><b>G</b> </span></label>
+</div>
+<div class="q-block" data-q="17">
+<div><span class="q-num">17.</span>A claim that the majority of animals disguise themselves in some way</div>
+<label class="opt-row"><input type="radio" name="q17" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q17" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q17" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q17" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q17" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q17" value="F"><span><b>F</b> </span></label>
+<label class="opt-row"><input type="radio" name="q17" value="G"><span><b>G</b> </span></label>
+</div>
+<div class="q-block" data-q="18">
+<div><span class="q-num">18.</span>Examples of animals that use camouflage to look like plants</div>
+<label class="opt-row"><input type="radio" name="q18" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q18" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q18" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q18" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q18" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q18" value="F"><span><b>F</b> </span></label>
+<label class="opt-row"><input type="radio" name="q18" value="G"><span><b>G</b> </span></label>
+</div>
+<div class="rubric"><b>Questions 19–23.</b> Match each statement with the correct person, A–F. <i>A Professor Mark Elgar, B Paul Zborowski, C Professor Gisela Kaplan, D Dr Karen Cheney, E Henry Bates, F Martyn Robinson.</i></div>
+<div class="q-block" data-q="19">
+<div><span class="q-num">19.</span>One species has a camouflage tactic that is not present from birth.</div>
+<label class="opt-row"><input type="radio" name="q19" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q19" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q19" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q19" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q19" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q19" value="F"><span><b>F</b> </span></label>
+</div>
+<div class="q-block" data-q="20">
+<div><span class="q-num">20.</span>Species that live in an ancient environment have become very effective at camouflaging themselves.</div>
+<label class="opt-row"><input type="radio" name="q20" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q20" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q20" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q20" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q20" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q20" value="F"><span><b>F</b> </span></label>
+</div>
+<div class="q-block" data-q="21">
+<div><span class="q-num">21.</span>Part of an animal is left behind to distract predators.</div>
+<label class="opt-row"><input type="radio" name="q21" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q21" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q21" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q21" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q21" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q21" value="F"><span><b>F</b> </span></label>
+</div>
+<div class="q-block" data-q="22">
+<div><span class="q-num">22.</span>If it takes too long to find one kind of prey, animals will look for an alternative source of food.</div>
+<label class="opt-row"><input type="radio" name="q22" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q22" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q22" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q22" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q22" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q22" value="F"><span><b>F</b> </span></label>
+</div>
+<div class="q-block" data-q="23">
+<div><span class="q-num">23.</span>Camouflage can involve copying a threatening type of animal.</div>
+<label class="opt-row"><input type="radio" name="q23" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q23" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q23" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q23" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q23" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q23" value="F"><span><b>F</b> </span></label>
+</div>
+<div class="rubric"><b>Questions 24–26.</b> Complete the summary. Choose <b>ONE WORD ONLY</b> from the passage for each answer.</div>
+<div class="q-block" data-q="24">
+<div><span class="q-num">24.</span>Dr Karen Cheney studies the bluestriped fangblenny on _____ off Queensland's coast.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="25">
+<div><span class="q-num">25.</span>The fangblenny impersonates the striped cleaner wrasse, a fish that is welcomed by other species as it gets rid of their _____.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="26">
+<div><span class="q-num">26.</span>The fangblenny can approach its _____ without drawing the attention of predators.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+    </div>
+  </div>
+
+  <div class="mock-passage" id="passage_3" style="display:none">
+    <div class="player">
+      <button class="play-btn" id="playBtn3">&#9654;</button>
+      <button class="stop-btn" id="stopBtn3">&#9632;</button>
+      <div class="player-status">
+        <div class="pl-title" id="plTitle3">Listen to Passage 3</div>
+        <div class="pl-sub" id="plSub3">American accent &middot; tap play to start</div>
+      </div>
+      <select class="rate-select" id="rateSelect3">
+        <option value="0.8">0.8&times; slow</option>
+        <option value="1" selected>1&times; normal</option>
+        <option value="1.2">1.2&times; fast</option>
+      </select>
+    </div>
+    <div class="article" id="articleBody3">
+      <h1 style="font-size:1.5rem">The Pirahã People of Brazil</h1>
+      <div class="art-sub">The Pirahã language has stirred up debate among experts</div>
+      <p>The Pirahã tribe live deep in Brazil's Amazon forest, and their language is hotly debated by linguists. Since 1977, the ethnologist Daniel Everett has spent a total of seven years living with the Pirahã and has committed his career to studying their puzzling speech. Indeed, he was uncertain for so long about what he was actually hearing while living among the Pirahã that he waited nearly three decades before publishing his findings.</p>
+      <p>The debate over the Pirahã language goes right to the core of the riddle regarding how Homo sapiens managed to develop vocal communication. Although bees dance, birds sing and whales even sing with syntax, human language is unique, if only for the reason that it enables humans to piece together never-before-constructed thoughts, and be infinitely imaginative — think of Shakespeare's plays or Einstein's theory of relativity.</p>
+      <p>Linguistics generally focuses on what features all human languages have in common, but the Pirahã language departs from what some academics have long maintained are essential and inalienable features of all human languages. Most of all, it may be unique for not employing subordinate clauses. Instead of saying, 'When I have finished eating, I will speak to you,' the Pirahã say, 'I finish eating, I speak with you.' Equally perplexing, the Pirahã appear not to use numbers. During the time he spent with them, Everett never heard words like 'all', 'every' and 'more'. There is one word, 'hói', that comes close to the numeral 1, but it can also mean 'small'.</p>
+      <p>Everett's findings among the Pirahã have brought new life to a controversial theory by the linguist Benjamin Whorf, who suggested that people are only capable of constructing thoughts for which they possess actual words. Or to put it another way, because they have no words for numbers, they cannot even begin to understand the concept of numbers or arithmetic.</p>
+      <p>The Warlpiri language — spoken by a group of Australian Aborigines — like that of the Pirahã, features only the most rudimentary system of counting. However, the Warlpiri people had no difficulty counting farther than three in a foreign language, in this case English, but when Everett attempted to teach the Pirahã how to count in Portuguese like other Brazilians, not a single person could count to 10.</p>
+      <p>Everett is at pains to point out that the Pirahã are not unintelligent, for their thinking is not any slower than that of the average university student. And although they reside in a remote part of the forest, they do not live in complete genetic isolation, but mix with people from the surrounding populations and share similar intellectual capacities with their neighbours whose languages do contain numbers.</p>
+      <p>Eventually, after some 30 years of research, Everett has come up with a surprising explanation for the peculiarities of the Pirahã language. Language, he believes, is created by a people's way of life, their belief system and values. In this way, variety in human language is almost limitless, a function of the human capacity to live in different ways, such as in the forest. What Everett's research has revealed is that the central tenet of the Pirahã culture is to live in the here and now. In consequence, the language has no means to conjugate verbs in order to describe 'yesterday' or 'last week' or 'when I was a child'. Their very literal view of the world curtails abstract thought, and many features taken for granted among other peoples are absent among the Pirahã, such as a creation myth, story telling and painting. One manifestation of their beliefs is that by tradition the names they give their children are not particularly imaginative. Standing out or being different is not encouraged by the Pirahã, and this is reflected in their perhaps colourless choice of names.</p>
+      <p>Everett anticipated that these findings would be controversial and the reaction came as expected. Until this point, many linguists had defended the theories of Noam Chomsky, according to which all human languages have a universal grammar. At its heart is the concept of 'recursion'. Without it, humans would not be able to view separate thoughts as subordinate parts of a complex whole. And, most pertinent to Everett's work, there would not be subordinate clauses, which are responsible for translating the concept of recursion into grammar. But if the Pirahã do not form subordinate clauses, then recursion cannot explain the uniqueness of human language, and this would negate Chomsky's theories.</p>
+      <p>The logical way forward now would be to try to prove that the Pirahã can think in a recursive fashion. The only problem is, nobody can confirm or deny Everett's observations since no other researcher can speak Pirahã as well as he does. Despite this, several researchers — including two of Chomsky's colleagues — will soon travel to Brazil to check his claims. My concern is that soon the Pirahã will simply become one more scientific oddity, with every aspect of their lives being exploited and analysed.</p>
+    </div>
+    <div class="card" style="margin-top:24px">
+      <h2 style="font-family:var(--serif);font-weight:400;margin-top:0">Questions 27–40</h2>
+<div class="rubric"><b>Questions 27–32.</b> Choose the correct letter, A, B, C or D.</div>
+<div class="q-block" data-q="27">
+<div><span class="q-num">27.</span>What are we told about Daniel Everett in the first paragraph?</div>
+<label class="opt-row"><input type="radio" name="q27" value="A"><span><b>A</b> He has lived among the Pirahã since 1977.</span></label>
+<label class="opt-row"><input type="radio" name="q27" value="B"><span><b>B</b> It took him seven years to learn the Pirahã language.</span></label>
+<label class="opt-row"><input type="radio" name="q27" value="C"><span><b>C</b> No one would publish his research for three decades.</span></label>
+<label class="opt-row"><input type="radio" name="q27" value="D"><span><b>D</b> Studying the Pirahã language is the focus of his work.</span></label>
+</div>
+<div class="q-block" data-q="28">
+<div><span class="q-num">28.</span>Which of the following is the best summary of the second paragraph?</div>
+<label class="opt-row"><input type="radio" name="q28" value="A"><span><b>A</b> Humans are the only species to be linguistically creative.</span></label>
+<label class="opt-row"><input type="radio" name="q28" value="B"><span><b>B</b> Humans, bees, birds and whales share a characteristic.</span></label>
+<label class="opt-row"><input type="radio" name="q28" value="C"><span><b>C</b> Human language is not fully understood by scientists.</span></label>
+<label class="opt-row"><input type="radio" name="q28" value="D"><span><b>D</b> Humans are the only species to use syntax.</span></label>
+</div>
+<div class="q-block" data-q="29">
+<div><span class="q-num">29.</span>Why does the writer refer to subordinate clauses?</div>
+<label class="opt-row"><input type="radio" name="q29" value="A"><span><b>A</b> to criticise the general approach of linguistics</span></label>
+<label class="opt-row"><input type="radio" name="q29" value="B"><span><b>B</b> to compare two features of the Pirahã language</span></label>
+<label class="opt-row"><input type="radio" name="q29" value="C"><span><b>C</b> to explain why the Pirahã language is difficult to learn</span></label>
+<label class="opt-row"><input type="radio" name="q29" value="D"><span><b>D</b> to exemplify an unusual feature of the Pirahã language</span></label>
+</div>
+<div class="q-block" data-q="30">
+<div><span class="q-num">30.</span>What point does the writer make about the work of Whorf?</div>
+<label class="opt-row"><input type="radio" name="q30" value="A"><span><b>A</b> He thought that numbers were common to all human languages.</span></label>
+<label class="opt-row"><input type="radio" name="q30" value="B"><span><b>B</b> His theory might be supported by Everett's research.</span></label>
+<label class="opt-row"><input type="radio" name="q30" value="C"><span><b>C</b> His research enabled him to find a new life among the Pirahã.</span></label>
+<label class="opt-row"><input type="radio" name="q30" value="D"><span><b>D</b> He predicted that people like the Pirahã would never be found.</span></label>
+</div>
+<div class="q-block" data-q="31">
+<div><span class="q-num">31.</span>The writer refers to the Warlpiri people in order to</div>
+<label class="opt-row"><input type="radio" name="q31" value="A"><span><b>A</b> suggest that the Pirahã be taught to count in English.</span></label>
+<label class="opt-row"><input type="radio" name="q31" value="B"><span><b>B</b> show how tribal peoples learn a foreign language.</span></label>
+<label class="opt-row"><input type="radio" name="q31" value="C"><span><b>C</b> compare counting in English and Portuguese.</span></label>
+<label class="opt-row"><input type="radio" name="q31" value="D"><span><b>D</b> illustrate the uniqueness of the Pirahã.</span></label>
+</div>
+<div class="q-block" data-q="32">
+<div><span class="q-num">32.</span>What is Everett's point about the Pirahã's intellectual capacities?</div>
+<label class="opt-row"><input type="radio" name="q32" value="A"><span><b>A</b> Pirahã students have not graduated from universities.</span></label>
+<label class="opt-row"><input type="radio" name="q32" value="B"><span><b>B</b> He does not want people to criticise their intelligence.</span></label>
+<label class="opt-row"><input type="radio" name="q32" value="C"><span><b>C</b> Their isolation makes it difficult to evaluate their intelligence.</span></label>
+<label class="opt-row"><input type="radio" name="q32" value="D"><span><b>D</b> He believes their language is more complex than their neighbours.</span></label>
+</div>
+<div class="rubric"><b>Questions 33–36.</b> Complete the summary using the word list: <i>A present, B past, C time, D future, E culture, F grammar, G art, H individuality, I children.</i> Type the word itself.</div>
+<div class="q-block" data-q="33">
+<div><span class="q-num">33.</span>Everett believes that a group's language is a product of their ___, so language is infinitely varied.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="34">
+<div><span class="q-num">34.</span>During the time he spent living among them, he observed that the Pirahã only place value on the ___.</div>
+<label class="opt-row"><input type="radio" name="q34" value="present"><span><b>present</b> </span></label>
+<label class="opt-row"><input type="radio" name="q34" value="past"><span><b>past</b> </span></label>
+<label class="opt-row"><input type="radio" name="q34" value="culture"><span><b>culture</b> </span></label>
+<label class="opt-row"><input type="radio" name="q34" value="future"><span><b>future</b> </span></label>
+</div>
+<div class="q-block" data-q="35">
+<div><span class="q-num">35.</span>They have no ___ to describe completed events.</div>
+<label class="opt-row"><input type="radio" name="q35" value="grammar"><span><b>grammar</b> </span></label>
+<label class="opt-row"><input type="radio" name="q35" value="art"><span><b>art</b> </span></label>
+<label class="opt-row"><input type="radio" name="q35" value="individuality"><span><b>individuality</b> </span></label>
+<label class="opt-row"><input type="radio" name="q35" value="children"><span><b>children</b> </span></label>
+</div>
+<div class="q-block" data-q="36">
+<div><span class="q-num">36.</span>Similarly, the types of names they use reflect the fact that they do not celebrate ___.</div>
+<label class="opt-row"><input type="radio" name="q36" value="individuality"><span><b>individuality</b> </span></label>
+<label class="opt-row"><input type="radio" name="q36" value="culture"><span><b>culture</b> </span></label>
+<label class="opt-row"><input type="radio" name="q36" value="grammar"><span><b>grammar</b> </span></label>
+<label class="opt-row"><input type="radio" name="q36" value="present"><span><b>present</b> </span></label>
+</div>
+<div class="rubric"><b>Questions 37–40.</b> Do the following statements agree with the views of the writer? Choose <b>YES</b>, <b>NO</b> or <b>NOT GIVEN</b>.</div>
+<div class="q-block" data-q="37">
+<div><span class="q-num">37.</span>Everett was surprised by the way his research was greeted.</div>
+<label class="opt-row"><input type="radio" name="q37" value="YES"><span><b>YES</b> </span></label>
+<label class="opt-row"><input type="radio" name="q37" value="NO"><span><b>NO</b> </span></label>
+<label class="opt-row"><input type="radio" name="q37" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="38">
+<div><span class="q-num">38.</span>Chomsky has been critical of Everett's research methodology.</div>
+<label class="opt-row"><input type="radio" name="q38" value="YES"><span><b>YES</b> </span></label>
+<label class="opt-row"><input type="radio" name="q38" value="NO"><span><b>NO</b> </span></label>
+<label class="opt-row"><input type="radio" name="q38" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="39">
+<div><span class="q-num">39.</span>If 'recursion' as a universal concept is disproved, Chomsky's ideas about language would be wrong.</div>
+<label class="opt-row"><input type="radio" name="q39" value="YES"><span><b>YES</b> </span></label>
+<label class="opt-row"><input type="radio" name="q39" value="NO"><span><b>NO</b> </span></label>
+<label class="opt-row"><input type="radio" name="q39" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="40">
+<div><span class="q-num">40.</span>The Pirahã will benefit from their new-found status among academics.</div>
+<label class="opt-row"><input type="radio" name="q40" value="YES"><span><b>YES</b> </span></label>
+<label class="opt-row"><input type="radio" name="q40" value="NO"><span><b>NO</b> </span></label>
+<label class="opt-row"><input type="radio" name="q40" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+    </div>
+  </div>
+
+    <div class="submit-bar">
+      <button class="btn btn-gold" onclick="submitMock()">Check all answers</button>
+      <button class="btn" onclick="showKeyWords()">Key word table</button>
+    </div>
+    <div class="score-banner" id="scoreBanner"></div>
+    <div class="card" id="kwCard" style="margin-top:20px;display:none">
+      <h2 style="font-family:var(--serif);font-weight:400;margin-top:0">Key Word Table</h2>
+<table class="kw-table"><tr><th>In the question</th><th>In the passage</th></tr>
+<tr><td class="qtext">Q1 &middot; landslide near Tauredunum</td><td class="ptext">a big rockfall in the year 563 AD in the vicinity of a place called <b>Tauredunum</b></td></tr>
+<tr><td class="qtext">Q2 &middot; Geneva undamaged</td><td class="ptext">several people <b>inside the city walls of Geneva were killed</b></td></tr>
+<tr><td class="qtext">Q3 &middot; Marius supported tsunami idea</td><td class="ptext">Marius of Avenches, who <b>told a similar tale</b>, were describing a tsunami</td></tr>
+<tr><td class="qtext">Q6 &middot; Tahoe shoreline unchanged</td><td class="ptext">the <b>collapse</b> of part of the shoreline of Lake Tahoe ... within the past 20,000 years</td></tr>
+<tr><td class="qtext">Q7 &middot; population closer to lake now</td><td class="ptext">many <b>living in low-lying areas near the water</b></td></tr>
+<tr><td class="qtext">Q8 &middot; looking for pre-historic</td><td class="ptext">searching for thin sediment layers that might be evidence of major <b>floods</b></td></tr>
+<tr><td class="qtext">Q9 &middot; dated organic material</td><td class="ptext">carbon-dating techniques on remains of <b>leaves</b> and other organic matter</td></tr>
+<tr><td class="qtext">Q13 &middot; likely cause of rockfall</td><td class="ptext">may have been set off by a major <b>earthquake</b></td></tr>
+<tr><td class="qtext">Q14 &middot; signals young to move</td><td class="ptext">their parents <b>try to signal to them to move to a safe location</b></td></tr>
+<tr><td class="qtext">Q15 &middot; sound helps escape</td><td class="ptext">the tail bones actually rub against one another, so it <b>squeaks</b></td></tr>
+<tr><td class="qtext">Q16 &middot; matches different backgrounds</td><td class="ptext">the cuttlefish can almost instantly <b>change its colour, pattern and texture</b></td></tr>
+<tr><td class="qtext">Q17 &middot; majority disguise themselves</td><td class="ptext">'<b>most species use camouflage</b> to some extent'</td></tr>
+<tr><td class="qtext">Q19 &middot; not present from birth</td><td class="ptext">the frogmouth's skill at camouflaging <b>is learned behaviour</b></td></tr>
+<tr><td class="qtext">Q21 &middot; part left behind</td><td class="ptext">the chameleon gecko will <b>drop off its tail</b></td></tr>
+<tr><td class="qtext">Q22 &middot; alternative food source</td><td class="ptext">the predator will simply <b>target another species</b></td></tr>
+<tr><td class="qtext">Q24 &middot; studies bluestriped fangblenny</td><td class="ptext">on Queensland's <b>reefs</b></td></tr>
+<tr><td class="qtext">Q27 &middot; Everett's focus</td><td class="ptext">has <b>committed his career to studying</b> their puzzling speech</td></tr>
+<tr><td class="qtext">Q28 &middot; second paragraph summary</td><td class="ptext">human language is <b>unique</b>, if only for the reason that it enables ... infinitely imaginative thought</td></tr>
+<tr><td class="qtext">Q29 &middot; subordinate clauses reference</td><td class="ptext">it may be unique for <b>not employing subordinate clauses</b></td></tr>
+<tr><td class="qtext">Q30 &middot; Whorf's work</td><td class="ptext">have brought <b>new life to a controversial theory</b> by ... Whorf</td></tr>
+<tr><td class="qtext">Q31 &middot; Warlpiri reference</td><td class="ptext">not a single person could count to 10 (<b>illustrating Pirahã's uniqueness</b>)</td></tr>
+<tr><td class="qtext">Q32 &middot; intellectual capacities</td><td class="ptext">their thinking is <b>not any slower</b> than that of the average university student</td></tr>
+<tr><td class="qtext">Q33 &middot; product of their ...</td><td class="ptext">language ... is created by a people's way of life, their <b>belief system and values</b></td></tr>
+<tr><td class="qtext">Q34 &middot; value on the ...</td><td class="ptext">the central tenet of the Pirahã culture is to <b>live in the here and now</b></td></tr>
+<tr><td class="qtext">Q37 &middot; surprised by reaction</td><td class="ptext">Everett <b>anticipated</b> that these findings would be controversial</td></tr>
+<tr><td class="qtext">Q39 &middot; recursion disproof effect</td><td class="ptext">recursion <b>cannot explain the uniqueness of human language</b>, and this would negate Chomsky's theories</td></tr>
+</table>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/catalog.js"></script>
+<script src="../assets/shared.js"></script>
+<script>
+const PASSAGE_ID = 'm4';
+const QUIZ = [{"id": 1, "type": "radio", "answer": "TRUE"}, {"id": 2, "type": "radio", "answer": "FALSE"}, {"id": 3, "type": "radio", "answer": "TRUE"}, {"id": 4, "type": "radio", "answer": "NOT GIVEN"}, {"id": 5, "type": "radio", "answer": "NOT GIVEN"}, {"id": 6, "type": "radio", "answer": "FALSE"}, {"id": 7, "type": "radio", "answer": "TRUE"}, {"id": 8, "type": "text", "answer": "floods"}, {"id": 9, "type": "text", "answer": "leaves"}, {"id": 10, "type": "text", "answer": "seventh"}, {"id": 11, "type": "text", "answer": "estimated"}, {"id": 12, "type": "text", "answer": "height"}, {"id": 13, "type": "text", "answer": "earthquake"}, {"id": 14, "type": "radio", "answer": "C"}, {"id": 15, "type": "radio", "answer": "G"}, {"id": 16, "type": "radio", "answer": "D"}, {"id": 17, "type": "radio", "answer": "A"}, {"id": 18, "type": "radio", "answer": "B"}, {"id": 19, "type": "radio", "answer": "C"}, {"id": 20, "type": "radio", "answer": "B"}, {"id": 21, "type": "radio", "answer": "F"}, {"id": 22, "type": "radio", "answer": "A"}, {"id": 23, "type": "radio", "answer": "E"}, {"id": 24, "type": "text", "answer": "reefs"}, {"id": 25, "type": "text", "answer": "parasites"}, {"id": 26, "type": "text", "answer": "prey"}, {"id": 27, "type": "radio", "answer": "D"}, {"id": 28, "type": "radio", "answer": "A"}, {"id": 29, "type": "radio", "answer": "D"}, {"id": 30, "type": "radio", "answer": "B"}, {"id": 31, "type": "radio", "answer": "D"}, {"id": 32, "type": "radio", "answer": "B"}, {"id": 33, "type": "text", "answer": ["culture", "E"]}, {"id": 34, "type": "radio", "answer": "present"}, {"id": 35, "type": "radio", "answer": "grammar"}, {"id": 36, "type": "radio", "answer": "individuality"}, {"id": 37, "type": "radio", "answer": "NO"}, {"id": 38, "type": "radio", "answer": "NOT GIVEN"}, {"id": 39, "type": "radio", "answer": "YES"}, {"id": 40, "type": "radio", "answer": "NO"}];
+const GLOSSARY = [{"word": "chronicler", "pos": "noun", "def": "A person who writes a record of historical events.", "uz": "solnomachi, yilnomachi"}, {"word": "vicinity", "pos": "noun", "def": "The area near or surrounding a particular place.", "uz": "atrof, yaqin-atrof"}, {"word": "debris", "pos": "noun", "def": "Scattered pieces of rubble or waste remains.", "uz": "vayronalar, uvoq-siniqlar"}, {"word": "sediment", "pos": "noun", "def": "Matter that settles to the bottom of a liquid.", "uz": "cho'kindi"}, {"word": "boulder", "pos": "noun", "def": "A large rock, especially one worn smooth.", "uz": "katta yumaloq tosh"}, {"word": "seismic", "pos": "adjective", "def": "Relating to earthquakes or earth vibrations.", "uz": "seysmik, zilzilaga oid"}, {"word": "corroborate", "pos": "verb", "def": "To confirm or give support to a claim.", "uz": "tasdiqlamoq, dalillamoq"}, {"word": "landlocked", "pos": "adjective", "def": "Enclosed by land, with no coastline.", "uz": "dengizga chiqishi yo'q"}, {"word": "camouflage", "pos": "noun", "def": "Disguise that hides by blending into the surroundings.", "uz": "niqoblanish, kamuflyaj"}, {"word": "predator", "pos": "noun", "def": "An animal that hunts others for food.", "uz": "yirtqich"}, {"word": "mimicry", "pos": "noun", "def": "Close resemblance to another for protection.", "uz": "taqlid, mimikriya"}, {"word": "toxic", "pos": "adjective", "def": "Poisonous; harmful to living things.", "uz": "zaharli"}, {"word": "conspicuous", "pos": "adjective", "def": "Clearly visible; standing out from the rest.", "uz": "yaqqol ko'zga tashlanadigan"}, {"word": "inconspicuous", "pos": "adjective", "def": "Not easily noticed; not obvious.", "uz": "ko'zga tashlanmaydigan"}, {"word": "habitat", "pos": "noun", "def": "The natural home of an organism.", "uz": "yashash muhiti"}, {"word": "subordinate clause", "pos": "noun", "def": "A clause that depends on a main clause for its full meaning.", "uz": "ergash gap"}, {"word": "recursion", "pos": "noun", "def": "The repeated application of a structure within its own parts.", "uz": "rekursiya (takrorlanuvchi tuzilma)"}, {"word": "tenet", "pos": "noun", "def": "A core belief or principle held by a group.", "uz": "tamoyil, asosiy qoida"}, {"word": "isolation", "pos": "noun", "def": "The state of being separated from others.", "uz": "yakkalanish, ajralib qolish"}, {"word": "linguist", "pos": "noun", "def": "A person who studies languages and their structure.", "uz": "tilshunos"}];
+
+ArbPlayer('#articleBody1 p', {playBtnId:'playBtn1', stopBtnId:'stopBtn1', titleId:'plTitle1', subId:'plSub1', rateId:'rateSelect1'});
+ArbPlayer('#articleBody2 p', {playBtnId:'playBtn2', stopBtnId:'stopBtn2', titleId:'plTitle2', subId:'plSub2', rateId:'rateSelect2'});
+ArbPlayer('#articleBody3 p', {playBtnId:'playBtn3', stopBtnId:'stopBtn3', titleId:'plTitle3', subId:'plSub3', rateId:'rateSelect3'});
+const timer = ArbTimer({minutes:60});
+ArbHighlighter(['articleBody1','articleBody2','articleBody3']);
+
+document.getElementById('glossaryList').innerHTML = GLOSSARY.map(w =>
+  '<div class="glossary-item"><span class="w">'+w.word+'</span> <span style="color:var(--muted);font-size:.8rem">'+ (w.pos||'') +'</span>' +
+  '<div style="font-size:.88rem;margin-top:2px">'+w.def+'</div><div class="uz">'+w.uz+'</div></div>'
+).join('');
+
+function showPassage(n) {
+  document.querySelectorAll('.mock-passage').forEach((el,i) => el.style.display = (i+1===n) ? '' : 'none');
+  document.querySelectorAll('.mock-tab').forEach((el,i) => el.classList.toggle('active', i+1===n));
+}
+
+function submitMock() {
+  const correct = ArbGradeQuiz(QUIZ, {});
+  const passMark = Math.ceil(QUIZ.length * 0.5);
+  arbSetItem(PASSAGE_ID, { quiz: correct >= passMark, vocab: true, score: correct, total: QUIZ.length });
+  checkAllDone();
+}
+function showKeyWords() {
+  document.getElementById('kwCard').style.display = 'block';
+  document.getElementById('kwCard').scrollIntoView({behavior:'smooth'});
+}
+function checkAllDone() {
+  if (arbIsComplete(PASSAGE_ID)) {
+    let banner = document.getElementById('unlockBanner');
+    if (!banner) {
+      banner = document.createElement('div');
+      banner.id = 'unlockBanner';
+      banner.className = 'score-banner show';
+      banner.style.marginTop = '20px';
+      banner.innerHTML = '<div class="big">🔓 Unlocked!</div><div style="color:var(--muted);font-size:.85rem;margin-top:4px">Great work — the next item is now open.</div><button class="btn btn-gold" style="margin-top:14px" onclick="location.href=\'../index.html\'">Back to map</button>';
+      document.querySelector('.wrap').appendChild(banner);
+    }
+  }
+}
+</script>
+</body>
+</html>

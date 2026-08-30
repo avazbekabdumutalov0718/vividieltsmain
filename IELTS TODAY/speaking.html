@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Speaking Mastery — VIVID IELTS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .speaking-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 24px;
+    margin-top: 24px;
+  }
+  .speaking-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 24px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px;
+  }
+  .dash-body.dark .speaking-card {
+    background: linear-gradient(135deg, #23304d 0%, #312e81 100%);
+    border-color: rgba(255,255,255,0.14);
+    color: #f8f9ff;
+  }
+  .speaking-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+    border-color: #2563eb;
+  }
+  .card-icon { font-size: 2rem; margin-bottom: 12px; }
+  .card-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; }
+  .card-desc { font-size: 0.95rem; color: #64748b; line-height: 1.5; }
+  .dash-body.dark .card-desc { color: rgba(248,249,255,0.74); }
+  
+  /* Connector Flashcard Screen */
+  .connector-lab { margin-top: 20px; display: none; }
+  .flash-container { max-width: 600px; margin: 40px auto; perspective: 1000px; }
+  .flash-card {
+    height: 380px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+  }
+  .flash-card.flipped { transform: rotateY(180deg); }
+  .flash-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    border-radius: 24px;
+    border: 1px solid #e2e8f0;
+    background: #ffffff;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+  }
+  .dash-body.dark .flash-face {
+    background: linear-gradient(135deg, #23304d 0%, #312e81 100%);
+    border-color: rgba(255,255,255,0.14);
+    color: #f8f9ff;
+  }
+  .flash-back { transform: rotateY(180deg); background: #f8fafc; }
+  .dash-body.dark .flash-back { background: linear-gradient(135deg, #23304d 0%, #312e81 100%); }
+  
+  .connector-text { font-family: 'Space Grotesk', sans-serif; font-size: 2.2rem; font-weight: 700; color: #2563eb; }
+  .meaning-text { font-size: 1.5rem; font-weight: 600; color: #1e293b; margin-bottom: 16px; }
+  .dash-body.dark .meaning-text { color: #f8f9ff; }
+  .example-text { font-style: italic; font-size: 1.1rem; color: #475569; max-width: 80%; line-height: 1.6; }
+  .dash-body.dark .example-text { color: rgba(248,249,255,0.74); }
+  .card-num { position: absolute; top: 20px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #64748b; }
+</style>
+</head>
+<body class="dash-body">
+
+<div class="dash-shell">
+  <aside class="dash-sidebar" id="dashSidebar">
+    <a href="index.html" class="logo logo-on-dark">
+      <span class="logo-mark">V</span>
+      <span class="logo-text">VIVID <em>IELTS</em></span>
+    </a>
+    <nav class="dash-nav">
+      <a href="dashboard.html" class="dash-nav-item"><span class="dash-nav-icon">🏠</span> Dashboard</a>
+      <a href="vocabulary.html" class="dash-nav-item">📚 Vocabulary</a>
+      <a href="grammar.html" class="dash-nav-item">✍️ Grammar</a>
+      <a href="listening.html" class="dash-nav-item">🎧 Listening</a>
+      <a href="reading.html" class="dash-nav-item">📖 Reading</a>
+      <a href="speaking.html" class="dash-nav-item active">🗣️ Speaking</a>
+    </nav>
+  </aside>
+
+  <div class="dash-main">
+    <header class="dash-topbar">
+      <button class="dash-burger" id="dashBurger"><span></span><span></span><span></span></button>
+      <div class="dash-topbar-right">
+        <span class="dash-avatar small">AA</span>
+      </div>
+    </header>
+
+    <div class="dash-content">
+      
+      <div id="mainSpeakingView">
+        <div class="dash-greeting">
+          <div>
+            <h1>Speaking Mastery</h1>
+            <p>IELTS Speaking imtihonida yuqori ball olish uchun professional iboralar va mock imtihonlar.</p>
+          </div>
+        </div>
+
+        <div class="speaking-grid">
+          <a href="#" class="speaking-card" id="openConnectors">
+            <div>
+              <span class="card-icon">⚡</span>
+              <h3 class="card-title">Natural Connectors</h3>
+              <p class="card-desc">Suhbatingizni tabiiy va ravon ko'rsatuvchi 19 ta eng muhim yuqori darajadagi connector iboralar va ularning ishlatilishi.</p>
+            </div>
+            <span style="font-weight:600; color:#2563eb; margin-top:16px; display:inline-block;">Learn Now →</span>
+          </a>
+
+          <div class="speaking-card" style="opacity: 0.8; cursor: not-allowed;">
+            <div>
+              <span class="card-icon">🎤</span>
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <h3 class="card-title">Speaking Mock</h3>
+                <span class="soon-pill" style="background:#fef08a; color:#854d0e; padding:2px 8px; border-radius:4px; font-size:12px; font-weight:700;">Soon</span>
+              </div>
+              <p class="card-desc">Haqiqiy IELTS imtihon muhiti kabi interaktiv savollar, audio yozib olish va AI orqali real-time baholash tizimi.</p>
+            </div>
+            <span style="font-weight:600; color:#64748b; margin-top:16px; display:inline-block;">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+
+      <section class="connector-lab" id="connectorLab">
+        <button class="btn" id="backToSpeaking" style="margin-bottom: 20px;">← Back to Speaking</button>
+        
+        <div class="dash-greeting" style="text-align: center; display: block;">
+          <h1>Natural Connectors Laboratory</h1>
+          <p>Iboraning ma'nosi va jonli misolini ko'rish uchun kartochka ustiga bosing.</p>
+        </div>
+
+        <div class="flash-container">
+          <div class="flash-card" id="mainFlashcard">
+            <div class="flash-face flash-front">
+              <span class="card-num" id="cardCounter">1 / 19</span>
+              <h2 class="connector-text" id="frontPhrase">To be honest</h2>
+              <p style="margin-top: 24px; font-size:13px; color:#64748b;">Click to Flip 🔄</p>
+            </div>
+            <div class="flash-face flash-back">
+              <h3 class="meaning-text" id="backMeaning">Rostini aytsam, ...</h3>
+              <p class="example-text" id="backExample">"To be honest, I don't enjoy crowded places."</p>
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: center; gap: 16px; margin-top: 32px;">
+            <button class="btn" id="prevCard" style="padding:10px 24px;">Previous</button>
+            <button class="btn btn-primary" id="nextCard" style="padding:10px 24px;">Next Phrase →</button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<script>
+// PDF dagi barcha 19 ta connector va misollar to'liq qo'shildi!
+const CONNECTORS = [
+  { p: "To be honest, ...", m: "Rostini aytsam, ...", e: "To be honest, I don't enjoy crowded places." },
+  { p: "Actually, ...", m: "Aslida esa, ...", e: "Actually, I changed my mind at the last minute." },
+  { p: "I mean, ...", m: "Ya'ni / Demoqchimanki, ...", e: "I enjoy painting. I mean, it helps me calm down." },
+  { p: "You know, ...", m: "Bilasizmi, ...", e: "You know, I've always wanted to learn French." },
+  { p: "So, ...", m: "Shunday qilib, ...", e: "So, we decided to pack our bags and leave." },
+  { p: "As I was saying, ...", m: "Aytib o'tganimdek, ...", e: "As I was saying, the project requires more time." },
+  { p: "To put it another way, ...", m: "Boshqacha aytganda, ...", e: "To put it another way, we are bankrupt." },
+  { p: "On top of that, ...", m: "Bunisidan tashqari / Boz ustiga, ...", e: "On top of that, it started to rain heavily." },
+  { p: "At the end of the day, ...", m: "Oxir-oqibat / Baribir, ...", e: "At the end of the day, it's your decision." },
+  { p: "As far as I'm concerned, ...", m: "Menimcha / Mening fikrimcha, ...", e: "As far as I'm concerned, this is the best option." },
+  { p: "To the best of my knowledge, ...", m: "Mening bilishimcha, ...", e: "To the best of my knowledge, the office is closed." },
+  { p: "In the long run, ...", m: "Uzoq istiqbolda / Kelajakda, ...", e: "In the long run, this investment will pay off." },
+  { p: "For the time being, ...", m: "Hozircha / Vaqtincha, ...", e: "For the time being, we have to wait here." },
+  { p: "To all intents and purposes, ...", m: "Deyarli / Amalda olib qaraganda, ...", e: "To all intents and purposes, the plan failed." },
+  { p: "At face value, ...", m: "Yuzaki qaraganda, ...", e: "At face value, the deal looks very attractive." },
+  { p: "Much to my surprise, ...", m: "Ajablanarlisi shundaki, ...", e: "Much to my surprise, he agreed to help us." },
+  { p: "With that in mind, ...", m: "Shuni hisobga olgan holda, ...", e: "With that in mind, we hired more experienced staff." },
+  { p: "Oddly enough, ...", m: "G'ayrioddiy tarzda / Qiziq tomoni, ...", e: "Oddly enough, I missed the chaotic city life." },
+  { p: "In no uncertain terms, ...", m: "Juda aniq va qat'iy ravishda, ...", e: "She told him in no uncertain terms to leave." }
+];
+
+let currentIndex = 0;
+const card = document.getElementById('mainFlashcard');
+
+document.getElementById('openConnectors').onclick = (e) => {
+  e.preventDefault();
+  document.getElementById('mainSpeakingView').style.display = 'none';
+  document.getElementById('connectorLab').style.display = 'block';
+  updateCard();
+};
+
+document.getElementById('backToSpeaking').onclick = () => {
+  document.getElementById('mainSpeakingView').style.display = 'block';
+  document.getElementById('connectorLab').style.display = 'none';
+};
+
+card.onclick = () => card.classList.toggle('flipped');
+
+function updateCard() {
+  const item = CONNECTORS[currentIndex];
+  card.classList.remove('flipped');
+  setTimeout(() => {
+    document.getElementById('frontPhrase').textContent = item.p;
+    document.getElementById('backMeaning').textContent = item.m;
+    document.getElementById('backExample').textContent = `"${item.e}"`;
+    document.getElementById('cardCounter').textContent = `${currentIndex + 1} / ${CONNECTORS.length}`;
+  }, 150);
+}
+
+document.getElementById('nextCard').onclick = (e) => {
+  e.stopPropagation();
+  currentIndex = (currentIndex + 1) % CONNECTORS.length;
+  updateCard();
+};
+
+document.getElementById('prevCard').onclick = (e) => {
+  e.stopPropagation();
+  currentIndex = (currentIndex - 1 + CONNECTORS.length) % CONNECTORS.length;
+  updateCard();
+};
+</script>
+</body>
+</html>
