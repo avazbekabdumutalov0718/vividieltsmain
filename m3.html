@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Full Mock Test 3 — Avazbek Reader Booster</title>
+<link rel="stylesheet" href="../assets/shared.css">
+<style>
+.mock-tabs{display:flex; gap:10px; margin-bottom:20px; flex-wrap:wrap;}
+.mock-tab{flex:1; min-width:140px; text-align:center; padding:12px; border-radius:10px; border:1px solid var(--ink-line); background:var(--ink-1); cursor:pointer; font-size:.85rem; font-weight:700;}
+.mock-tab.active{border-color:var(--gold); background:var(--gold-dim); color:var(--gold-soft);}
+.glossary-item{padding:10px 4px;border-bottom:1px solid var(--ink-line);}
+.glossary-item:last-child{border-bottom:none;}
+.glossary-item .w{font-family:var(--serif);color:var(--gold-soft);font-size:1.05rem;}
+.glossary-item .uz{color:var(--gold);font-size:.85rem;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand">
+      <div class="brand-ring"><img src="../assets/avazbek.png" alt="Avazbek"></div>
+      <div class="brand-text">
+        <h1>Avazbek <em>Reader Booster</em></h1>
+        <div class="tag">Full Mock Test</div>
+      </div>
+    </div>
+    <button class="back-btn" onclick="location.href='../index.html'">&larr; Home</button>
+  </div>
+
+  <div id="home" class="section active">
+    <div class="hero">
+      <div class="eyebrow">Full Mock Test 3 of 6</div>
+      <h1>Full Mock Test 3</h1>
+      <p class="byline">Insects and Inspired Artificial Robots &middot; Extinction of Aussie Animals &middot; Amateur Naturalists</p>
+      <p class="passage-tag">3 passages &middot; <b>40</b> questions total &middot; ~60 minutes</p>
+    </div>
+    <div class="menu">
+      <div class="menu-card" onclick="arbGo('test')">
+        <div class="num">📝</div>
+        <h3>Start the Mock Test</h3>
+        <p>Read all three passages and answer all 40 questions.</p>
+      </div>
+      <div class="menu-card" onclick="arbGo('glossary')">
+        <div class="num">🗂️</div>
+        <h3>Key Vocabulary</h3>
+        <p>Review challenging words from all three passages before you start.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="glossary" class="section">
+    <div class="section-head">
+      <button class="back-btn" onclick="arbGo('home')">&larr; Back</button>
+      <h2>Key Vocabulary</h2>
+      <div class="sub">Challenging words from this mock test's three passages.</div>
+    </div>
+    <div class="card" id="glossaryList"></div>
+  </div>
+
+  <div id="test" class="section">
+    <div class="section-head">
+      <button class="back-btn" onclick="arbGo('home')">&larr; Back</button>
+      <h2>Full Mock Test 3</h2>
+    </div>
+    <div class="timer-bar">
+      <span id="timerDisplay">60:00</span>
+      <input class="timer-input" id="tMin" value="60"> min
+      <input class="timer-input" id="tSec" value="0"> sec
+      <button class="tbtn" onclick="timer.set()">Set</button>
+      <button class="tbtn" onclick="timer.start()">Start</button>
+      <button class="tbtn" onclick="timer.pause()">Pause</button>
+      <button class="tbtn" onclick="timer.reset()">Reset</button>
+      <div class="timeup-banner" id="timeupBanner">Time is up! Finish your answers and check your score.</div>
+    </div>
+    <div class="mock-tabs">
+      <div class="mock-tab active" onclick="showPassage(1)">Passage 1</div>
+      <div class="mock-tab" onclick="showPassage(2)">Passage 2</div>
+      <div class="mock-tab" onclick="showPassage(3)">Passage 3</div>
+    </div>
+
+  <div class="mock-passage" id="passage_1" style="">
+    <div class="player">
+      <button class="play-btn" id="playBtn1">&#9654;</button>
+      <button class="stop-btn" id="stopBtn1">&#9632;</button>
+      <div class="player-status">
+        <div class="pl-title" id="plTitle1">Listen to Passage 1</div>
+        <div class="pl-sub" id="plSub1">American accent &middot; tap play to start</div>
+      </div>
+      <select class="rate-select" id="rateSelect1">
+        <option value="0.8">0.8&times; slow</option>
+        <option value="1" selected>1&times; normal</option>
+        <option value="1.2">1.2&times; fast</option>
+      </select>
+    </div>
+    <div class="article" id="articleBody1">
+      <h1 style="font-size:1.5rem">Insects and Inspired Artificial Robots</h1>
+      <div class="art-sub">How the study of insects and other animals has shaped the field of biorobotics</div>
+      <p>A. The creation of artificial devices with life-like characteristics has been pursued for over 2,000 years, beginning, as did so many things in our modern world, in Ancient Greece. Among the inventions of Hero of Alexandria were a windmill-operated pipe organ and a mechanical theatrical play.</p>
+      <p>B. With the rise of cybernetic approaches in the late 1940s and early 1950s, a wide variety of electromechanical machines designed to mimic biological processes and systems were constructed. Perhaps the best-known and most directly relevant to biorobotics is W. Gray Walter's robotic 'tortoises' Elsie and Elmer. Walter was a physiologist who made important early contributions to electroencephalography and clinical neurophysiology. His tortoises were small mobile robots covered by a hard shell, driven by steerable motorised wheels and equipped with a headlight, a light sensor, and a touch sensor. Their behaviour was controlled by electronic circuit analogues of neural circuits, and included exploration, phototropism, and obstacle avoidance. Although originally designed to explore Walter's theories of brain function, the tortoises became objects of popular fascination.</p>
+      <p>C. The seeds of the modern renaissance of biorobotics were sown from the mid-1980s to mid-1990s. A key event in this resurgence was Rodney Brooks' work on behaviour-based robots. Brooks argued that nontrivial and flexible behaviour in a robot could be generated by the interaction between simple control machinery and its environment, demonstrating his point with robots accomplishing tasks such as insect-like walking. Another important milestone was Raibert's work on hopping and legged robots, which emphasised the central role of energetics in the dynamic balance and locomotion of animals. Based on studies of serpentine motion, Hirose developed a number of snake-like locomotors. In the early 1990s, Beer, Quinn, Chiel and Ritzmann developed a series of hexapod robots based directly on cockroach and stick insect body morphology and neural control. An early example of robots whose control was based on theories of human brain function is given by the work of Edelman et al.</p>
+      <p>D. There has been an explosion of work in biorobotics in recent years, with robotic vocal tracts, jaws, retinas, expressive faces, hands, arms and legs deployed on robotic worms, snakes, ants, flies, crickets, cockroaches, walking stick insects, dinosaurs, bats, lobsters, tuna, turkeys, apes and humanoids. No brief survey could possibly do justice to the range of work being undertaken.</p>
+      <p>E. A recent example of biologically-inspired robotics is Spenko et al's work on a hexapedal robotic climber called RiSE. In order to grip a vertical surface, this robot combines bonding mechanisms inspired by the structure of gecko feet and interlocking mechanisms inspired by the structure of insect spines and claws. Each of the six legs of RiSE have two degrees of freedom, and the robot possesses a static tail that presses against the surface to reduce the pull-in forces required of the front legs. Spenko et al have demonstrated that RiSE is able to traverse a variety of horizontal and vertical surfaces, including climbing trees and brick or cinder block walls.</p>
+      <p>F. A powerful example of biorobotic modelling is provided by the aerodynamics of insect flight. Quasi-steady-state aerodynamical analyses of the sort used to understand aircraft have not been very successful for explaining the generation of lift in small flying insects, due to their tiny wingspans, relatively slow flight speeds, and extremely fast wing movements. A recent biorobotic model by Dickinson and colleagues has begun to shed considerable light on the unsteady aerodynamics of insect flight. Because direct measurement of the forces on insect wings is extremely difficult, a robotic model with a 60 cm wingspan was submerged in mineral oil to explore the airflow during hovering flight by the fruit fly Drosophila melanogaster. Force sensors at the base of one wing allowed direct measurement of the forces produced. Dickinson and colleagues found that three major mechanisms contributed to lift generation: vortices formed at the leading edge of the wing during much of the power stroke; additional lift produced by circulation of air around the wings due to rapid rotation; and further forces produced by collisions of the wings with the swirling wake left by the previous stroke, a mechanism termed wake capture. The model suggests that the control of small details of wing motion can be used in steering flight.</p>
+    </div>
+    <div class="card" style="margin-top:24px">
+      <h2 style="font-family:var(--serif);font-weight:400;margin-top:0">Questions 1–13</h2>
+<div class="rubric"><b>Questions 1–6.</b> Choose the most suitable heading for paragraphs A–F from the list below. (There are more headings than paragraphs.)</div>
+<div class="q-block" data-q="1">
+<div><span class="q-num">1.</span>Paragraph A</div>
+<label class="opt-row"><input type="radio" name="q1" value="x"><span><b>x</b> Bionics device is not a modern conception</span></label>
+<label class="opt-row"><input type="radio" name="q1" value="ix"><span><b>ix</b> The most famous biorobot in early days</span></label>
+<label class="opt-row"><input type="radio" name="q1" value="vi"><span><b>vi</b> The revival of modern biorobotics</span></label>
+<label class="opt-row"><input type="radio" name="q1" value="v"><span><b>v</b> Prosperity of biorobot family</span></label>
+<label class="opt-row"><input type="radio" name="q1" value="iii"><span><b>iii</b> Robotic climber better than gecko</span></label>
+<label class="opt-row"><input type="radio" name="q1" value="i"><span><b>i</b> A biorobotic model exploring insect flight</span></label>
+<label class="opt-row"><input type="radio" name="q1" value="iv"><span><b>iv</b> Insect flight inspires the applications of steering operation</span></label>
+<label class="opt-row"><input type="radio" name="q1" value="vii"><span><b>vii</b> Combine machines and environment</span></label>
+<label class="opt-row"><input type="radio" name="q1" value="viii"><span><b>viii</b> The advent of robots and their effects on modern society</span></label>
+</div>
+<div class="q-block" data-q="2">
+<div><span class="q-num">2.</span>Paragraph B</div>
+<label class="opt-row"><input type="radio" name="q2" value="x"><span><b>x</b> Bionics device is not a modern conception</span></label>
+<label class="opt-row"><input type="radio" name="q2" value="ix"><span><b>ix</b> The most famous biorobot in early days</span></label>
+<label class="opt-row"><input type="radio" name="q2" value="vi"><span><b>vi</b> The revival of modern biorobotics</span></label>
+<label class="opt-row"><input type="radio" name="q2" value="v"><span><b>v</b> Prosperity of biorobot family</span></label>
+<label class="opt-row"><input type="radio" name="q2" value="iii"><span><b>iii</b> Robotic climber better than gecko</span></label>
+<label class="opt-row"><input type="radio" name="q2" value="i"><span><b>i</b> A biorobotic model exploring insect flight</span></label>
+<label class="opt-row"><input type="radio" name="q2" value="iv"><span><b>iv</b> Insect flight inspires the applications of steering operation</span></label>
+<label class="opt-row"><input type="radio" name="q2" value="vii"><span><b>vii</b> Combine machines and environment</span></label>
+<label class="opt-row"><input type="radio" name="q2" value="viii"><span><b>viii</b> The advent of robots and their effects on modern society</span></label>
+</div>
+<div class="q-block" data-q="3">
+<div><span class="q-num">3.</span>Paragraph C</div>
+<label class="opt-row"><input type="radio" name="q3" value="x"><span><b>x</b> Bionics device is not a modern conception</span></label>
+<label class="opt-row"><input type="radio" name="q3" value="ix"><span><b>ix</b> The most famous biorobot in early days</span></label>
+<label class="opt-row"><input type="radio" name="q3" value="vi"><span><b>vi</b> The revival of modern biorobotics</span></label>
+<label class="opt-row"><input type="radio" name="q3" value="v"><span><b>v</b> Prosperity of biorobot family</span></label>
+<label class="opt-row"><input type="radio" name="q3" value="iii"><span><b>iii</b> Robotic climber better than gecko</span></label>
+<label class="opt-row"><input type="radio" name="q3" value="i"><span><b>i</b> A biorobotic model exploring insect flight</span></label>
+<label class="opt-row"><input type="radio" name="q3" value="iv"><span><b>iv</b> Insect flight inspires the applications of steering operation</span></label>
+<label class="opt-row"><input type="radio" name="q3" value="vii"><span><b>vii</b> Combine machines and environment</span></label>
+<label class="opt-row"><input type="radio" name="q3" value="viii"><span><b>viii</b> The advent of robots and their effects on modern society</span></label>
+</div>
+<div class="q-block" data-q="4">
+<div><span class="q-num">4.</span>Paragraph D</div>
+<label class="opt-row"><input type="radio" name="q4" value="x"><span><b>x</b> Bionics device is not a modern conception</span></label>
+<label class="opt-row"><input type="radio" name="q4" value="ix"><span><b>ix</b> The most famous biorobot in early days</span></label>
+<label class="opt-row"><input type="radio" name="q4" value="vi"><span><b>vi</b> The revival of modern biorobotics</span></label>
+<label class="opt-row"><input type="radio" name="q4" value="v"><span><b>v</b> Prosperity of biorobot family</span></label>
+<label class="opt-row"><input type="radio" name="q4" value="iii"><span><b>iii</b> Robotic climber better than gecko</span></label>
+<label class="opt-row"><input type="radio" name="q4" value="i"><span><b>i</b> A biorobotic model exploring insect flight</span></label>
+<label class="opt-row"><input type="radio" name="q4" value="iv"><span><b>iv</b> Insect flight inspires the applications of steering operation</span></label>
+<label class="opt-row"><input type="radio" name="q4" value="vii"><span><b>vii</b> Combine machines and environment</span></label>
+<label class="opt-row"><input type="radio" name="q4" value="viii"><span><b>viii</b> The advent of robots and their effects on modern society</span></label>
+</div>
+<div class="q-block" data-q="5">
+<div><span class="q-num">5.</span>Paragraph E</div>
+<label class="opt-row"><input type="radio" name="q5" value="x"><span><b>x</b> Bionics device is not a modern conception</span></label>
+<label class="opt-row"><input type="radio" name="q5" value="ix"><span><b>ix</b> The most famous biorobot in early days</span></label>
+<label class="opt-row"><input type="radio" name="q5" value="vi"><span><b>vi</b> The revival of modern biorobotics</span></label>
+<label class="opt-row"><input type="radio" name="q5" value="v"><span><b>v</b> Prosperity of biorobot family</span></label>
+<label class="opt-row"><input type="radio" name="q5" value="iii"><span><b>iii</b> Robotic climber better than gecko</span></label>
+<label class="opt-row"><input type="radio" name="q5" value="i"><span><b>i</b> A biorobotic model exploring insect flight</span></label>
+<label class="opt-row"><input type="radio" name="q5" value="iv"><span><b>iv</b> Insect flight inspires the applications of steering operation</span></label>
+<label class="opt-row"><input type="radio" name="q5" value="vii"><span><b>vii</b> Combine machines and environment</span></label>
+<label class="opt-row"><input type="radio" name="q5" value="viii"><span><b>viii</b> The advent of robots and their effects on modern society</span></label>
+</div>
+<div class="q-block" data-q="6">
+<div><span class="q-num">6.</span>Paragraph F</div>
+<label class="opt-row"><input type="radio" name="q6" value="x"><span><b>x</b> Bionics device is not a modern conception</span></label>
+<label class="opt-row"><input type="radio" name="q6" value="ix"><span><b>ix</b> The most famous biorobot in early days</span></label>
+<label class="opt-row"><input type="radio" name="q6" value="vi"><span><b>vi</b> The revival of modern biorobotics</span></label>
+<label class="opt-row"><input type="radio" name="q6" value="v"><span><b>v</b> Prosperity of biorobot family</span></label>
+<label class="opt-row"><input type="radio" name="q6" value="iii"><span><b>iii</b> Robotic climber better than gecko</span></label>
+<label class="opt-row"><input type="radio" name="q6" value="i"><span><b>i</b> A biorobotic model exploring insect flight</span></label>
+<label class="opt-row"><input type="radio" name="q6" value="iv"><span><b>iv</b> Insect flight inspires the applications of steering operation</span></label>
+<label class="opt-row"><input type="radio" name="q6" value="vii"><span><b>vii</b> Combine machines and environment</span></label>
+<label class="opt-row"><input type="radio" name="q6" value="viii"><span><b>viii</b> The advent of robots and their effects on modern society</span></label>
+</div>
+<div class="rubric"><b>Questions 7–11.</b> Match the people (A–E) with the opinions or deeds below. <i>A W. Gray Walter, B Rodney Brooks, C Michael Dickinson, D Spenko et al, E Edelman et al.</i></div>
+<div class="q-block" data-q="7">
+<div><span class="q-num">7.</span>Made contributions to neurophysiology</div>
+<label class="opt-row"><input type="radio" name="q7" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q7" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q7" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q7" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q7" value="E"><span><b>E</b> </span></label>
+</div>
+<div class="q-block" data-q="8">
+<div><span class="q-num">8.</span>Endowed robots with agility from the innovation of machinery-environment fit</div>
+<label class="opt-row"><input type="radio" name="q8" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q8" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q8" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q8" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q8" value="E"><span><b>E</b> </span></label>
+</div>
+<div class="q-block" data-q="9">
+<div><span class="q-num">9.</span>Generated mechanical intelligence inspired by the way the human brain works</div>
+<label class="opt-row"><input type="radio" name="q9" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q9" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q9" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q9" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q9" value="E"><span><b>E</b> </span></label>
+</div>
+<div class="q-block" data-q="10">
+<div><span class="q-num">10.</span>Modified mechanical models based on the structure of insects</div>
+<label class="opt-row"><input type="radio" name="q10" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q10" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q10" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q10" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q10" value="E"><span><b>E</b> </span></label>
+</div>
+<div class="q-block" data-q="11">
+<div><span class="q-num">11.</span>Found the mechanism of insect flight</div>
+<label class="opt-row"><input type="radio" name="q11" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q11" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q11" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q11" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q11" value="E"><span><b>E</b> </span></label>
+</div>
+<div class="rubric"><b>Questions 12–13.</b> Answer using <b>NO MORE THAN THREE WORDS</b>.</div>
+<div class="q-block" data-q="12">
+<div><span class="q-num">12.</span>What plays the most critical role in Raibert's hopping and legged robots?</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="13">
+<div><span class="q-num">13.</span>What allowed direct measurement of the lifting forces of the biorobotic model?</div>
+<input type="text" placeholder="Type your answer">
+</div>
+    </div>
+  </div>
+
+  <div class="mock-passage" id="passage_2" style="display:none">
+    <div class="player">
+      <button class="play-btn" id="playBtn2">&#9654;</button>
+      <button class="stop-btn" id="stopBtn2">&#9632;</button>
+      <div class="player-status">
+        <div class="pl-title" id="plTitle2">Listen to Passage 2</div>
+        <div class="pl-sub" id="plSub2">American accent &middot; tap play to start</div>
+      </div>
+      <select class="rate-select" id="rateSelect2">
+        <option value="0.8">0.8&times; slow</option>
+        <option value="1" selected>1&times; normal</option>
+        <option value="1.2">1.2&times; fast</option>
+      </select>
+    </div>
+    <div class="article" id="articleBody2">
+      <h1 style="font-size:1.5rem">Extinction of Aussie Animals</h1>
+      <div class="art-sub">How ancient burning practices may have reshaped Australia's climate and wildlife</div>
+      <p>A. World Wildlife Fund Australia has revealed its list of extinct wildlife to coincide with Australia Day. The list covers a wide range of species, from birds to reptiles, marsupials, insects and even flowers. Top of the list is the green and gold frog, which has had its home decimated by drought. 'Many Aussie species need our help in order to survive,' WWF threatened species program manager Kat Miller said. 'Without knowing the reason many had disappeared for, we will risk losing another 346 animal and 1,249 plant species listed as threatened under federal legislation. Australia has one of the worst records of mammal extinction in the world.' WWF Australia said 9 percent of birds, 7 percent of reptiles and 16 percent of amphibians are extinct since early human settlement.</p>
+      <p>B. The conservation group said half the mammals that have become extinct globally in the last 200 years have been Australian species. Ancient hunters and gatherers may have triggered the failure of the annual Australian Monsoon some 12,000 years ago by burning massive tracts of the country's interior, resulting in the desertification that is evident today, says a new study. Researcher Gifford Miller of the University of Colorado at Boulder said the new study builds on his research group's previous findings that dozens of giant animal species became extinct in Australia 50,000 years ago due to ecosystem changes caused by human burning. This study, appearing in Geology, indicates such burning may have altered the flora enough to decrease the exchange of water vapour between the biosphere and atmosphere, causing the failure of the Australian Monsoon over the interior.</p>
+      <p>C. 'The question is whether localised burning 50,000 years ago could have had a continental-scale effect,' said Miller. 'The implications are that the burning practices of early humans may have changed the climate of the Australian continent by weakening the penetration of monsoon moisture into the interior.' A paper on the subject by Miller appears in the January issue of Geology.</p>
+      <p>D. Geologic evidence indicates the interior of Australia was much wetter about 125,000 years ago during the last interglacial period. Although planetary and meteorological conditions during the most recent ice age caused Earth's major monsoons to waver, all except the Australian Monsoon were 'reinvigorated' to full force during the Holocene Period beginning about 12,000 years ago, he said. Although the Australian Monsoon delivers about 39 inches of rain annually to the north coast as it moves south from Asia, only about 13 inches of rain now falls on the continent's interior each year, said Miller. Lake Eyre, a deep-water lake in the continent's interior that was filled by regular monsoon rains about 60,000 years ago, is now a huge salt flat that is occasionally covered by a thin layer of salty water.</p>
+      <p>E. The earliest human colonisers are believed to have arrived in Australia by sea from Indonesia about 50,000 years ago, using fire as a tool to hunt, clear paths, signal each other and promote the growth of certain plants, he said. Fossil remains of browse-dependent birds and marsupials indicate the interior was made up of trees, shrubs and grasses rather than the desert scrub environment present today.</p>
+      <p>F. The researchers used global climate model simulations to evaluate the atmospheric and meteorological conditions in Australia over time, as well as the sensitivity of the monsoon to different vegetation and soil types. A climate model simulating a forested Australia produced twice as much annual monsoon precipitation over the continental interior as the model simulating arid scrub conditions, he said.</p>
+      <p>G. 'Systematic burning across the semiarid zone, where nutrients are the lowest of any continental region, may have been responsible for the rapid transformation of a drought-tolerant ecosystem high in broad-leaf species to the modern desert scrub,' he said. 'In the process, vegetation feedbacks promoting the penetration of monsoon moisture into the continental interior would have been disrupted.' More than 85 percent of Australia's mega fauna weighing more than 100 pounds went extinct roughly 50,000 years ago, including an ostrich-sized bird, 19 species of marsupials, a 25-foot-long lizard and a Volkswagen-sized tortoise, he said.</p>
+      <p>H. Evidence for burning includes increased charcoal deposits preserved in lake sediments at the boundary between rainforest and interior desert beginning about 50,000 years ago, Miller said. In addition, a number of rainforest gymnosperms — plants whose seeds are not encased and protected and are therefore more vulnerable to fire — went extinct at about that time. Natural fires resulting from summer lightning strikes have played an integral part in the ecology of Australia's interior, and many plant species are adapted to regimes of frequent fires, he said. 'But the systematic burning of the interior by the earliest colonisers differed enough from the natural fire cycle that key ecosystems may have been pushed past a threshold from which they could not recover.'</p>
+    </div>
+    <div class="card" style="margin-top:24px">
+      <h2 style="font-family:var(--serif);font-weight:400;margin-top:0">Questions 14–26</h2>
+<div class="rubric"><b>Questions 14–16.</b> This passage has eight paragraphs, A–H. Which paragraph states the following information?</div>
+<div class="q-block" data-q="14">
+<div><span class="q-num">14.</span>Why did an interior Australian lake change to a dry flat?</div>
+<label class="opt-row"><input type="radio" name="q14" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q14" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q14" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q14" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q14" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q14" value="F"><span><b>F</b> </span></label>
+<label class="opt-row"><input type="radio" name="q14" value="G"><span><b>G</b> </span></label>
+<label class="opt-row"><input type="radio" name="q14" value="H"><span><b>H</b> </span></label>
+</div>
+<div class="q-block" data-q="15">
+<div><span class="q-num">15.</span>When did an ostrich-sized bird go extinct?</div>
+<label class="opt-row"><input type="radio" name="q15" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q15" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q15" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q15" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q15" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q15" value="F"><span><b>F</b> </span></label>
+<label class="opt-row"><input type="radio" name="q15" value="G"><span><b>G</b> </span></label>
+<label class="opt-row"><input type="radio" name="q15" value="H"><span><b>H</b> </span></label>
+</div>
+<div class="q-block" data-q="16">
+<div><span class="q-num">16.</span>Why did the ancient settlers in Australia burn the forests?</div>
+<label class="opt-row"><input type="radio" name="q16" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q16" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q16" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q16" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q16" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q16" value="F"><span><b>F</b> </span></label>
+<label class="opt-row"><input type="radio" name="q16" value="G"><span><b>G</b> </span></label>
+<label class="opt-row"><input type="radio" name="q16" value="H"><span><b>H</b> </span></label>
+</div>
+<div class="rubric"><b>Questions 17–20.</b> Choose ONE phrase (A–G) to complete each sentence.</div>
+<div class="q-block" data-q="17">
+<div><span class="q-num">17.</span>Ancient hunters and gatherers</div>
+<label class="opt-row"><input type="radio" name="q17" value="A"><span><b>A</b> caused the failure of the annual Australian Monsoon by burning tracts</span></label>
+<label class="opt-row"><input type="radio" name="q17" value="B"><span><b>B</b> were responsible for the extinction of an Australian giant animal species because of their massive hunting</span></label>
+<label class="opt-row"><input type="radio" name="q17" value="C"><span><b>C</b> showed that in the past the interior of Australia was not a desert</span></label>
+<label class="opt-row"><input type="radio" name="q17" value="D"><span><b>D</b> altered the flora to decrease the exchange of water vapour between the biosphere and atmosphere</span></label>
+<label class="opt-row"><input type="radio" name="q17" value="E"><span><b>E</b> suggested that the changed climate of the Australian continent was led by the weakened penetration of monsoon moisture</span></label>
+<label class="opt-row"><input type="radio" name="q17" value="F"><span><b>F</b> indicated that the forests facilitated more rainfall</span></label>
+<label class="opt-row"><input type="radio" name="q17" value="G"><span><b>G</b> indicated that the extinction of an Australian species resulted from changes in the local ecosystem</span></label>
+</div>
+<div class="q-block" data-q="18">
+<div><span class="q-num">18.</span>The January issue of Geology</div>
+<label class="opt-row"><input type="radio" name="q18" value="A"><span><b>A</b> caused the failure of the annual Australian Monsoon by burning tracts</span></label>
+<label class="opt-row"><input type="radio" name="q18" value="B"><span><b>B</b> were responsible for the extinction of an Australian giant animal species because of their massive hunting</span></label>
+<label class="opt-row"><input type="radio" name="q18" value="C"><span><b>C</b> showed that in the past the interior of Australia was not a desert</span></label>
+<label class="opt-row"><input type="radio" name="q18" value="D"><span><b>D</b> altered the flora to decrease the exchange of water vapour between the biosphere and atmosphere</span></label>
+<label class="opt-row"><input type="radio" name="q18" value="E"><span><b>E</b> suggested that the changed climate of the Australian continent was led by the weakened penetration of monsoon moisture</span></label>
+<label class="opt-row"><input type="radio" name="q18" value="F"><span><b>F</b> indicated that the forests facilitated more rainfall</span></label>
+<label class="opt-row"><input type="radio" name="q18" value="G"><span><b>G</b> indicated that the extinction of an Australian species resulted from changes in the local ecosystem</span></label>
+</div>
+<div class="q-block" data-q="19">
+<div><span class="q-num">19.</span>Fossil remains</div>
+<label class="opt-row"><input type="radio" name="q19" value="A"><span><b>A</b> caused the failure of the annual Australian Monsoon by burning tracts</span></label>
+<label class="opt-row"><input type="radio" name="q19" value="B"><span><b>B</b> were responsible for the extinction of an Australian giant animal species because of their massive hunting</span></label>
+<label class="opt-row"><input type="radio" name="q19" value="C"><span><b>C</b> showed that in the past the interior of Australia was not a desert</span></label>
+<label class="opt-row"><input type="radio" name="q19" value="D"><span><b>D</b> altered the flora to decrease the exchange of water vapour between the biosphere and atmosphere</span></label>
+<label class="opt-row"><input type="radio" name="q19" value="E"><span><b>E</b> suggested that the changed climate of the Australian continent was led by the weakened penetration of monsoon moisture</span></label>
+<label class="opt-row"><input type="radio" name="q19" value="F"><span><b>F</b> indicated that the forests facilitated more rainfall</span></label>
+<label class="opt-row"><input type="radio" name="q19" value="G"><span><b>G</b> indicated that the extinction of an Australian species resulted from changes in the local ecosystem</span></label>
+</div>
+<div class="q-block" data-q="20">
+<div><span class="q-num">20.</span>A climate model</div>
+<label class="opt-row"><input type="radio" name="q20" value="A"><span><b>A</b> caused the failure of the annual Australian Monsoon by burning tracts</span></label>
+<label class="opt-row"><input type="radio" name="q20" value="B"><span><b>B</b> were responsible for the extinction of an Australian giant animal species because of their massive hunting</span></label>
+<label class="opt-row"><input type="radio" name="q20" value="C"><span><b>C</b> showed that in the past the interior of Australia was not a desert</span></label>
+<label class="opt-row"><input type="radio" name="q20" value="D"><span><b>D</b> altered the flora to decrease the exchange of water vapour between the biosphere and atmosphere</span></label>
+<label class="opt-row"><input type="radio" name="q20" value="E"><span><b>E</b> suggested that the changed climate of the Australian continent was led by the weakened penetration of monsoon moisture</span></label>
+<label class="opt-row"><input type="radio" name="q20" value="F"><span><b>F</b> indicated that the forests facilitated more rainfall</span></label>
+<label class="opt-row"><input type="radio" name="q20" value="G"><span><b>G</b> indicated that the extinction of an Australian species resulted from changes in the local ecosystem</span></label>
+</div>
+<div class="rubric"><b>Questions 21–26.</b> Do the following statements agree with the writer's claims? Choose <b>TRUE</b>, <b>FALSE</b> or <b>NOT GIVEN</b>.</div>
+<div class="q-block" data-q="21">
+<div><span class="q-num">21.</span>According to the WWF, Australia has the worst record of animal extinction in the world.</div>
+<label class="opt-row"><input type="radio" name="q21" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q21" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q21" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="22">
+<div><span class="q-num">22.</span>In Australia, hundreds of endangered animal and plant species will keep disappearing.</div>
+<label class="opt-row"><input type="radio" name="q22" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q22" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q22" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="23">
+<div><span class="q-num">23.</span>The extinction of Australian giant animals was a knock-on effect after human burning ceased the monsoon.</div>
+<label class="opt-row"><input type="radio" name="q23" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q23" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q23" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="24">
+<div><span class="q-num">24.</span>Lake Eyre has always been filled with salty water.</div>
+<label class="opt-row"><input type="radio" name="q24" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q24" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q24" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="25">
+<div><span class="q-num">25.</span>It is a theoretical assumption that early humans burned massive tracts in Australia.</div>
+<label class="opt-row"><input type="radio" name="q25" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q25" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q25" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="26">
+<div><span class="q-num">26.</span>Varieties of plants from Australia's interior have now adapted to recurrent fires.</div>
+<label class="opt-row"><input type="radio" name="q26" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q26" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q26" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+    </div>
+  </div>
+
+  <div class="mock-passage" id="passage_3" style="display:none">
+    <div class="player">
+      <button class="play-btn" id="playBtn3">&#9654;</button>
+      <button class="stop-btn" id="stopBtn3">&#9632;</button>
+      <div class="player-status">
+        <div class="pl-title" id="plTitle3">Listen to Passage 3</div>
+        <div class="pl-sub" id="plSub3">American accent &middot; tap play to start</div>
+      </div>
+      <select class="rate-select" id="rateSelect3">
+        <option value="0.8">0.8&times; slow</option>
+        <option value="1" selected>1&times; normal</option>
+        <option value="1.2">1.2&times; fast</option>
+      </select>
+    </div>
+    <div class="article" id="articleBody3">
+      <h1 style="font-size:1.5rem">Amateur Naturalists</h1>
+      <div class="art-sub">How hobbyist record-keepers are helping scientists understand climate change</div>
+      <p>A. Tim Sparks slides a small leather-bound notebook out of an envelope. The book's yellowing pages contain bee-keeping notes made between 1941 and 1969 by the late Walter Coates of Kilworth, Leicestershire. He adds it to his growing pile of local journals, birdwatchers' lists and gardening diaries. 'We're uncovering about one major new record each month,' he says, 'I still get surprised.' Around two centuries before Coates, Robert Marsham, a landowner from Norfolk in the east of England, began recording the life cycles of plants and animals on his estate — when the first wood anemones flowered, the dates on which the oaks burst into leaf and the rooks began nesting. Successive Marshams continued compiling these notes for 211 years.</p>
+      <p>B. Today, such records are being put to uses that their authors could not possibly have expected. These data sets, and others like them, are proving invaluable to ecologists interested in the timing of biological events, or phenology. By combining the records with climate data, researchers can reveal how, for example, changes in temperature affect the arrival of spring, allowing ecologists to make improved predictions about the impact of climate change. 'The amount of interest is almost frightening,' says Sparks, a climate researcher at the Centre for Ecology and Hydrology in Monks Wood, Cambridgeshire.</p>
+      <p>C. Sparks first became aware of the army of 'closet phenologists', as he describes them, when a retiring colleague gave him the Marsham records. He now spends much of his time following leads from one historical data set to another. As news of his quest spreads, people tip him off to other historical records, and more amateur phenologists come out of their closets. The British devotion to recording and collecting makes his job easier — one man from Kent sent him 30 years' worth of kitchen calendars, on which he had noted the date that his neighbour's magnolia tree flowered.</p>
+      <p>D. Other researchers have unearthed data from equally odd sources. Rafe Sagarin, an ecologist at Stanford University in California, recently studied records of a betting contest in which participants attempt to guess the exact time at which a specially erected wooden tripod will fall through the surface of a thawing river. The competition has taken place annually on the Tenana River in Alaska since 1917, and analysis of the results showed that the thaw now arrives five days earlier than it did when the contest began.</p>
+      <p>E. Overall, such records have helped to show that, compared with 20 years ago, a raft of natural events now occur earlier across much of the northern hemisphere, from the opening of leaves to the return of birds from migration and the emergence of butterflies from hibernation. Together with models of climate change, amateurs' records could help guide conservation. Terry Root, an ecologist at the University of Michigan in Ann Arbor, has collected birdwatchers' counts of wildfowl taken between 1955 and 1996 on seasonal ponds in the American Midwest and combined them with climate data and models of future warming. Her analysis shows that the increased droughts that the models predict could halve the breeding populations at the ponds. 'The number of waterfowl in North America will most probably drop significantly with global warming,' she says.</p>
+      <p>F. But not all professionals are happy to use amateur data. 'A lot of scientists won't touch them, they say they're too full of problems,' says Root, because different observers can have different ideas of what constitutes, for example, an open snowdrop. 'The biggest concern with ad hoc observations is how carefully and systematically they were taken,' says Mark Schwartz of the University of Wisconsin, Milwaukee. 'We need to know pretty precisely what a person's been observing — if they just say "I noted when the leaves came out", it might not be that useful.' Measuring the onset of autumn can be particularly problematic because deciding when leaves change colour is a more subjective process than noting when they appear.</p>
+      <p>G. Overall, most phenologists are positive about the contribution that amateurs can make. 'They get at the raw power of science: careful observation of the natural world,' says Sagarin. But the professionals also acknowledge the need for careful quality control. Root tries to gauge the quality of an amateur archive by interviewing its collector. 'You always have to worry — things as trivial as vacations can affect measurement. I disregard a lot of records because they're not rigorous enough,' she says. Together with colleagues at Wageningen University in the Netherlands, environmental scientist Arnold van Vliet is developing statistical techniques to account for the uncertainty in amateur phenological data. Professional researchers are now trying to create standardised recording schemes for future efforts, hoping that well-designed studies will generate a volume of observations large enough to drown out the idiosyncrasies of individual recorders. 'It's very difficult to collect data on a large geographical scale without enlisting an army of observers,' says Root.</p>
+      <p>H. Phenology also helps to drive home messages about climate change. 'Because the public understand these records, they accept them,' says Sparks. It can also illustrate potentially unpleasant consequences, such as the finding that more rat infestations are reported to local councils in warmer years. And getting people involved is great for public relations. 'People are thrilled to think that the data they've been collecting as a hobby can be used for something scientific — it empowers them,' says Root.</p>
+    </div>
+    <div class="card" style="margin-top:24px">
+      <h2 style="font-family:var(--serif);font-weight:400;margin-top:0">Questions 27–40</h2>
+<div class="rubric"><b>Questions 27–33.</b> This passage has eight paragraphs, A–H. Which paragraph contains the following information?</div>
+<div class="q-block" data-q="27">
+<div><span class="q-num">27.</span>The definition of phenology</div>
+<label class="opt-row"><input type="radio" name="q27" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q27" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q27" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q27" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q27" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q27" value="F"><span><b>F</b> </span></label>
+<label class="opt-row"><input type="radio" name="q27" value="G"><span><b>G</b> </span></label>
+<label class="opt-row"><input type="radio" name="q27" value="H"><span><b>H</b> </span></label>
+</div>
+<div class="q-block" data-q="28">
+<div><span class="q-num">28.</span>How Sparks first became aware of amateur records</div>
+<label class="opt-row"><input type="radio" name="q28" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q28" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q28" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q28" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q28" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q28" value="F"><span><b>F</b> </span></label>
+<label class="opt-row"><input type="radio" name="q28" value="G"><span><b>G</b> </span></label>
+<label class="opt-row"><input type="radio" name="q28" value="H"><span><b>H</b> </span></label>
+</div>
+<div class="q-block" data-q="29">
+<div><span class="q-num">29.</span>How people reacted to their involvement in data collection</div>
+<label class="opt-row"><input type="radio" name="q29" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q29" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q29" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q29" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q29" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q29" value="F"><span><b>F</b> </span></label>
+<label class="opt-row"><input type="radio" name="q29" value="G"><span><b>G</b> </span></label>
+<label class="opt-row"><input type="radio" name="q29" value="H"><span><b>H</b> </span></label>
+</div>
+<div class="q-block" data-q="30">
+<div><span class="q-num">30.</span>The necessity to encourage amateur data collection</div>
+<label class="opt-row"><input type="radio" name="q30" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q30" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q30" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q30" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q30" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q30" value="F"><span><b>F</b> </span></label>
+<label class="opt-row"><input type="radio" name="q30" value="G"><span><b>G</b> </span></label>
+<label class="opt-row"><input type="radio" name="q30" value="H"><span><b>H</b> </span></label>
+</div>
+<div class="q-block" data-q="31">
+<div><span class="q-num">31.</span>A description of using amateur records to make predictions</div>
+<label class="opt-row"><input type="radio" name="q31" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q31" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q31" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q31" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q31" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q31" value="F"><span><b>F</b> </span></label>
+<label class="opt-row"><input type="radio" name="q31" value="G"><span><b>G</b> </span></label>
+<label class="opt-row"><input type="radio" name="q31" value="H"><span><b>H</b> </span></label>
+</div>
+<div class="q-block" data-q="32">
+<div><span class="q-num">32.</span>Records of a competition providing clues to climate change</div>
+<label class="opt-row"><input type="radio" name="q32" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q32" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q32" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q32" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q32" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q32" value="F"><span><b>F</b> </span></label>
+<label class="opt-row"><input type="radio" name="q32" value="G"><span><b>G</b> </span></label>
+<label class="opt-row"><input type="radio" name="q32" value="H"><span><b>H</b> </span></label>
+</div>
+<div class="q-block" data-q="33">
+<div><span class="q-num">33.</span>A description of a very old record compiled by generations of amateur naturalists</div>
+<label class="opt-row"><input type="radio" name="q33" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q33" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q33" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q33" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q33" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q33" value="F"><span><b>F</b> </span></label>
+<label class="opt-row"><input type="radio" name="q33" value="G"><span><b>G</b> </span></label>
+<label class="opt-row"><input type="radio" name="q33" value="H"><span><b>H</b> </span></label>
+</div>
+<div class="rubric"><b>Questions 34–36.</b> Complete each sentence with <b>NO MORE THAN TWO WORDS</b> from the passage.</div>
+<div class="q-block" data-q="34">
+<div><span class="q-num">34.</span>Walter Coates's records largely contain information about _____.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="35">
+<div><span class="q-num">35.</span>Robert Marsham is famous for recording the _____ of animals and plants on his land.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="36">
+<div><span class="q-num">36.</span>Global warming may cause the number of waterfowl in North America to drop significantly due to increased _____.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="rubric"><b>Questions 37–40.</b> Choose the correct letter, A, B, C or D.</div>
+<div class="q-block" data-q="37">
+<div><span class="q-num">37.</span>Why do a lot of scientists discredit the data collected by amateurs?</div>
+<label class="opt-row"><input type="radio" name="q37" value="A"><span><b>A</b> Scientific methods were not used in data collection.</span></label>
+<label class="opt-row"><input type="radio" name="q37" value="B"><span><b>B</b> Amateur observers are not careful in recording their data.</span></label>
+<label class="opt-row"><input type="radio" name="q37" value="C"><span><b>C</b> Amateur data is not reliable.</span></label>
+<label class="opt-row"><input type="radio" name="q37" value="D"><span><b>D</b> Amateur data is produced by unsuitable candidates.</span></label>
+</div>
+<div class="q-block" data-q="38">
+<div><span class="q-num">38.</span>Mark Schwartz used the example of leaves to illustrate that</div>
+<label class="opt-row"><input type="radio" name="q38" value="A"><span><b>A</b> amateur records can't be used.</span></label>
+<label class="opt-row"><input type="radio" name="q38" value="B"><span><b>B</b> amateur records are always unsystematic.</span></label>
+<label class="opt-row"><input type="radio" name="q38" value="C"><span><b>C</b> the colour change of leaves is hard to observe objectively.</span></label>
+<label class="opt-row"><input type="radio" name="q38" value="D"><span><b>D</b> valuable information is often precise.</span></label>
+</div>
+<div class="q-block" data-q="39">
+<div><span class="q-num">39.</span>How do the scientists suggest amateur data should be used?</div>
+<label class="opt-row"><input type="radio" name="q39" value="A"><span><b>A</b> Using improved methods.</span></label>
+<label class="opt-row"><input type="radio" name="q39" value="B"><span><b>B</b> Being more careful in observation.</span></label>
+<label class="opt-row"><input type="radio" name="q39" value="C"><span><b>C</b> Using raw materials.</span></label>
+<label class="opt-row"><input type="radio" name="q39" value="D"><span><b>D</b> Applying statistical techniques.</span></label>
+</div>
+<div class="q-block" data-q="40">
+<div><span class="q-num">40.</span>What is the implication of phenology for ordinary people?</div>
+<label class="opt-row"><input type="radio" name="q40" value="A"><span><b>A</b> It empowers the public.</span></label>
+<label class="opt-row"><input type="radio" name="q40" value="B"><span><b>B</b> It promotes public relations.</span></label>
+<label class="opt-row"><input type="radio" name="q40" value="C"><span><b>C</b> It warns people of animal infestation.</span></label>
+<label class="opt-row"><input type="radio" name="q40" value="D"><span><b>D</b> It raises awareness about climate change.</span></label>
+</div>
+    </div>
+  </div>
+
+    <div class="submit-bar">
+      <button class="btn btn-gold" onclick="submitMock()">Check all answers</button>
+      <button class="btn" onclick="showKeyWords()">Key word table</button>
+    </div>
+    <div class="score-banner" id="scoreBanner"></div>
+    <div class="card" id="kwCard" style="margin-top:20px;display:none">
+      <h2 style="font-family:var(--serif);font-weight:400;margin-top:0">Key Word Table</h2>
+<table class="kw-table"><tr><th>In the question</th><th>In the passage</th></tr>
+<tr><td class="qtext">Q1 &middot; Paragraph A heading</td><td class="ptext">pursued for over <b>2,000 years</b>, beginning ... in Ancient Greece</td></tr>
+<tr><td class="qtext">Q2 &middot; Paragraph B heading</td><td class="ptext">the <b>best-known and most directly relevant</b> ... Walter's robotic 'tortoises'</td></tr>
+<tr><td class="qtext">Q7 &middot; neurophysiology contributions</td><td class="ptext">Walter was a physiologist who made <b>important early contributions to ... clinical neurophysiology</b></td></tr>
+<tr><td class="qtext">Q9 &middot; inspired by human brain</td><td class="ptext">robots whose control was based on <b>theories of human brain function</b> is given by the work of Edelman et al</td></tr>
+<tr><td class="qtext">Q12 &middot; critical role in Raibert's robots</td><td class="ptext">emphasised the central role of <b>energetics</b> in the dynamic balance and locomotion</td></tr>
+<tr><td class="qtext">Q13 &middot; measured lifting forces</td><td class="ptext"><b>force sensors</b> at the base of one wing allowed direct measurement</td></tr>
+<tr><td class="qtext">Q14 &middot; lake became dry flat</td><td class="ptext">Lake Eyre ... is now a <b>huge salt flat</b></td></tr>
+<tr><td class="qtext">Q15 &middot; ostrich-sized bird extinct</td><td class="ptext">went extinct <b>roughly 50,000 years ago</b>, including an ostrich-sized bird</td></tr>
+<tr><td class="qtext">Q16 &middot; why settlers burned forests</td><td class="ptext">using fire as a tool to <b>hunt, clear paths, signal</b> ... and promote the growth of certain plants</td></tr>
+<tr><td class="qtext">Q21 &middot; worst extinction record</td><td class="ptext">one of the <b>worst records of mammal extinction</b> in the world</td></tr>
+<tr><td class="qtext">Q23 &middot; giant animals extinct after monsoon ceased</td><td class="ptext">giant animal species became extinct ... <b>50,000 years ago</b> due to ecosystem changes (monsoon failure occurred separately, around 12,000 years ago)</td></tr>
+<tr><td class="qtext">Q24 &middot; lake always salty</td><td class="ptext">was a <b>deep-water lake</b> ... filled by regular monsoon rains ... is now a huge salt flat</td></tr>
+<tr><td class="qtext">Q26 &middot; plants adapted to fires</td><td class="ptext">many plant species are <b>adapted to regimes of frequent fires</b></td></tr>
+<tr><td class="qtext">Q27 &middot; definition of phenology</td><td class="ptext">interested in the timing of biological events, or <b>phenology</b></td></tr>
+<tr><td class="qtext">Q28 &middot; how Sparks became aware</td><td class="ptext">first became aware ... when a <b>retiring colleague gave him the Marsham records</b></td></tr>
+<tr><td class="qtext">Q29 &middot; people's reaction</td><td class="ptext">'it <b>empowers</b> them,' says Root</td></tr>
+<tr><td class="qtext">Q33 &middot; very old record, generations</td><td class="ptext">successive Marshams continued compiling these notes for <b>211 years</b></td></tr>
+<tr><td class="qtext">Q37 &middot; scientists discredit amateur data</td><td class="ptext">'the biggest concern ... is <b>how carefully and systematically</b> they were taken'</td></tr>
+<tr><td class="qtext">Q38 &middot; leaves example illustrates</td><td class="ptext">deciding when leaves change colour is a <b>more subjective process</b></td></tr>
+<tr><td class="qtext">Q39 &middot; suggested use of amateur data</td><td class="ptext">developing <b>statistical techniques</b> to account for the uncertainty</td></tr>
+</table>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/catalog.js"></script>
+<script src="../assets/shared.js"></script>
+<script>
+const PASSAGE_ID = 'm3';
+const QUIZ = [{"id": 1, "type": "radio", "answer": "x"}, {"id": 2, "type": "radio", "answer": "ix"}, {"id": 3, "type": "radio", "answer": "vi"}, {"id": 4, "type": "radio", "answer": "v"}, {"id": 5, "type": "radio", "answer": "iii"}, {"id": 6, "type": "radio", "answer": "i"}, {"id": 7, "type": "radio", "answer": "A"}, {"id": 8, "type": "radio", "answer": "B"}, {"id": 9, "type": "radio", "answer": "E"}, {"id": 10, "type": "radio", "answer": "D"}, {"id": 11, "type": "radio", "answer": "C"}, {"id": 12, "type": "text", "answer": "energetics"}, {"id": 13, "type": "text", "answer": ["force sensors", "sensors"]}, {"id": 14, "type": "radio", "answer": "D"}, {"id": 15, "type": "radio", "answer": "G"}, {"id": 16, "type": "radio", "answer": "E"}, {"id": 17, "type": "radio", "answer": "A"}, {"id": 18, "type": "radio", "answer": "E"}, {"id": 19, "type": "radio", "answer": "C"}, {"id": 20, "type": "radio", "answer": "F"}, {"id": 21, "type": "radio", "answer": "TRUE"}, {"id": 22, "type": "radio", "answer": "TRUE"}, {"id": 23, "type": "radio", "answer": "FALSE"}, {"id": 24, "type": "radio", "answer": "FALSE"}, {"id": 25, "type": "radio", "answer": "TRUE"}, {"id": 26, "type": "radio", "answer": "TRUE"}, {"id": 27, "type": "radio", "answer": "B"}, {"id": 28, "type": "radio", "answer": "C"}, {"id": 29, "type": "radio", "answer": "H"}, {"id": 30, "type": "radio", "answer": "G"}, {"id": 31, "type": "radio", "answer": "E"}, {"id": 32, "type": "radio", "answer": "D"}, {"id": 33, "type": "radio", "answer": "A"}, {"id": 34, "type": "text", "answer": ["bee-keeping", "bee keeping"]}, {"id": 35, "type": "text", "answer": ["life cycles", "life cycle"]}, {"id": 36, "type": "text", "answer": "droughts"}, {"id": 37, "type": "radio", "answer": "B"}, {"id": 38, "type": "radio", "answer": "C"}, {"id": 39, "type": "radio", "answer": "D"}, {"id": 40, "type": "radio", "answer": "A"}];
+const GLOSSARY = [{"word": "biorobotics", "pos": "noun", "def": "the field combining biology and robotics to design robots inspired by living organisms", "uz": "biorobototexnika"}, {"word": "physiologist", "pos": "noun", "def": "a scientist who studies how living organisms function", "uz": "fiziolog"}, {"word": "morphology", "pos": "noun", "def": "the study of the form and structure of organisms", "uz": "morfologiya (shakl haqida fan)"}, {"word": "locomotion", "pos": "noun", "def": "the ability to move from one place to another", "uz": "harakatlanish"}, {"word": "aerodynamics", "pos": "noun", "def": "the study of how air moves around solid objects", "uz": "aerodinamika"}, {"word": "vortex", "pos": "noun", "def": "a mass of spinning air, water or other fluid", "uz": "girdob, vixr"}, {"word": "desertification", "pos": "noun", "def": "the process by which fertile land becomes desert", "uz": "cho'llanish"}, {"word": "monsoon", "pos": "noun", "def": "a seasonal wind that brings heavy rainfall to parts of Asia and Australia", "uz": "musson (mavsumiy shamol/yomg'ir)"}, {"word": "sediment", "pos": "noun", "def": "matter that settles at the bottom of a liquid", "uz": "cho'kindi"}, {"word": "gymnosperm", "pos": "noun", "def": "a plant that produces seeds without a protective covering", "uz": "ochiq urug'li o'simlik"}, {"word": "mega fauna", "pos": "noun", "def": "very large animals characteristic of a particular region or period", "uz": "ulkan hayvonlar (megafauna)"}, {"word": "marsupial", "pos": "noun", "def": "a mammal that carries its young in a pouch", "uz": "xaltali sut emizuvchi"}, {"word": "phenology", "pos": "noun", "def": "the study of the timing of natural, seasonal biological events", "uz": "fenologiya"}, {"word": "hibernation", "pos": "noun", "def": "a state of inactivity some animals enter during winter", "uz": "qishki uyqu"}, {"word": "infestation", "pos": "noun", "def": "the presence of a large number of unwanted pests in a place", "uz": "hasharotlar/zararkunandalar bosishi"}, {"word": "subjective", "pos": "adjective", "def": "based on personal opinion rather than objective fact", "uz": "sub'ektiv, shaxsiy fikrga asoslangan"}, {"word": "rigorous", "pos": "adjective", "def": "thorough, careful and exact", "uz": "qat'iy, puxta"}, {"word": "idiosyncrasy", "pos": "noun", "def": "a peculiar or individual way of behaving", "uz": "o'ziga xoslik, individual xususiyat"}, {"word": "empower", "pos": "verb", "def": "to give someone confidence or the means to do something", "uz": "vakolat/kuch bermoq"}, {"word": "threshold", "pos": "noun", "def": "the point at which something begins or changes", "uz": "chegara, bo'sag'a"}];
+
+ArbPlayer('#articleBody1 p', {playBtnId:'playBtn1', stopBtnId:'stopBtn1', titleId:'plTitle1', subId:'plSub1', rateId:'rateSelect1'});
+ArbPlayer('#articleBody2 p', {playBtnId:'playBtn2', stopBtnId:'stopBtn2', titleId:'plTitle2', subId:'plSub2', rateId:'rateSelect2'});
+ArbPlayer('#articleBody3 p', {playBtnId:'playBtn3', stopBtnId:'stopBtn3', titleId:'plTitle3', subId:'plSub3', rateId:'rateSelect3'});
+const timer = ArbTimer({minutes:60});
+ArbHighlighter(['articleBody1','articleBody2','articleBody3']);
+
+document.getElementById('glossaryList').innerHTML = GLOSSARY.map(w =>
+  '<div class="glossary-item"><span class="w">'+w.word+'</span> <span style="color:var(--muted);font-size:.8rem">'+ (w.pos||'') +'</span>' +
+  '<div style="font-size:.88rem;margin-top:2px">'+w.def+'</div><div class="uz">'+w.uz+'</div></div>'
+).join('');
+
+function showPassage(n) {
+  document.querySelectorAll('.mock-passage').forEach((el,i) => el.style.display = (i+1===n) ? '' : 'none');
+  document.querySelectorAll('.mock-tab').forEach((el,i) => el.classList.toggle('active', i+1===n));
+}
+
+function submitMock() {
+  const correct = ArbGradeQuiz(QUIZ, {});
+  const passMark = Math.ceil(QUIZ.length * 0.5);
+  arbSetItem(PASSAGE_ID, { quiz: correct >= passMark, vocab: true, score: correct, total: QUIZ.length });
+  checkAllDone();
+}
+function showKeyWords() {
+  document.getElementById('kwCard').style.display = 'block';
+  document.getElementById('kwCard').scrollIntoView({behavior:'smooth'});
+}
+function checkAllDone() {
+  if (arbIsComplete(PASSAGE_ID)) {
+    let banner = document.getElementById('unlockBanner');
+    if (!banner) {
+      banner = document.createElement('div');
+      banner.id = 'unlockBanner';
+      banner.className = 'score-banner show';
+      banner.style.marginTop = '20px';
+      banner.innerHTML = '<div class="big">🔓 Unlocked!</div><div style="color:var(--muted);font-size:.85rem;margin-top:4px">Great work — the next item is now open.</div><button class="btn btn-gold" style="margin-top:14px" onclick="location.href=\'../index.html\'">Back to map</button>';
+      document.querySelector('.wrap').appendChild(banner);
+    }
+  }
+}
+</script>
+</body>
+</html>

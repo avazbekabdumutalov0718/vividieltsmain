@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Full Mock Test 2 — Avazbek Reader Booster</title>
+<link rel="stylesheet" href="../assets/shared.css">
+<style>
+.mock-tabs{display:flex; gap:10px; margin-bottom:20px; flex-wrap:wrap;}
+.mock-tab{flex:1; min-width:140px; text-align:center; padding:12px; border-radius:10px; border:1px solid var(--ink-line); background:var(--ink-1); cursor:pointer; font-size:.85rem; font-weight:700;}
+.mock-tab.active{border-color:var(--gold); background:var(--gold-dim); color:var(--gold-soft);}
+.glossary-item{padding:10px 4px;border-bottom:1px solid var(--ink-line);}
+.glossary-item:last-child{border-bottom:none;}
+.glossary-item .w{font-family:var(--serif);color:var(--gold-soft);font-size:1.05rem;}
+.glossary-item .uz{color:var(--gold);font-size:.85rem;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand">
+      <div class="brand-ring"><img src="../assets/avazbek.png" alt="Avazbek"></div>
+      <div class="brand-text">
+        <h1>Avazbek <em>Reader Booster</em></h1>
+        <div class="tag">Full Mock Test</div>
+      </div>
+    </div>
+    <button class="back-btn" onclick="location.href='../index.html'">&larr; Home</button>
+  </div>
+
+  <div id="home" class="section active">
+    <div class="hero">
+      <div class="eyebrow">Full Mock Test 2 of 6</div>
+      <h1>Full Mock Test 2</h1>
+      <p class="byline">The Culture of Chimpanzee! &middot; Numeracy: Can Animals Tell Numbers? &middot; Company Innovation</p>
+      <p class="passage-tag">3 passages &middot; <b>40</b> questions total &middot; ~60 minutes</p>
+    </div>
+    <div class="menu">
+      <div class="menu-card" onclick="arbGo('test')">
+        <div class="num">📝</div>
+        <h3>Start the Mock Test</h3>
+        <p>Read all three passages and answer all 40 questions.</p>
+      </div>
+      <div class="menu-card" onclick="arbGo('glossary')">
+        <div class="num">🗂️</div>
+        <h3>Key Vocabulary</h3>
+        <p>Review challenging words from all three passages before you start.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="glossary" class="section">
+    <div class="section-head">
+      <button class="back-btn" onclick="arbGo('home')">&larr; Back</button>
+      <h2>Key Vocabulary</h2>
+      <div class="sub">Challenging words from this mock test's three passages.</div>
+    </div>
+    <div class="card" id="glossaryList"></div>
+  </div>
+
+  <div id="test" class="section">
+    <div class="section-head">
+      <button class="back-btn" onclick="arbGo('home')">&larr; Back</button>
+      <h2>Full Mock Test 2</h2>
+    </div>
+    <div class="timer-bar">
+      <span id="timerDisplay">60:00</span>
+      <input class="timer-input" id="tMin" value="60"> min
+      <input class="timer-input" id="tSec" value="0"> sec
+      <button class="tbtn" onclick="timer.set()">Set</button>
+      <button class="tbtn" onclick="timer.start()">Start</button>
+      <button class="tbtn" onclick="timer.pause()">Pause</button>
+      <button class="tbtn" onclick="timer.reset()">Reset</button>
+      <div class="timeup-banner" id="timeupBanner">Time is up! Finish your answers and check your score.</div>
+    </div>
+    <div class="mock-tabs">
+      <div class="mock-tab active" onclick="showPassage(1)">Passage 1</div>
+      <div class="mock-tab" onclick="showPassage(2)">Passage 2</div>
+      <div class="mock-tab" onclick="showPassage(3)">Passage 3</div>
+    </div>
+
+  <div class="mock-passage" id="passage_1" style="">
+    <div class="player">
+      <button class="play-btn" id="playBtn1">&#9654;</button>
+      <button class="stop-btn" id="stopBtn1">&#9632;</button>
+      <div class="player-status">
+        <div class="pl-title" id="plTitle1">Listen to Passage 1</div>
+        <div class="pl-sub" id="plSub1">American accent &middot; tap play to start</div>
+      </div>
+      <select class="rate-select" id="rateSelect1">
+        <option value="0.8">0.8&times; slow</option>
+        <option value="1" selected>1&times; normal</option>
+        <option value="1.2">1.2&times; fast</option>
+      </select>
+    </div>
+    <div class="article" id="articleBody1">
+      <h1 style="font-size:1.5rem">The Culture of Chimpanzee!</h1>
+      <div class="art-sub">How an international team of experts mapped chimpanzee cultural diversity across Africa</div>
+      <p>A. The similarities between chimpanzees and humans have been studied for years, but in the past decade, researchers have determined that these resemblances run much deeper than anyone first thought. For instance, the nut-cracking observed in the Taï Forest is far from a simple chimpanzee behaviour; rather it is a singular adaptation found only in that particular part of Africa, a trait that biologists consider an expression of chimpanzee culture. Scientists frequently use the term 'culture' to describe elementary animal behaviours, but the rich and varied cultural traditions found among chimpanzees are second in complexity only to human traditions.</p>
+      <p>B. During the past two years, an unprecedented scientific collaboration, involving every major research group studying chimpanzees, has documented a multitude of distinct cultural patterns extending across Africa, ranging from the animals' use of tools to their forms of communication and social customs. This emerging picture alters human beings' conception of our own uniqueness and hints at ancient foundations for an extraordinary capacity for culture.</p>
+      <p>C. Homo sapiens and chimpanzees have coexisted for hundreds of millennia and share more than 98 percent of their genetic material, yet only 40 years ago we still knew next to nothing about chimpanzee behaviour in the wild. That began to change in the 1960s when Toshisada Nishida of Kyoto University in Japan and Jane Goodall began their studies of wild chimpanzees at two field sites in Tanzania.</p>
+      <p>D. In these initial studies, as the chimpanzees became accustomed to close observation, remarkable discoveries began. Researchers witnessed a range of unexpected behaviours, including fashioning and using tools, hunting, meat-eating, food sharing and lethal fights between neighbouring communities. Other primatologists set up camp elsewhere, and despite the financial, political and logistical problems that can beset African fieldwork, several outposts became truly long-term projects, giving us a comprehensive scientific record of chimpanzees' lives across Africa.</p>
+      <p>E. As early as 1973, Goodall recorded 13 forms of tool use as well as eight social activities that appeared to differ between the Gombe chimpanzees and populations elsewhere. She ventured that some variations had what she termed a cultural origin. Animals do not have myths and legends, but they do have the capacity to pass on behavioural traits from generation to generation, not through their genes but by learning. For biologists, this is the fundamental criterion for a cultural trait: it must be learned by observing the established skills of others and passed on to future generations.</p>
+      <p>F. What of the implications for chimpanzees themselves? Populations have plummeted in the past century and continue to fall as a result of illegal trapping, logging and, most recently, the bushmeat trade. Logging has driven roadways into forests now used to ship wild-animal meat, including chimpanzee meat, to consumers as far afield as Europe. Such destruction threatens not only the animals themselves but also a host of fascinatingly different ape cultures.</p>
+      <p>G. Perhaps the cultural richness of the ape may yet help in its salvation. Some conservation efforts have already altered the attitudes of local people. A few organisations have begun to show videotapes illustrating the cognitive prowess of chimpanzees. One Zairian viewer was heard to exclaim, 'Ah, this ape is so like me, I can no longer eat him.'</p>
+      <p>H. Scientists have been investigating chimpanzee culture for several decades, but too often their studies contained a crucial flaw. Most attempts to document cultural diversity among chimpanzees have relied solely on officially published accounts of behaviours recorded at each research site. This approach probably overlooks a good deal of cultural variation.</p>
+      <p>I. First, scientists typically don't publish an extensive list of all the activities they do not see at a particular location, yet this is exactly what we need to know. Second, many reports describe chimpanzee behaviours without saying how common they are, so we can't determine whether an action was a once-in-a-lifetime aberration or a routine part of the animals' culture. Finally, descriptions of potentially significant behaviours frequently lack sufficient detail, making it difficult for scientists elsewhere to record the presence or absence of the activities.</p>
+      <p>J. To remedy these problems, the two of us decided to take a new approach. We asked field researchers at each site for a list of all the behaviours they suspected were local traditions, then pulled together a comprehensive list of 65 candidates for cultural behaviours.</p>
+      <p>K. We then distributed our list to the team leaders at each site. In consultation with their colleagues, they classified each behaviour in terms of its occurrence or absence in the community studied. The key categories were: customary (occurs in most or all able-bodied members of at least one age or sex class), habitual (less common but occurs repeatedly in several individuals), present (seen at the site but not habitual), absent (never seen), and unknown.</p>
+    </div>
+    <div class="card" style="margin-top:24px">
+      <h2 style="font-family:var(--serif);font-weight:400;margin-top:0">Questions 1–14</h2>
+<div class="rubric"><b>Questions 1–5.</b> This passage has paragraphs A–K. Which paragraph contains the following information?</div>
+<div class="q-block" data-q="1">
+<div><span class="q-num">1.</span>A problem of researchers on chimpanzee culture which is based only on official sources</div>
+<label class="opt-row"><input type="radio" name="q1" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q1" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q1" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q1" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q1" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q1" value="F"><span><b>F</b> </span></label>
+<label class="opt-row"><input type="radio" name="q1" value="G"><span><b>G</b> </span></label>
+<label class="opt-row"><input type="radio" name="q1" value="H"><span><b>H</b> </span></label>
+<label class="opt-row"><input type="radio" name="q1" value="I"><span><b>I</b> </span></label>
+<label class="opt-row"><input type="radio" name="q1" value="J"><span><b>J</b> </span></label>
+<label class="opt-row"><input type="radio" name="q1" value="K"><span><b>K</b> </span></label>
+</div>
+<div class="q-block" data-q="2">
+<div><span class="q-num">2.</span>A new system designed by two scientists to solve the problem</div>
+<label class="opt-row"><input type="radio" name="q2" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q2" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q2" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q2" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q2" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q2" value="F"><span><b>F</b> </span></label>
+<label class="opt-row"><input type="radio" name="q2" value="G"><span><b>G</b> </span></label>
+<label class="opt-row"><input type="radio" name="q2" value="H"><span><b>H</b> </span></label>
+<label class="opt-row"><input type="radio" name="q2" value="I"><span><b>I</b> </span></label>
+<label class="opt-row"><input type="radio" name="q2" value="J"><span><b>J</b> </span></label>
+<label class="opt-row"><input type="radio" name="q2" value="K"><span><b>K</b> </span></label>
+</div>
+<div class="q-block" data-q="3">
+<div><span class="q-num">3.</span>Reasons why previous research on ape culture is problematic</div>
+<label class="opt-row"><input type="radio" name="q3" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q3" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q3" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q3" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q3" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q3" value="F"><span><b>F</b> </span></label>
+<label class="opt-row"><input type="radio" name="q3" value="G"><span><b>G</b> </span></label>
+<label class="opt-row"><input type="radio" name="q3" value="H"><span><b>H</b> </span></label>
+<label class="opt-row"><input type="radio" name="q3" value="I"><span><b>I</b> </span></label>
+<label class="opt-row"><input type="radio" name="q3" value="J"><span><b>J</b> </span></label>
+<label class="opt-row"><input type="radio" name="q3" value="K"><span><b>K</b> </span></label>
+</div>
+<div class="q-block" data-q="4">
+<div><span class="q-num">4.</span>Classification of data observed or collected</div>
+<label class="opt-row"><input type="radio" name="q4" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q4" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q4" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q4" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q4" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q4" value="F"><span><b>F</b> </span></label>
+<label class="opt-row"><input type="radio" name="q4" value="G"><span><b>G</b> </span></label>
+<label class="opt-row"><input type="radio" name="q4" value="H"><span><b>H</b> </span></label>
+<label class="opt-row"><input type="radio" name="q4" value="I"><span><b>I</b> </span></label>
+<label class="opt-row"><input type="radio" name="q4" value="J"><span><b>J</b> </span></label>
+<label class="opt-row"><input type="radio" name="q4" value="K"><span><b>K</b> </span></label>
+</div>
+<div class="q-block" data-q="5">
+<div><span class="q-num">5.</span>An example showing the tragic loss of animals, leading to a change in local attitudes towards preservation</div>
+<label class="opt-row"><input type="radio" name="q5" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q5" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q5" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q5" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q5" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q5" value="F"><span><b>F</b> </span></label>
+<label class="opt-row"><input type="radio" name="q5" value="G"><span><b>G</b> </span></label>
+<label class="opt-row"><input type="radio" name="q5" value="H"><span><b>H</b> </span></label>
+<label class="opt-row"><input type="radio" name="q5" value="I"><span><b>I</b> </span></label>
+<label class="opt-row"><input type="radio" name="q5" value="J"><span><b>J</b> </span></label>
+<label class="opt-row"><input type="radio" name="q5" value="K"><span><b>K</b> </span></label>
+</div>
+<div class="rubric"><b>Questions 6–10.</b> Do the following statements agree with the passage? Choose <b>TRUE</b>, <b>FALSE</b> or <b>NOT GIVEN</b>.</div>
+<div class="q-block" data-q="6">
+<div><span class="q-num">6.</span>The research found that scientists can make chimpanzees possess the same complex culture as humans.</div>
+<label class="opt-row"><input type="radio" name="q6" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q6" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q6" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="7">
+<div><span class="q-num">7.</span>Humans and apes lived together long ago and share most of their genetic material.</div>
+<label class="opt-row"><input type="radio" name="q7" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q7" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q7" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="8">
+<div><span class="q-num">8.</span>Even Nishida and Goodall's earliest studies observed many surprising, human-like behaviours among chimpanzees.</div>
+<label class="opt-row"><input type="radio" name="q8" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q8" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q8" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="9">
+<div><span class="q-num">9.</span>Chimpanzees, like humans, mostly pass on cultural behaviours through genetic inheritance.</div>
+<label class="opt-row"><input type="radio" name="q9" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q9" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q9" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="10">
+<div><span class="q-num">10.</span>For decades, researchers have studied chimpanzees using data from both unobserved and directly observed approaches.</div>
+<label class="opt-row"><input type="radio" name="q10" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q10" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q10" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="rubric"><b>Questions 11–14.</b> Answer using <b>NO MORE THAN THREE WORDS AND/OR A NUMBER</b>.</div>
+<div class="q-block" data-q="11">
+<div><span class="q-num">11.</span>When did the unexpected discoveries of chimpanzee behaviour start?</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="12">
+<div><span class="q-num">12.</span>Which country was the research site of Nishida and Goodall?</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="13">
+<div><span class="q-num">13.</span>What did the chimpanzees have to get used to in the initial study?</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="14">
+<div><span class="q-num">14.</span>What term describes what Jane Goodall found when chimpanzees used tools differently across regions in 1973?</div>
+<input type="text" placeholder="Type your answer">
+</div>
+    </div>
+  </div>
+
+  <div class="mock-passage" id="passage_2" style="display:none">
+    <div class="player">
+      <button class="play-btn" id="playBtn2">&#9654;</button>
+      <button class="stop-btn" id="stopBtn2">&#9632;</button>
+      <div class="player-status">
+        <div class="pl-title" id="plTitle2">Listen to Passage 2</div>
+        <div class="pl-sub" id="plSub2">American accent &middot; tap play to start</div>
+      </div>
+      <select class="rate-select" id="rateSelect2">
+        <option value="0.8">0.8&times; slow</option>
+        <option value="1" selected>1&times; normal</option>
+        <option value="1.2">1.2&times; fast</option>
+      </select>
+    </div>
+    <div class="article" id="articleBody2">
+      <h1 style="font-size:1.5rem">Numeracy: Can Animals Tell Numbers?</h1>
+      <div class="art-sub">From monkeys to bees, researchers are testing whether animals have a basic sense of number</div>
+      <p>A. Prime among basic numerical faculties is the ability to distinguish between a larger and a smaller number, says psychologist Elizabeth Brannon. Humans can do this with ease — providing the ratio is big enough — but do other animals share this ability? In one experiment, rhesus monkeys and university students examined two sets of geometrical objects that appeared briefly on a computer monitor and had to decide which set contained more objects. Both groups performed successfully but, importantly, Brannon's team found that monkeys, like humans, make more errors when two sets of objects are close in number. 'The students' performance ends up looking just like a monkey's. It's practically identical,' she says.</p>
+      <p>B. Humans and monkeys are mammals, in the animal family known as primates. These are not the only animals whose numerical capacities rely on ratio, however. The same seems to apply to some amphibians. Psychologist Claudia Uller's team tempted salamanders with two sets of fruit flies held in clear tubes, reasoning that if the salamanders could recognise number, they would head for the larger amount. The salamanders successfully discriminated between tubes containing 8 and 16 flies, but not between 3 and 4, 4 and 6, or 8 and 12 — the larger number had to be at least twice the smaller. However, they could differentiate between 2 and 3 flies just as well as between 1 and 2, suggesting they recognise small numbers in a different way from larger numbers.</p>
+      <p>C. Further support for this theory comes from studies of mosquitofish, which instinctively join the biggest shoal they can. A team at the University of Padova found that while mosquitofish can tell the difference between a group of 3 shoal-mates and a group of 4, they did not show a preference between groups of 4 and 5. The fish could discriminate between numbers up to 16, but only if the ratio between the fish in each shoal was greater than 2:1 — indicating they, like salamanders, possess both approximate and precise number systems found in more intelligent animals such as infant humans and other primates.</p>
+      <p>D. While these findings are highly suggestive, some critics argue that the animals might be relying on other factors to complete the tasks, without considering number itself. 'Any study that's claiming an animal is capable of representing number should also be controlling for other factors,' says Brannon. Experiments have confirmed that primates can perform numerical feats without extra clues, but what about more primitive animals?</p>
+      <p>E. To consider this possibility, the mosquitofish tests were repeated using varying geometrical shapes in place of fish, arranged so they had the same overall surface area and luminance even though they contained a different number of objects. Across hundreds of trials on 14 different fish, the team found they consistently discriminated 2 objects from 3.</p>
+      <p>F. Even more primitive organisms may share this ability. Entomologist Jurgen Tautz sent a group of bees down a corridor, at the end of which lay two chambers — one containing sugar water, which they like, the other empty. The team marked each chamber with a different number of geometrical shapes, between 2 and 6. The bees quickly learned to match the number of shapes with the correct chamber, but there was a limit to their mathematical prowess — they could differentiate up to 4 shapes, but failed with 5 or 6.</p>
+      <p>G. These studies still do not show whether animals learn to count through training, or whether they are born with the skills already intact. Proof that this may be the case has emerged from an experiment testing the mathematical ability of three- and four-day-old chicks, which prefer to be around as many of their siblings as possible. Researchers placed each chick in the middle of a platform, showed it two groups of balls of paper, hid the groups behind screens, changed the quantities, and revealed them again. This forced the chick to perform simple computations to decide which side now contained the larger number. Without any prior coaching, the chicks scuttled to the larger quantity at a rate well above chance.</p>
+      <p>H. Why these skills evolved is not hard to imagine, since it would help almost any animal forage for food — deciding which tree has the most fruit, or which patch of flowers will contain the most nectar. There are also less obvious advantages: researchers in America found that female coots appear to calculate how many eggs they have laid — and add any laid in the nest by an intruder — before deciding whether to add more. Exactly how ancient these skills are is difficult to determine.</p>
+    </div>
+    <div class="card" style="margin-top:24px">
+      <h2 style="font-family:var(--serif);font-weight:400;margin-top:0">Questions 15–27</h2>
+<div class="rubric"><b>Questions 15–21.</b> Complete the table about animal numeracy. Use <b>NO MORE THAN THREE WORDS AND/OR A NUMBER</b> from the passage for each answer.</div>
+<div class="q-block" data-q="15">
+<div><span class="q-num">15.</span>In the monkey/human experiment, performance of the two groups was almost _____.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="16">
+<div><span class="q-num">16.</span>Chicks were shown two sets of _____, which were later altered in quantity.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="17">
+<div><span class="q-num">17.</span>A coot appears to _____ the eggs in its nest, including those laid by other females.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="18">
+<div><span class="q-num">18.</span>Salamanders were offered clear tubes containing different quantities of _____.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="19">
+<div><span class="q-num">19.</span>Artificial geometric shapes were used to test the influence of total surface _____ and brightness.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="20">
+<div><span class="q-num">20.</span>Bees had to learn where _____ was stored in order to find the correct chamber.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="21">
+<div><span class="q-num">21.</span>Salamanders could only distinguish between two numbers if the larger was at least _____ times bigger than the smaller.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="rubric"><b>Questions 22–27.</b> Do the following statements agree with the claims of the writer? Choose <b>YES</b>, <b>NO</b> or <b>NOT GIVEN</b>.</div>
+<div class="q-block" data-q="22">
+<div><span class="q-num">22.</span>Primates are better at identifying the larger of two numbers if one is much bigger than the other.</div>
+<label class="opt-row"><input type="radio" name="q22" value="YES"><span><b>YES</b> </span></label>
+<label class="opt-row"><input type="radio" name="q22" value="NO"><span><b>NO</b> </span></label>
+<label class="opt-row"><input type="radio" name="q22" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="23">
+<div><span class="q-num">23.</span>Jurgen Tautz trained the insects in his experiment to recognise the shapes of individual numbers.</div>
+<label class="opt-row"><input type="radio" name="q23" value="YES"><span><b>YES</b> </span></label>
+<label class="opt-row"><input type="radio" name="q23" value="NO"><span><b>NO</b> </span></label>
+<label class="opt-row"><input type="radio" name="q23" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="24">
+<div><span class="q-num">24.</span>The research involving young chicks took place over two separate days.</div>
+<label class="opt-row"><input type="radio" name="q24" value="YES"><span><b>YES</b> </span></label>
+<label class="opt-row"><input type="radio" name="q24" value="NO"><span><b>NO</b> </span></label>
+<label class="opt-row"><input type="radio" name="q24" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="25">
+<div><span class="q-num">25.</span>The experiment with chicks suggests that some numerical ability exists in newborn animals.</div>
+<label class="opt-row"><input type="radio" name="q25" value="YES"><span><b>YES</b> </span></label>
+<label class="opt-row"><input type="radio" name="q25" value="NO"><span><b>NO</b> </span></label>
+<label class="opt-row"><input type="radio" name="q25" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="26">
+<div><span class="q-num">26.</span>Researchers have experimented by altering quantities of nectar or fruit available to certain wild animals.</div>
+<label class="opt-row"><input type="radio" name="q26" value="YES"><span><b>YES</b> </span></label>
+<label class="opt-row"><input type="radio" name="q26" value="NO"><span><b>NO</b> </span></label>
+<label class="opt-row"><input type="radio" name="q26" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="27">
+<div><span class="q-num">27.</span>When assessing the number of eggs in their nest, coots take into account those laid by other birds.</div>
+<label class="opt-row"><input type="radio" name="q27" value="YES"><span><b>YES</b> </span></label>
+<label class="opt-row"><input type="radio" name="q27" value="NO"><span><b>NO</b> </span></label>
+<label class="opt-row"><input type="radio" name="q27" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+    </div>
+  </div>
+
+  <div class="mock-passage" id="passage_3" style="display:none">
+    <div class="player">
+      <button class="play-btn" id="playBtn3">&#9654;</button>
+      <button class="stop-btn" id="stopBtn3">&#9632;</button>
+      <div class="player-status">
+        <div class="pl-title" id="plTitle3">Listen to Passage 3</div>
+        <div class="pl-sub" id="plSub3">American accent &middot; tap play to start</div>
+      </div>
+      <select class="rate-select" id="rateSelect3">
+        <option value="0.8">0.8&times; slow</option>
+        <option value="1" selected>1&times; normal</option>
+        <option value="1.2">1.2&times; fast</option>
+      </select>
+    </div>
+    <div class="article" id="articleBody3">
+      <h1 style="font-size:1.5rem">Company Innovation</h1>
+      <div class="art-sub">Why large firms are increasingly nervous about where the next big idea will come from</div>
+      <p>A. In a scruffy office in midtown Manhattan, a team of 30 artificial-intelligence programmers is trying to simulate the brains of an eminent sexologist, a well-known dietician, a celebrity fitness trainer and several other experts. Umagic Systems is a young firm, setting up websites that will allow clients to consult virtual versions of these personalities. Umagic's prospects are hard to gauge, but the company and others like it are beginning to spook large American firms, which see such half-barmy 'innovative' ideas as the key to their own future success.</p>
+      <p>B. Innovation has become the buzz-word of American management. Firms have found that most of the things that can be outsourced or re-engineered have been. The stars of American business tend today to be innovators such as Dell, Amazon and Wal-Mart, which have produced ideas or products that have changed their industries.</p>
+      <p>C. A new book by two consultants from Arthur D. Little records that, over the past 15 years, the top 20% of firms in an annual innovation poll by Fortune magazine have achieved double the shareholder returns of their peers. Much of today's merger boom is driven by a desperate search for new ideas, as is the fortune now spent on licensing and buying others' intellectual property. According to the Patent & Licence Exchange, trading in intangible assets in the United States rose from $15 billion in 1990 to $100 billion in 1998.</p>
+      <p>D. Therein lies the terror for big companies: innovation seems to work best outside them. Several big established 'ideas factories', including 3M, Procter & Gamble and Rubbermaid, have had dry spells recently. Gillette spent ten years and $1 billion developing its new Mach 3 razor; it took a British supermarket only a year or so to produce a reasonable imitation. 'In the management of creativity, size is your enemy,' argues Peter Chernin, who runs the Fox TV and film empire. He has tried to break down the studio into smaller units, even at the risk of incurring higher costs.</p>
+      <p>E. It is easier for ideas to thrive outside big firms these days. In the past, a clever scientist with an idea would take it first to a big company; now, with plenty of cheap venture capital, he is more likely to set up on his own. Even in capital-intensive businesses such as pharmaceuticals, entrepreneurs can conduct early-stage research, selling out to big firms only when they reach expensive, risky clinical trials.</p>
+      <p>F. Some giants, including General Electric and Cisco, have been remarkably successful at snapping up and integrating small companies, but many others worry about the prices they pay and the difficulty of hanging on to the talent that dreamt up the idea. Procter & Gamble is now shifting its entire business focus from countries to products, so that innovations are accepted across the whole company. Elsewhere, the search for innovation has led to a craze for 'intrapreneurship' — devolving power and setting up internal ideas-factories and tracking stocks so that talented staff will not leave.</p>
+      <p>G. Some people think such restructuring is not enough. In a new book, Clayton Christensen argues that many things established firms do well, such as looking after current customers, can hinder the innovative behaviour needed to deal with disruptive technologies. Hence the fashion for cannibalisation — setting up businesses that actually fight your existing ones. Bank One, for instance, has established Wingspan, an internet bank that competes with its real branches.</p>
+      <p>H. Nobody could doubt that innovation matters. But need large firms be quite so pessimistic? A recent survey of the top 50 innovations in America suggested that ideas are as likely to come from big firms as from small ones. Amar Bhidé, another author on entrepreneurship, believes big companies should concentrate on projects with high costs and low uncertainty, leaving those with low costs and high uncertainty to small entrepreneurs.</p>
+      <p>I. At Kimberly-Clark, Mr Sanders had to discredit the view that jobs on new products were for 'those who couldn't hack it in the real business.' He tried to change the culture not just by preaching fuzzy concepts but by introducing hard incentives, increasing rewards for successful new ideas and not punishing failed experiments. The genesis of one of the firm's current hits, Depend, an incontinence garment, lay in a previous miss, Kotex Personals, a form of disposable underwear.</p>
+      <p>J. Will all this creative destruction and culture tweaking make big firms more creative? David Post, the founder of Umagic, is sceptical: 'The only successful intrapreneurs are ones who leave and become entrepreneurs.' He recalls the looks of total incomprehension when he tried to pitch his 'virtual experts' idea three years ago to the idea labs of firms such as IBM — though, he cheerfully adds, 'of course, they could have been right.'</p>
+    </div>
+    <div class="card" style="margin-top:24px">
+      <h2 style="font-family:var(--serif);font-weight:400;margin-top:0">Questions 28–40</h2>
+<div class="rubric"><b>Questions 28–33.</b> This passage has paragraphs A–J. Which paragraph contains the following information? (You may use any letter more than once.)</div>
+<div class="q-block" data-q="28">
+<div><span class="q-num">28.</span>Approach to retain the best employees</div>
+<label class="opt-row"><input type="radio" name="q28" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q28" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q28" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q28" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q28" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q28" value="F"><span><b>F</b> </span></label>
+<label class="opt-row"><input type="radio" name="q28" value="G"><span><b>G</b> </span></label>
+<label class="opt-row"><input type="radio" name="q28" value="H"><span><b>H</b> </span></label>
+<label class="opt-row"><input type="radio" name="q28" value="I"><span><b>I</b> </span></label>
+<label class="opt-row"><input type="radio" name="q28" value="J"><span><b>J</b> </span></label>
+</div>
+<div class="q-block" data-q="29">
+<div><span class="q-num">29.</span>Safeguarding expenses on an innovative idea</div>
+<label class="opt-row"><input type="radio" name="q29" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q29" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q29" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q29" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q29" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q29" value="F"><span><b>F</b> </span></label>
+<label class="opt-row"><input type="radio" name="q29" value="G"><span><b>G</b> </span></label>
+<label class="opt-row"><input type="radio" name="q29" value="H"><span><b>H</b> </span></label>
+<label class="opt-row"><input type="radio" name="q29" value="I"><span><b>I</b> </span></label>
+<label class="opt-row"><input type="radio" name="q29" value="J"><span><b>J</b> </span></label>
+</div>
+<div class="q-block" data-q="30">
+<div><span class="q-num">30.</span>Integrating outside firms might produce a certain counter effect</div>
+<label class="opt-row"><input type="radio" name="q30" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q30" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q30" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q30" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q30" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q30" value="F"><span><b>F</b> </span></label>
+<label class="opt-row"><input type="radio" name="q30" value="G"><span><b>G</b> </span></label>
+<label class="opt-row"><input type="radio" name="q30" value="H"><span><b>H</b> </span></label>
+<label class="opt-row"><input type="radio" name="q30" value="I"><span><b>I</b> </span></label>
+<label class="opt-row"><input type="radio" name="q30" value="J"><span><b>J</b> </span></label>
+</div>
+<div class="q-block" data-q="31">
+<div><span class="q-num">31.</span>Example of three famous American companies' innovation</div>
+<label class="opt-row"><input type="radio" name="q31" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q31" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q31" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q31" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q31" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q31" value="F"><span><b>F</b> </span></label>
+<label class="opt-row"><input type="radio" name="q31" value="G"><span><b>G</b> </span></label>
+<label class="opt-row"><input type="radio" name="q31" value="H"><span><b>H</b> </span></label>
+<label class="opt-row"><input type="radio" name="q31" value="I"><span><b>I</b> </span></label>
+<label class="opt-row"><input type="radio" name="q31" value="J"><span><b>J</b> </span></label>
+</div>
+<div class="q-block" data-q="32">
+<div><span class="q-num">32.</span>Example of one company changing its focus</div>
+<label class="opt-row"><input type="radio" name="q32" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q32" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q32" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q32" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q32" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q32" value="F"><span><b>F</b> </span></label>
+<label class="opt-row"><input type="radio" name="q32" value="G"><span><b>G</b> </span></label>
+<label class="opt-row"><input type="radio" name="q32" value="H"><span><b>H</b> </span></label>
+<label class="opt-row"><input type="radio" name="q32" value="I"><span><b>I</b> </span></label>
+<label class="opt-row"><input type="radio" name="q32" value="J"><span><b>J</b> </span></label>
+</div>
+<div class="q-block" data-q="33">
+<div><span class="q-num">33.</span>Example of a company turning an earlier failure into a later success</div>
+<label class="opt-row"><input type="radio" name="q33" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q33" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q33" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q33" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q33" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q33" value="F"><span><b>F</b> </span></label>
+<label class="opt-row"><input type="radio" name="q33" value="G"><span><b>G</b> </span></label>
+<label class="opt-row"><input type="radio" name="q33" value="H"><span><b>H</b> </span></label>
+<label class="opt-row"><input type="radio" name="q33" value="I"><span><b>I</b> </span></label>
+<label class="opt-row"><input type="radio" name="q33" value="J"><span><b>J</b> </span></label>
+</div>
+<div class="rubric"><b>Questions 34–37.</b> Do the following statements agree with the passage? Choose <b>TRUE</b>, <b>FALSE</b> or <b>NOT GIVEN</b>.</div>
+<div class="q-block" data-q="34">
+<div><span class="q-num">34.</span>Umagic is the most successful innovative company in this new field.</div>
+<label class="opt-row"><input type="radio" name="q34" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q34" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q34" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="35">
+<div><span class="q-num">35.</span>Amazon and Wal-Mart exchanged their innovation experience.</div>
+<label class="opt-row"><input type="radio" name="q35" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q35" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q35" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="36">
+<div><span class="q-num">36.</span>A new idea holder would previously have taken it to a small company.</div>
+<label class="opt-row"><input type="radio" name="q36" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q36" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q36" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="37">
+<div><span class="q-num">37.</span>IBM failed to understand Umagic's proposal for one new idea.</div>
+<label class="opt-row"><input type="radio" name="q37" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q37" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q37" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="rubric"><b>Questions 38–40.</b> Choose the correct letter, A, B, C or D.</div>
+<div class="q-block" data-q="38">
+<div><span class="q-num">38.</span>What is the author's opinion on the effect of innovation in paragraph C?</div>
+<label class="opt-row"><input type="radio" name="q38" value="A"><span><b>A</b> It only works for big companies.</span></label>
+<label class="opt-row"><input type="radio" name="q38" value="B"><span><b>B</b> Fortune magazine has a huge influence globally.</span></label>
+<label class="opt-row"><input type="radio" name="q38" value="C"><span><b>C</b> It is getting more important.</span></label>
+<label class="opt-row"><input type="radio" name="q38" value="D"><span><b>D</b> Its effect on American companies is more evident.</span></label>
+</div>
+<div class="q-block" data-q="39">
+<div><span class="q-num">39.</span>What is Peter Chernin's point of view on innovation?</div>
+<label class="opt-row"><input type="radio" name="q39" value="A"><span><b>A</b> Small companies are more innovative than big ones.</span></label>
+<label class="opt-row"><input type="radio" name="q39" value="B"><span><b>B</b> The film industry needs more innovation than other industries.</span></label>
+<label class="opt-row"><input type="radio" name="q39" value="C"><span><b>C</b> We need to cut costs when risks occur.</span></label>
+<label class="opt-row"><input type="radio" name="q39" value="D"><span><b>D</b> New ideas are more likely to go to big companies.</span></label>
+</div>
+<div class="q-block" data-q="40">
+<div><span class="q-num">40.</span>What is the author's opinion on innovation at the end of the passage?</div>
+<label class="opt-row"><input type="radio" name="q40" value="A"><span><b>A</b> Umagic's success lies in accidental 'virtual experts'.</span></label>
+<label class="opt-row"><input type="radio" name="q40" value="B"><span><b>B</b> Innovation is easy and straightforward.</span></label>
+<label class="opt-row"><input type="radio" name="q40" value="C"><span><b>C</b> IBM sets a good example of innovation.</span></label>
+<label class="opt-row"><input type="radio" name="q40" value="D"><span><b>D</b> The author's attitude towards innovation is uncertain.</span></label>
+</div>
+    </div>
+  </div>
+
+    <div class="submit-bar">
+      <button class="btn btn-gold" onclick="submitMock()">Check all answers</button>
+      <button class="btn" onclick="showKeyWords()">Key word table</button>
+    </div>
+    <div class="score-banner" id="scoreBanner"></div>
+    <div class="card" id="kwCard" style="margin-top:20px;display:none">
+      <h2 style="font-family:var(--serif);font-weight:400;margin-top:0">Key Word Table</h2>
+<table class="kw-table"><tr><th>In the question</th><th>In the passage</th></tr>
+<tr><td class="qtext">Q1 &middot; problem: based only on official sources</td><td class="ptext">relied <b>solely on officially published accounts</b> of the behaviors recorded at each research site</td></tr>
+<tr><td class="qtext">Q6 &middot; scientists made chimps possess human culture</td><td class="ptext">second in complexity <b>only to human traditions</b> (not identical, not 'made')</td></tr>
+<tr><td class="qtext">Q9 &middot; passed on mostly by genes</td><td class="ptext">passed on ... <b>not through their genes but by learning</b></td></tr>
+<tr><td class="qtext">Q11 &middot; when discoveries started</td><td class="ptext">began in <b>the 1960s</b> when Nishida and Goodall began their studies</td></tr>
+<tr><td class="qtext">Q12 &middot; research site country</td><td class="ptext">two field sites in <b>Tanzania</b></td></tr>
+<tr><td class="qtext">Q13 &middot; had to get used to</td><td class="ptext">as the chimpanzees became accustomed to <b>close observation</b></td></tr>
+<tr><td class="qtext">Q14 &middot; term for 1973 finding</td><td class="ptext">she ventured that some variations had what she termed <b>a cultural origin</b></td></tr>
+<tr><td class="qtext">Q15 &middot; performance of two groups</td><td class="ptext">'the students' performance ends up looking just like a monkey's. It's practically <b>identical</b>'</td></tr>
+<tr><td class="qtext">Q18 &middot; salamanders offered tubes of ...</td><td class="ptext">tempted salamanders with two sets of <b>fruit flies</b> held in clear tubes</td></tr>
+<tr><td class="qtext">Q20 &middot; bees learn where ... stored</td><td class="ptext">one containing <b>sugar water</b>, which they like</td></tr>
+<tr><td class="qtext">Q21 &middot; larger must be ... times bigger</td><td class="ptext">the larger number had to be <b>at least twice</b> the smaller</td></tr>
+<tr><td class="qtext">Q22 &middot; primates better with bigger ratio</td><td class="ptext">make more errors when two sets of objects are <b>close in number</b></td></tr>
+<tr><td class="qtext">Q23 &middot; trained to recognise shapes of numbers</td><td class="ptext">marked each chamber with a <b>different number of geometrical shapes</b> (quantity, not symbol recognition)</td></tr>
+<tr><td class="qtext">Q25 &middot; numerical ability in newborns</td><td class="ptext"><b>without any prior coaching</b>, the chicks scuttled to the larger quantity</td></tr>
+<tr><td class="qtext">Q27 &middot; coots consider others' eggs</td><td class="ptext">add any laid in the nest by an <b>intruder</b></td></tr>
+<tr><td class="qtext">Q28 &middot; retain best employees</td><td class="ptext">tracking stocks so that <b>talented staff will not leave</b></td></tr>
+<tr><td class="qtext">Q29 &middot; safeguarding expenses on idea</td><td class="ptext">entrepreneurs conduct early research, <b>selling out to big firms</b> only at the expensive, risky stage</td></tr>
+<tr><td class="qtext">Q30 &middot; integration counter effect</td><td class="ptext">worry about the prices they pay and the <b>difficulty of hanging on to the talent</b></td></tr>
+<tr><td class="qtext">Q31 &middot; three famous companies</td><td class="ptext">innovators such as <b>Dell, Amazon and Wal-Mart</b></td></tr>
+<tr><td class="qtext">Q32 &middot; company changing focus</td><td class="ptext">Procter & Gamble is now <b>shifting its entire business focus</b> from countries to products</td></tr>
+<tr><td class="qtext">Q33 &middot; failure turned success</td><td class="ptext">the genesis of ... Depend ... lay in a previous <b>miss, Kotex Personals</b></td></tr>
+<tr><td class="qtext">Q36 &middot; idea holder took to small company</td><td class="ptext">in the past ... would take it first to a <b>big</b> company (opposite of small)</td></tr>
+<tr><td class="qtext">Q37 &middot; IBM failed to understand</td><td class="ptext">looks of <b>total incomprehension</b> ... at the idea labs of firms such as IBM</td></tr>
+<tr><td class="qtext">Q38 &middot; innovation getting more important</td><td class="ptext">trading in intangible assets ... risen from $15 billion ... to <b>$100 billion</b></td></tr>
+<tr><td class="qtext">Q39 &middot; Chernin's view</td><td class="ptext">'in the management of creativity, <b>size is your enemy</b>'</td></tr>
+<tr><td class="qtext">Q40 &middot; author's final opinion</td><td class="ptext">'of course, <b>they could have been right</b>' (an uncertain, hedged conclusion)</td></tr>
+</table>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/catalog.js"></script>
+<script src="../assets/shared.js"></script>
+<script>
+const PASSAGE_ID = 'm2';
+const QUIZ = [{"id": 1, "type": "radio", "answer": "H"}, {"id": 2, "type": "radio", "answer": "J"}, {"id": 3, "type": "radio", "answer": "I"}, {"id": 4, "type": "radio", "answer": "K"}, {"id": 5, "type": "radio", "answer": "G"}, {"id": 6, "type": "radio", "answer": "FALSE"}, {"id": 7, "type": "radio", "answer": "TRUE"}, {"id": 8, "type": "radio", "answer": "TRUE"}, {"id": 9, "type": "radio", "answer": "FALSE"}, {"id": 10, "type": "radio", "answer": "FALSE"}, {"id": 11, "type": "text", "answer": ["the 1960s", "1960s"]}, {"id": 12, "type": "text", "answer": "Tanzania"}, {"id": 13, "type": "text", "answer": ["close observation", "observation"]}, {"id": 14, "type": "text", "answer": ["cultural origin", "a cultural origin"]}, {"id": 15, "type": "text", "answer": ["identical", "practically identical"]}, {"id": 16, "type": "text", "answer": ["balls of paper", "paper"]}, {"id": 17, "type": "text", "answer": ["count", "calculate"]}, {"id": 18, "type": "text", "answer": ["fruit flies", "flies"]}, {"id": 19, "type": "text", "answer": "area"}, {"id": 20, "type": "text", "answer": ["sugar water", "sugar"]}, {"id": 21, "type": "text", "answer": ["two", "twice"]}, {"id": 22, "type": "radio", "answer": "YES"}, {"id": 23, "type": "radio", "answer": "NO"}, {"id": 24, "type": "radio", "answer": "NOT GIVEN"}, {"id": 25, "type": "radio", "answer": "YES"}, {"id": 26, "type": "radio", "answer": "NOT GIVEN"}, {"id": 27, "type": "radio", "answer": "YES"}, {"id": 28, "type": "radio", "answer": "F"}, {"id": 29, "type": "radio", "answer": "E"}, {"id": 30, "type": "radio", "answer": "F"}, {"id": 31, "type": "radio", "answer": "B"}, {"id": 32, "type": "radio", "answer": "F"}, {"id": 33, "type": "radio", "answer": "I"}, {"id": 34, "type": "radio", "answer": "NOT GIVEN"}, {"id": 35, "type": "radio", "answer": "NOT GIVEN"}, {"id": 36, "type": "radio", "answer": "FALSE"}, {"id": 37, "type": "radio", "answer": "TRUE"}, {"id": 38, "type": "radio", "answer": "C"}, {"id": 39, "type": "radio", "answer": "A"}, {"id": 40, "type": "radio", "answer": "D"}];
+const GLOSSARY = [{"word": "primatologist", "pos": "noun", "def": "a scientist who studies primates", "uz": "primatolog"}, {"word": "decimate", "pos": "verb", "def": "to kill or destroy a large proportion of something", "uz": "qirib tashlamoq"}, {"word": "aberration", "pos": "noun", "def": "something that differs from what is normal or expected", "uz": "me'yordan chetlanish"}, {"word": "customary", "pos": "adjective", "def": "according to the usual customs or practices", "uz": "odatiy"}, {"word": "habitual", "pos": "adjective", "def": "done constantly or repeatedly; usual", "uz": "doimiy, odat tusiga kirgan"}, {"word": "ratio", "pos": "noun", "def": "the relationship between two numbers showing how many times one contains the other", "uz": "nisbat"}, {"word": "discriminate", "pos": "verb", "def": "to recognise a difference between things", "uz": "farqlamoq"}, {"word": "amphibian", "pos": "noun", "def": "a cold-blooded animal that lives both in water and on land", "uz": "amfibiya"}, {"word": "luminance", "pos": "noun", "def": "the brightness of a light or surface", "uz": "yorqinlik"}, {"word": "sustenance", "pos": "noun", "def": "food and drink necessary for life", "uz": "oziq-ovqat, tirikchilik vositasi"}, {"word": "venture capital", "pos": "noun", "def": "money invested in new or risky business projects", "uz": "venchur kapital"}, {"word": "licensing", "pos": "noun", "def": "granting official permission to use intellectual property", "uz": "litsenziyalash"}, {"word": "entrepreneur", "pos": "noun", "def": "a person who starts and runs a business, taking on financial risk", "uz": "tadbirkor"}, {"word": "intrapreneurship", "pos": "noun", "def": "entrepreneurial activity carried out within a large company", "uz": "ichki tadbirkorlik"}, {"word": "cannibalisation", "pos": "noun", "def": "a company's new product taking sales away from its own existing product", "uz": "o'z mahsulotiga raqobat qilish"}, {"word": "incentive", "pos": "noun", "def": "something that motivates a person to do something", "uz": "rag'bat, undov"}, {"word": "skeptical", "pos": "adjective", "def": "having doubts about something", "uz": "shubha bilan qaraydigan"}, {"word": "comprehension", "pos": "noun", "def": "the ability to understand something", "uz": "tushunish"}, {"word": "unprecedented", "pos": "adjective", "def": "never having happened before", "uz": "misli ko'rilmagan"}, {"word": "salvation", "pos": "noun", "def": "the act of saving someone or something from harm", "uz": "qutqarish, najot"}, {"word": "genetic", "pos": "adjective", "def": "relating to genes or heredity", "uz": "genetik"}];
+
+ArbPlayer('#articleBody1 p', {playBtnId:'playBtn1', stopBtnId:'stopBtn1', titleId:'plTitle1', subId:'plSub1', rateId:'rateSelect1'});
+ArbPlayer('#articleBody2 p', {playBtnId:'playBtn2', stopBtnId:'stopBtn2', titleId:'plTitle2', subId:'plSub2', rateId:'rateSelect2'});
+ArbPlayer('#articleBody3 p', {playBtnId:'playBtn3', stopBtnId:'stopBtn3', titleId:'plTitle3', subId:'plSub3', rateId:'rateSelect3'});
+const timer = ArbTimer({minutes:60});
+ArbHighlighter(['articleBody1','articleBody2','articleBody3']);
+
+document.getElementById('glossaryList').innerHTML = GLOSSARY.map(w =>
+  '<div class="glossary-item"><span class="w">'+w.word+'</span> <span style="color:var(--muted);font-size:.8rem">'+ (w.pos||'') +'</span>' +
+  '<div style="font-size:.88rem;margin-top:2px">'+w.def+'</div><div class="uz">'+w.uz+'</div></div>'
+).join('');
+
+function showPassage(n) {
+  document.querySelectorAll('.mock-passage').forEach((el,i) => el.style.display = (i+1===n) ? '' : 'none');
+  document.querySelectorAll('.mock-tab').forEach((el,i) => el.classList.toggle('active', i+1===n));
+}
+
+function submitMock() {
+  const correct = ArbGradeQuiz(QUIZ, {});
+  const passMark = Math.ceil(QUIZ.length * 0.5);
+  arbSetItem(PASSAGE_ID, { quiz: correct >= passMark, vocab: true, score: correct, total: QUIZ.length });
+  checkAllDone();
+}
+function showKeyWords() {
+  document.getElementById('kwCard').style.display = 'block';
+  document.getElementById('kwCard').scrollIntoView({behavior:'smooth'});
+}
+function checkAllDone() {
+  if (arbIsComplete(PASSAGE_ID)) {
+    let banner = document.getElementById('unlockBanner');
+    if (!banner) {
+      banner = document.createElement('div');
+      banner.id = 'unlockBanner';
+      banner.className = 'score-banner show';
+      banner.style.marginTop = '20px';
+      banner.innerHTML = '<div class="big">🔓 Unlocked!</div><div style="color:var(--muted);font-size:.85rem;margin-top:4px">Great work — the next item is now open.</div><button class="btn btn-gold" style="margin-top:14px" onclick="location.href=\'../index.html\'">Back to map</button>';
+      document.querySelector('.wrap').appendChild(banner);
+    }
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Full Mock Test 6 — Avazbek Reader Booster</title>
+<link rel="stylesheet" href="../assets/shared.css">
+<style>
+.mock-tabs{display:flex; gap:10px; margin-bottom:20px; flex-wrap:wrap;}
+.mock-tab{flex:1; min-width:140px; text-align:center; padding:12px; border-radius:10px; border:1px solid var(--ink-line); background:var(--ink-1); cursor:pointer; font-size:.85rem; font-weight:700;}
+.mock-tab.active{border-color:var(--gold); background:var(--gold-dim); color:var(--gold-soft);}
+.glossary-item{padding:10px 4px;border-bottom:1px solid var(--ink-line);}
+.glossary-item:last-child{border-bottom:none;}
+.glossary-item .w{font-family:var(--serif);color:var(--gold-soft);font-size:1.05rem;}
+.glossary-item .uz{color:var(--gold);font-size:.85rem;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand">
+      <div class="brand-ring"><img src="../assets/avazbek.png" alt="Avazbek"></div>
+      <div class="brand-text">
+        <h1>Avazbek <em>Reader Booster</em></h1>
+        <div class="tag">Full Mock Test</div>
+      </div>
+    </div>
+    <button class="back-btn" onclick="location.href='../index.html'">&larr; Home</button>
+  </div>
+
+  <div id="home" class="section active">
+    <div class="hero">
+      <div class="eyebrow">Full Mock Test 6 of 6</div>
+      <h1>Full Mock Test 6</h1>
+      <p class="byline">James Hargreaves & the Spinning Jenny &middot; The Remarkable Power of Placebos &middot; Practical Learning in the Classroom</p>
+      <p class="passage-tag">3 passages &middot; <b>40</b> questions total &middot; ~60 minutes</p>
+    </div>
+    <div class="menu">
+      <div class="menu-card" onclick="arbGo('test')">
+        <div class="num">📝</div>
+        <h3>Start the Mock Test</h3>
+        <p>Read all three passages and answer all 40 questions.</p>
+      </div>
+      <div class="menu-card" onclick="arbGo('glossary')">
+        <div class="num">🗂️</div>
+        <h3>Key Vocabulary</h3>
+        <p>Review challenging words from all three passages before you start.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="glossary" class="section">
+    <div class="section-head">
+      <button class="back-btn" onclick="arbGo('home')">&larr; Back</button>
+      <h2>Key Vocabulary</h2>
+      <div class="sub">Challenging words from this mock test's three passages.</div>
+    </div>
+    <div class="card" id="glossaryList"></div>
+  </div>
+
+  <div id="test" class="section">
+    <div class="section-head">
+      <button class="back-btn" onclick="arbGo('home')">&larr; Back</button>
+      <h2>Full Mock Test 6</h2>
+    </div>
+    <div class="timer-bar">
+      <span id="timerDisplay">60:00</span>
+      <input class="timer-input" id="tMin" value="60"> min
+      <input class="timer-input" id="tSec" value="0"> sec
+      <button class="tbtn" onclick="timer.set()">Set</button>
+      <button class="tbtn" onclick="timer.start()">Start</button>
+      <button class="tbtn" onclick="timer.pause()">Pause</button>
+      <button class="tbtn" onclick="timer.reset()">Reset</button>
+      <div class="timeup-banner" id="timeupBanner">Time is up! Finish your answers and check your score.</div>
+    </div>
+    <div class="mock-tabs">
+      <div class="mock-tab active" onclick="showPassage(1)">Passage 1</div>
+      <div class="mock-tab" onclick="showPassage(2)">Passage 2</div>
+      <div class="mock-tab" onclick="showPassage(3)">Passage 3</div>
+    </div>
+
+  <div class="mock-passage" id="passage_1" style="">
+    <div class="player">
+      <button class="play-btn" id="playBtn1">&#9654;</button>
+      <button class="stop-btn" id="stopBtn1">&#9632;</button>
+      <div class="player-status">
+        <div class="pl-title" id="plTitle1">Listen to Passage 1</div>
+        <div class="pl-sub" id="plSub1">American accent &middot; tap play to start</div>
+      </div>
+      <select class="rate-select" id="rateSelect1">
+        <option value="0.8">0.8&times; slow</option>
+        <option value="1" selected>1&times; normal</option>
+        <option value="1.2">1.2&times; fast</option>
+      </select>
+    </div>
+    <div class="article" id="articleBody1">
+      <h1 style="font-size:1.5rem">James Hargreaves and the Spinning Jenny</h1>
+      <div class="art-sub">How one invention helped move the textile industry from homes to factories</div>
+      <p>The Industrial Revolution (1760–1850) began in England and spread throughout Europe and the Americas over the course of the next several decades. Expanding technology and the invention of new machines forever changed the way manufacturing and industry took place. The textile industry was greatly impacted by a number of new inventions such as the flying shuttle, the spinning frame and the cotton gin. But it was the invention of the Spinning Jenny by James Hargreaves that is credited with moving the textile industry from homes to factories.</p>
+      <p>James Hargreaves was a weaver in the village of Stanhill, near Blackburn, Lancashire. Prior to the Industrial Revolution, farming was the main occupation in the area, while the production of cloth from raw goods was carried out as a secondary activity within cottage industries. All work was done by individuals within the home, and entire families were involved. Men were often the weavers, while their wives and daughters spun the raw materials into threads or yarns. Young children assisted in cleaning and preparing the fibres. The process was time-consuming, and merchants wanting to meet the demand for textile goods were often frustrated by the huge gap between supply and demand.</p>
+      <p>The expense involved in transporting raw materials to numerous locations, waiting for finished textiles to be made by hand, and then the finished goods to be picked up and transported back to the merchant was also an incentive to search for alternatives. While the invention of the flying shuttle and later the power loom made it possible to weave materials faster, the spinning of raw materials into threads and yarns was still done by hand, one thread at a time. Spinners were unable to keep up with the increased demand for threads.</p>
+      <p>James Hargreaves may have designed the spinning jenny as an improvement over an earlier machine invented by Thomas High in 1763 or 1764. While never patented, High's machine used six spindles that were bolted together and powered by a single large wheel. James Hargreaves' spinning jenny was said to have been designed after he saw his wife's spinning wheel knocked over and saw the spindle continue to spin. The spinning jenny used eight different spindles that were powered by a single wheel. This allowed one spinster to produce eight threads in the same amount of time that it previously took to produce one.</p>
+      <p>The idea was developed by Hargreaves as a metal frame with eight wooden spindles at one end. A set of eight rovings was attached to a beam on that frame. The rovings when extended passed through two horizontal bars of wood that could be clasped together. These bars could be drawn along the top of the frame by the spinner's left hand, thus extending the thread. The spinner used his right hand to rapidly turn a wheel, which caused all the spindles to revolve, and the thread to be spun. When the bars were returned, the thread wound onto the spindle. A pressing wire, known as a faller, was used to guide the threads onto the right place on the spindle. The rollers were linked to the hand wheel by a cord, which transferred the motion throughout the machine.</p>
+      <p>Later versions of the spinning jenny added even more spindles, which made the machine too large for home use. This led the way to factories where these larger machines could be run by fewer workers. With machines and workers concentrated in one place, the transportation costs of raw materials and finished goods were greatly reduced. Factory owners also had greater control over workers and began a division of labour that had individuals responsible for different stages of the manufacturing process.</p>
+      <p>As with all change, there were advantages and disadvantages to the use of the spinning jenny and other inventions at the time. The spinning jenny allowed more threads and yarns to be produced by fewer spinners. The early spinning jenny also produced a weaker thread than could be produced by hand, so there was a decrease in quality until improvements were made to the machines and a dependable power source became available. With the use of water to power later versions of spinning and weaving machinery, the quality and strength of the cloth produced were greatly improved.</p>
+      <p>A traditional story maintains that the Spinning Jenny was named after one of Hargreaves' daughters or his wife. Yet he had no daughter named Jenny, and his wife was named Elizabeth. The word jenny is an old word used as a reference to an engine. There is some indication that James Hargreaves worked with Thomas High to improve on an earlier invention of a mechanical spinning wheel, which was then named a spinning jenny after Thomas High's daughter.</p>
+    </div>
+    <div class="card" style="margin-top:24px">
+      <h2 style="font-family:var(--serif);font-weight:400;margin-top:0">Questions 1–13</h2>
+<div class="rubric"><b>Questions 1–4.</b> Answer using <b>NO MORE THAN THREE WORDS</b> from the passage for each answer.</div>
+<div class="q-block" data-q="1">
+<div><span class="q-num">1.</span>Before the Industrial Revolution, what was the main occupation in the area where Hargreaves lived?</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="2">
+<div><span class="q-num">2.</span>Who spun raw materials into threads or yarns in the cottage industries?</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="3">
+<div><span class="q-num">3.</span>Whose earlier invention was the basis for James Hargreaves' spinning jenny design?</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="4">
+<div><span class="q-num">4.</span>What material were the spindles of Hargreaves' machine made of?</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="rubric"><b>Questions 5–8.</b> Do the following statements agree with the information given? Choose <b>TRUE</b>, <b>FALSE</b> or <b>NOT GIVEN</b>.</div>
+<div class="q-block" data-q="5">
+<div><span class="q-num">5.</span>James Hargreaves received formal training as a mechanic before designing the spinning jenny.</div>
+<label class="opt-row"><input type="radio" name="q5" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q5" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q5" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="6">
+<div><span class="q-num">6.</span>The invention of the flying shuttle increased the demand for spun thread.</div>
+<label class="opt-row"><input type="radio" name="q6" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q6" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q6" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="7">
+<div><span class="q-num">7.</span>The early spinning jenny produced better quality thread than hand spinning.</div>
+<label class="opt-row"><input type="radio" name="q7" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q7" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q7" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="8">
+<div><span class="q-num">8.</span>Water power helped improve the quality of cloth produced by later spinning machines.</div>
+<label class="opt-row"><input type="radio" name="q8" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q8" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q8" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="rubric"><b>Questions 9–13.</b> Complete the description of the machine. Choose <b>NO MORE THAN TWO WORDS</b> from the passage for each answer.</div>
+<div class="q-block" data-q="9">
+<div><span class="q-num">9.</span>The rollers were linked to the hand wheel by a _____.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="10">
+<div><span class="q-num">10.</span>The spinner used his right hand to rapidly turn a _____.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="11">
+<div><span class="q-num">11.</span>This caused all the _____ to revolve, and the thread to be spun.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="12">
+<div><span class="q-num">12.</span>When the _____ were returned, the thread wound onto the spindle.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="13">
+<div><span class="q-num">13.</span>A _____ (faller) was used to guide the threads onto the right place on the spindle.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+    </div>
+  </div>
+
+  <div class="mock-passage" id="passage_2" style="display:none">
+    <div class="player">
+      <button class="play-btn" id="playBtn2">&#9654;</button>
+      <button class="stop-btn" id="stopBtn2">&#9632;</button>
+      <div class="player-status">
+        <div class="pl-title" id="plTitle2">Listen to Passage 2</div>
+        <div class="pl-sub" id="plSub2">American accent &middot; tap play to start</div>
+      </div>
+      <select class="rate-select" id="rateSelect2">
+        <option value="0.8">0.8&times; slow</option>
+        <option value="1" selected>1&times; normal</option>
+        <option value="1.2">1.2&times; fast</option>
+      </select>
+    </div>
+    <div class="article" id="articleBody2">
+      <h1 style="font-size:1.5rem">The Remarkable Power of Placebos</h1>
+      <div class="art-sub">How expectation alone can change the way the body responds to treatment</div>
+      <p>A. It's one of our most powerful medical treatments, and certainly our most widely effective. In recent years, it's been found to help eliminate or lessen the symptoms associated with clinical depression, irritable bowel syndrome, panic attacks, coughing, and ADHD, among other conditions. The name of this wonderful treatment? It's the 'placebo effect,' the remarkable power of the human brain to unconsciously influence the functioning and perception of the body.</p>
+      <p>B. The term, which is Latin for 'I shall please,' was first used sometime during the 1700s, but the concept itself dates back centuries. Historically, doctors believed that one of their key duties, in addition to curing a patient, was to console him or her, providing a boost to the morale that could help them to get better faster — sometimes in the form of a dummy medicine that had no effect beyond instilling the expectation of improvement in the patient's brain. It's now widely recognized that, while largely ineffective in improving objective symptoms, such as high blood pressure or an infection, for instance, placebos are genuinely effective in treating subjective, self-reported symptoms, including all sorts of pain. Placebos can take all sorts of forms: inert sugar pills, sham surgeries, and saline injections.</p>
+      <p>C. The singular power of expectations has been demonstrated in a variety of studies. In one, for example, patients given a placebo pill that is referred to as a muscle relaxer will experience muscle relaxation, while those given a placebo called a muscle stimulator will experience muscle tension. The flip side of the placebo, the nocebo effect, is just as powerful — negative expectations can cause as much harm as positive ones can do good. In other studies, it's been shown that pills which are red, yellow, or orange in colour are more likely to provide a stimulating effect, while blue and green ones are more often perceived as sedating. One study even found that bigger pills are better when it comes to placebo performance.</p>
+      <p>D. The science that underlies all of these studies isn't well understood at this point. Scientists have conducted some imaging research into the brain on placebos, and they've found that ingestion of a placebo billed as a painkiller leads to increased activity in several areas of the cerebral cortex, as compared to an actual painkiller. These areas are involved in so-called 'higher' functions like memory, attention, thought, and consciousness. A pain-killing placebo, it seems, works differently from a painkiller.</p>
+      <p>E. In a recent headache study, conducted by researchers at Harvard Medical School, 66 participants who suffer from chronic migraines were given six envelopes, each containing a pill to be taken after their next migraine attack. Two envelopes were labelled 'Maxalt' — the brand name for the widely used migraine drug rizatriptan — in order to generate positive expectations, while two had no label, to produce neutral expectations, and two were labelled 'placebo,' to generate negative expectations. But for each of the three labels, one envelope held a genuine rizatriptan pill, and one contained a placebo.</p>
+      <p>F. When the scientists analyzed the participants' self-reported pain reductions after taking the pills, the power of the placebo was proven yet again. People who'd taken a placebo pill labelled Maxalt got just as much pain relief as those who'd taken a Maxalt pill labelled as a placebo. Additionally, people who took a Maxalt correctly labelled as Maxalt reported about twice as much pain reduction as those who took a Maxalt pill labelled as placebo. In other words, in treating a complex, chronic form of pain like migraine, the effectiveness of pure expectations was roughly equal to the effectiveness of the pharmaceutical itself.</p>
+      <p>G. For a doctor, harnessing the placebo's power doesn't mean intentionally mislabelling pills. Instead, a doctor could simply provide a slightly more positive message about a treatment, lending the power of expectations to that of pharmaceuticals. 'When doctors set patients' expectations high, Maxalt becomes more effective,' lead author of the study Rami Burstein said in a press statement. Of course, this sort of intentional expectation-setting needs to be done carefully. Doctors have an ethical obligation not to mislead patients or withhold important information. As Ted Kaptchuk, one of the study's co-authors, put it, 'the placebo effect is an unacknowledged partner for powerful medications.'</p>
+    </div>
+    <div class="card" style="margin-top:24px">
+      <h2 style="font-family:var(--serif);font-weight:400;margin-top:0">Questions 14–26</h2>
+<div class="rubric"><b>Questions 14–17.</b> This passage has seven paragraphs, A–G. Which paragraph contains the following information? (You may use any letter more than once.)</div>
+<div class="q-block" data-q="14">
+<div><span class="q-num">14.</span>An explanation of the neurological process by which placebos work</div>
+<label class="opt-row"><input type="radio" name="q14" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q14" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q14" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q14" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q14" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q14" value="F"><span><b>F</b> </span></label>
+<label class="opt-row"><input type="radio" name="q14" value="G"><span><b>G</b> </span></label>
+</div>
+<div class="q-block" data-q="15">
+<div><span class="q-num">15.</span>The origin of the word 'placebo'</div>
+<label class="opt-row"><input type="radio" name="q15" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q15" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q15" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q15" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q15" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q15" value="F"><span><b>F</b> </span></label>
+<label class="opt-row"><input type="radio" name="q15" value="G"><span><b>G</b> </span></label>
+</div>
+<div class="q-block" data-q="16">
+<div><span class="q-num">16.</span>A recommendation as to how medical professionals can take advantage of the placebo effect</div>
+<label class="opt-row"><input type="radio" name="q16" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q16" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q16" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q16" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q16" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q16" value="F"><span><b>F</b> </span></label>
+<label class="opt-row"><input type="radio" name="q16" value="G"><span><b>G</b> </span></label>
+</div>
+<div class="q-block" data-q="17">
+<div><span class="q-num">17.</span>Mention of how the appearance of placebos can affect how well they work</div>
+<label class="opt-row"><input type="radio" name="q17" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q17" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q17" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q17" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q17" value="E"><span><b>E</b> </span></label>
+<label class="opt-row"><input type="radio" name="q17" value="F"><span><b>F</b> </span></label>
+<label class="opt-row"><input type="radio" name="q17" value="G"><span><b>G</b> </span></label>
+</div>
+<div class="rubric"><b>Questions 18–24.</b> Complete the sentences. Write <b>ONE WORD ONLY</b> from the passage for each answer.</div>
+<div class="q-block" data-q="18">
+<div><span class="q-num">18.</span>It appears that placebos can treat or reduce the _____ of a wide range of conditions.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="19">
+<div><span class="q-num">19.</span>The placebo effect happens when our _____ has an effect on how our body feels.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="20">
+<div><span class="q-num">20.</span>Doctors have long believed it to be their responsibility to also improve patients' _____.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="21">
+<div><span class="q-num">21.</span>An example of a situation where a placebo has little or no effect is if a patient has an _____.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="22">
+<div><span class="q-num">22.</span>Patients will feel _____ in their muscles if given a placebo called a muscle stimulator.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="23">
+<div><span class="q-num">23.</span>A related phenomenon, known as the _____ effect, convinces people a treatment will do them harm.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="24">
+<div><span class="q-num">24.</span>Two factors which influence the effectiveness of a placebo pill are its _____ and its size.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="rubric"><b>Questions 25–26.</b> Choose TWO correct answers. Which TWO findings were observed in the Harvard Medical School study?</div>
+<div class="q-block" data-q="25">
+<div><span class="q-num">25.</span>Select a correct finding (1 of 2):</div>
+<label class="opt-row"><input type="radio" name="q25" value="A"><span><b>A</b> Placebos taken with the patient's knowledge were reported as less effective than those taken without their knowledge.</span></label>
+<label class="opt-row"><input type="radio" name="q25" value="B"><span><b>B</b> People who took Maxalt without realizing it reported less pain relief than those who were aware of taking it.</span></label>
+<label class="opt-row"><input type="radio" name="q25" value="C"><span><b>C</b> Where pills had misleading labels, the placebo and the genuine drug appeared to produce a similar level of pain relief.</span></label>
+<label class="opt-row"><input type="radio" name="q25" value="D"><span><b>D</b> Maxalt without a label and Maxalt labelled as a placebo appeared to be equally effective.</span></label>
+<label class="opt-row"><input type="radio" name="q25" value="E"><span><b>E</b> People who were given no indication of what they were taking reported the lowest levels of pain relief.</span></label>
+</div>
+<div class="q-block" data-q="26">
+<div><span class="q-num">26.</span>Select a correct finding (2 of 2):</div>
+<label class="opt-row"><input type="radio" name="q26" value="A"><span><b>A</b> Placebos taken with the patient's knowledge were reported as less effective than those taken without their knowledge.</span></label>
+<label class="opt-row"><input type="radio" name="q26" value="B"><span><b>B</b> People who took Maxalt without realizing it reported less pain relief than those who were aware of taking it.</span></label>
+<label class="opt-row"><input type="radio" name="q26" value="C"><span><b>C</b> Where pills had misleading labels, the placebo and the genuine drug appeared to produce a similar level of pain relief.</span></label>
+<label class="opt-row"><input type="radio" name="q26" value="D"><span><b>D</b> Maxalt without a label and Maxalt labelled as a placebo appeared to be equally effective.</span></label>
+<label class="opt-row"><input type="radio" name="q26" value="E"><span><b>E</b> People who were given no indication of what they were taking reported the lowest levels of pain relief.</span></label>
+</div>
+    </div>
+  </div>
+
+  <div class="mock-passage" id="passage_3" style="display:none">
+    <div class="player">
+      <button class="play-btn" id="playBtn3">&#9654;</button>
+      <button class="stop-btn" id="stopBtn3">&#9632;</button>
+      <div class="player-status">
+        <div class="pl-title" id="plTitle3">Listen to Passage 3</div>
+        <div class="pl-sub" id="plSub3">American accent &middot; tap play to start</div>
+      </div>
+      <select class="rate-select" id="rateSelect3">
+        <option value="0.8">0.8&times; slow</option>
+        <option value="1" selected>1&times; normal</option>
+        <option value="1.2">1.2&times; fast</option>
+      </select>
+    </div>
+    <div class="article" id="articleBody3">
+      <h1 style="font-size:1.5rem">Practical Learning in the Classroom</h1>
+      <div class="art-sub">A teacher describes a case study involving middle school students and traditional earthen architecture</div>
+      <p>The way we think about architecture in schools has come a long way. Once, studying architecture in the art class meant learning to appreciate great buildings in art-history style, through slide presentations. In recent years, though, the American Institute of Architects has fostered the idea that the process of architectural design, not just the appreciation of architecture, is a beneficial aspect of the art curriculum.</p>
+      <p>The value of architectural design is that it is the concrete training ground for a broadly applicable creative process. Architectural training can help people design structures to meet needs. It can help farmers design crop rotations to meet needs. Furthermore, it provides hands-on experiences that reinforce learning in various other subjects, from maths to social studies.</p>
+      <p>In the ongoing dialogue about architecture in the middle school art curriculum, many believe students should actually build the structures they design in their courses. Although the technology and expertise required of modern architecture can prohibit students from actually realising their designs, traditional architectural materials and methods remain quite accessible to the art classroom. Traditional architectural materials, such as earth, clay and straw, are cheap, easy to work with and readily available. Further, when students participate in the construction or preservation of a traditional earthen structure in their local community, they engage in a form of experiential learning and they are motivated to invest in the project. This is evident in a case study of an adobe conservation project with middle school students in the town of Zuni, New Mexico.</p>
+      <p>Traditional architecture reaches back to preindustrial America, when local resources and cultures produced structures in styles unique to each region. In New Mexico, examples of hand-built earthen structures still abound. The region has seen some decline in traditional architecture as industrialization has brought new building codes and materials; however, the traditional, non-industrial home, either preserved from earlier generations or newly built, remains in use. Traditional building materials and the land that supplies them are so accessible that handcrafting a house still remains feasible.</p>
+      <p>Thus, with no technical expertise and little cost, middle school students can participate in the construction or preservation of a traditional earthen structure. During the project, a student will get to know the materials, understand the chemistry, solve problems, work with classmates, and exercise muscles. But most significantly, this type of project-based activity motivates students to invest intellectually and emotionally in the outcome.</p>
+      <p>The town of Zuni, where I taught art, was surrounded by adobe construction, new and old. Behind our main high school building there was a one-room adobe structure which was once used for teaching. Now it served as a place where old furniture could be kept. I sent my class home with the oral history assignment to ask their family, friends and neighbours questions to find out about that building. From their research we compiled a sketchy history: it began as a kindergarten classroom; it later became an art classroom; now it was full of broken desks.</p>
+      <p>The building's design kept it relatively warm in the winter, even without heating, due to its broad south face, and it stayed cool in the summer due to its spacious, ventilated attic and massive earthen walls. Because of this, my students agreed it was worth preserving and were enthusiastic about helping. Preservationist Shalie Gasper arrived in the fall to help with an assessment of the building's needs. She recommended replacing the stucco that encased the original adobe walls with a traditional mud plaster. She showed us where to find local supplies of sand and clay soil for the plaster mix. We began work on the stucco removal in late fall. The next spring the students were ready to replaster. To teach the traditional skills, Gasper and other local specialists joined us with three full mornings of intensive workshops.</p>
+      <p>Small design-and-build projects such as this can be seen through to the finish when working with earth in the art curriculum. A simple landscape feature such as a wall, entryway, or arch can draw students into important aspects of design. The same project may provide an opportunity to focus on the chemistry of soil or the structural dynamics of construction, or to integrate maths skills of measuring and estimating.</p>
+      <p>During our traditional architecture unit, the students realised that something old and almost forgotten is valuable and worth preserving. Many others in the community and around the country share this renewal of interest in traditional earthen technologies. It is the connection to a cultural heritage that interests some; the quality of living within massive, natural walls that attracts others; or for others, the sustainability of the process and the minimal energy spent in construction.</p>
+    </div>
+    <div class="card" style="margin-top:24px">
+      <h2 style="font-family:var(--serif);font-weight:400;margin-top:0">Questions 27–40</h2>
+<div class="rubric"><b>Questions 27–31.</b> Choose the correct answer, A, B, C or D.</div>
+<div class="q-block" data-q="27">
+<div><span class="q-num">27.</span>What education initiative does the American Institute of Architects currently promote?</div>
+<label class="opt-row"><input type="radio" name="q27" value="A"><span><b>A</b> multimedia presentation of information in classrooms</span></label>
+<label class="opt-row"><input type="radio" name="q27" value="B"><span><b>B</b> the study of monumental buildings throughout history</span></label>
+<label class="opt-row"><input type="radio" name="q27" value="C"><span><b>C</b> the practice of designing architectural structures</span></label>
+<label class="opt-row"><input type="radio" name="q27" value="D"><span><b>D</b> processes to add more art classes in schools</span></label>
+</div>
+<div class="q-block" data-q="28">
+<div><span class="q-num">28.</span>In the third paragraph, what problem with teaching architecture on art courses does the writer note?</div>
+<label class="opt-row"><input type="radio" name="q28" value="A"><span><b>A</b> Technology-based courses are unavailable.</span></label>
+<label class="opt-row"><input type="radio" name="q28" value="B"><span><b>B</b> Students cannot always construct their designs.</span></label>
+<label class="opt-row"><input type="radio" name="q28" value="C"><span><b>C</b> The curriculum is too traditional.</span></label>
+<label class="opt-row"><input type="radio" name="q28" value="D"><span><b>D</b> Students lack motivation.</span></label>
+</div>
+<div class="q-block" data-q="29">
+<div><span class="q-num">29.</span>What is the greatest benefit for students that the writer sees in a traditional architecture project?</div>
+<label class="opt-row"><input type="radio" name="q29" value="A"><span><b>A</b> personal connection to the end result</span></label>
+<label class="opt-row"><input type="radio" name="q29" value="B"><span><b>B</b> participation in a cooperative project</span></label>
+<label class="opt-row"><input type="radio" name="q29" value="C"><span><b>C</b> building of problem-solving skills</span></label>
+<label class="opt-row"><input type="radio" name="q29" value="D"><span><b>D</b> conservation of a traditional building</span></label>
+</div>
+<div class="q-block" data-q="30">
+<div><span class="q-num">30.</span>What is the purpose of the eighth paragraph?</div>
+<label class="opt-row"><input type="radio" name="q30" value="A"><span><b>A</b> to explain why it is important that projects be small</span></label>
+<label class="opt-row"><input type="radio" name="q30" value="B"><span><b>B</b> to outline the multiple skills involved in one project</span></label>
+<label class="opt-row"><input type="radio" name="q30" value="C"><span><b>C</b> to discuss strategies for connecting content areas</span></label>
+<label class="opt-row"><input type="radio" name="q30" value="D"><span><b>D</b> to propose suggestions for traditional earth projects</span></label>
+</div>
+<div class="q-block" data-q="31">
+<div><span class="q-num">31.</span>What does the writer say about traditional building and the general population?</div>
+<label class="opt-row"><input type="radio" name="q31" value="A"><span><b>A</b> Earthen architecture is becoming a profitable business.</span></label>
+<label class="opt-row"><input type="radio" name="q31" value="B"><span><b>B</b> Earthen architecture is less feasible in some areas of the country.</span></label>
+<label class="opt-row"><input type="radio" name="q31" value="C"><span><b>C</b> Interest in earthen architecture varies from region to region.</span></label>
+<label class="opt-row"><input type="radio" name="q31" value="D"><span><b>D</b> People are attracted to earthen architecture for different reasons.</span></label>
+</div>
+<div class="rubric"><b>Questions 32–36.</b> Complete the summary using the word list: <i>A experts, B location, C design, D storage, E students, F resources, G training, H businesses.</i> Type the word itself.</div>
+<div class="q-block" data-q="32">
+<div><span class="q-num">32.</span>The students in Zuni chose to renovate an old building which was being used for ___.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="33">
+<div><span class="q-num">33.</span>They agreed the building was worthy of rehabilitation based on its functional ___.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="34">
+<div><span class="q-num">34.</span>Through the project, they learned where to locate ___ for the work.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="35">
+<div><span class="q-num">35.</span>They also worked closely with a number of ___ on each step of the project.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="36">
+<div><span class="q-num">36.</span>Students were also given ___ to build useful skills.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="rubric"><b>Questions 37–40.</b> Choose <b>YES</b>, <b>NO</b> or <b>NOT GIVEN</b> according to the claims of the writer.</div>
+<div class="q-block" data-q="37">
+<div><span class="q-num">37.</span>The price of materials is one drawback to using traditional architecture.</div>
+<label class="opt-row"><input type="radio" name="q37" value="YES"><span><b>YES</b> </span></label>
+<label class="opt-row"><input type="radio" name="q37" value="NO"><span><b>NO</b> </span></label>
+<label class="opt-row"><input type="radio" name="q37" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="38">
+<div><span class="q-num">38.</span>Earthen structures can easily be built in all regions of the U.S.</div>
+<label class="opt-row"><input type="radio" name="q38" value="YES"><span><b>YES</b> </span></label>
+<label class="opt-row"><input type="radio" name="q38" value="NO"><span><b>NO</b> </span></label>
+<label class="opt-row"><input type="radio" name="q38" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="39">
+<div><span class="q-num">39.</span>Working with a traditional earthen structure can have physical benefits.</div>
+<label class="opt-row"><input type="radio" name="q39" value="YES"><span><b>YES</b> </span></label>
+<label class="opt-row"><input type="radio" name="q39" value="NO"><span><b>NO</b> </span></label>
+<label class="opt-row"><input type="radio" name="q39" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="40">
+<div><span class="q-num">40.</span>A traditional architecture curriculum is best suited to middle school level students.</div>
+<label class="opt-row"><input type="radio" name="q40" value="YES"><span><b>YES</b> </span></label>
+<label class="opt-row"><input type="radio" name="q40" value="NO"><span><b>NO</b> </span></label>
+<label class="opt-row"><input type="radio" name="q40" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+    </div>
+  </div>
+
+    <div class="submit-bar">
+      <button class="btn btn-gold" onclick="submitMock()">Check all answers</button>
+      <button class="btn" onclick="showKeyWords()">Key word table</button>
+    </div>
+    <div class="score-banner" id="scoreBanner"></div>
+    <div class="card" id="kwCard" style="margin-top:20px;display:none">
+      <h2 style="font-family:var(--serif);font-weight:400;margin-top:0">Key Word Table</h2>
+<table class="kw-table"><tr><th>In the question</th><th>In the passage</th></tr>
+<tr><td class="qtext">Q1 &middot; main occupation before revolution</td><td class="ptext">prior to the Industrial Revolution, <b>farming</b> was the main occupation</td></tr>
+<tr><td class="qtext">Q2 &middot; spun raw materials</td><td class="ptext">their <b>wives and daughters</b> spun the raw materials into threads</td></tr>
+<tr><td class="qtext">Q3 &middot; basis for design</td><td class="ptext">an improvement over an earlier machine invented by <b>Thomas High</b></td></tr>
+<tr><td class="qtext">Q4 &middot; spindle material</td><td class="ptext">a metal frame with eight <b>wooden</b> spindles</td></tr>
+<tr><td class="qtext">Q6 &middot; flying shuttle increased demand</td><td class="ptext">the flying shuttle ... made it possible to weave materials faster ... spinners were <b>unable to keep up</b></td></tr>
+<tr><td class="qtext">Q7 &middot; early jenny better quality</td><td class="ptext">the early spinning jenny also produced a <b>weaker thread</b> than could be produced by hand</td></tr>
+<tr><td class="qtext">Q8 &middot; water power improved quality</td><td class="ptext">with the use of water to power later versions ... quality and strength ... were <b>greatly improved</b></td></tr>
+<tr><td class="qtext">Q9 &middot; rollers linked by</td><td class="ptext">the rollers were linked to the hand wheel by a <b>cord</b></td></tr>
+<tr><td class="qtext">Q11 &middot; caused ... to revolve</td><td class="ptext">caused all the <b>spindles</b> to revolve</td></tr>
+<tr><td class="qtext">Q13 &middot; guide threads</td><td class="ptext">a pressing wire, known as a faller, was used to guide the threads</td></tr>
+<tr><td class="qtext">Q14 &middot; neurological explanation</td><td class="ptext">increased activity in several areas of the <b>cerebral cortex</b></td></tr>
+<tr><td class="qtext">Q15 &middot; origin of word</td><td class="ptext">the term, which is <b>Latin for 'I shall please'</b>, was first used ... 1700s</td></tr>
+<tr><td class="qtext">Q16 &middot; recommendation for professionals</td><td class="ptext">a doctor could simply <b>provide a slightly more positive message</b> about a treatment</td></tr>
+<tr><td class="qtext">Q17 &middot; appearance affects effectiveness</td><td class="ptext">pills which are red, yellow, or orange in colour are <b>more likely to provide a stimulating effect</b></td></tr>
+<tr><td class="qtext">Q18 &middot; treat the ... of conditions</td><td class="ptext">help eliminate or lessen the <b>symptoms</b> associated with clinical depression</td></tr>
+<tr><td class="qtext">Q19 &middot; our ... affects body</td><td class="ptext">the power of the human <b>brain</b> to unconsciously influence</td></tr>
+<tr><td class="qtext">Q20 &middot; improve patients'</td><td class="ptext">providing a boost to the <b>morale</b> that could help them get better faster</td></tr>
+<tr><td class="qtext">Q21 &middot; little effect if patient has</td><td class="ptext">largely ineffective in improving objective symptoms, such as ... an <b>infection</b></td></tr>
+<tr><td class="qtext">Q22 &middot; feel ... in muscles</td><td class="ptext">a placebo called a muscle stimulator will experience muscle <b>tension</b></td></tr>
+<tr><td class="qtext">Q23 &middot; related phenomenon</td><td class="ptext">the flip side of the placebo, the <b>nocebo</b> effect</td></tr>
+<tr><td class="qtext">Q24 &middot; two factors, pill and size</td><td class="ptext">pills which are red, yellow, or orange in <b>colour</b> ... bigger pills are better</td></tr>
+<tr><td class="qtext">Q25-26 &middot; Harvard study findings</td><td class="ptext">a placebo pill labelled Maxalt got <b>just as much pain relief</b> as those who'd taken a Maxalt pill labelled as a placebo</td></tr>
+<tr><td class="qtext">Q27 &middot; AIA's current initiative</td><td class="ptext">the process of <b>architectural design</b>, not just the appreciation of architecture</td></tr>
+<tr><td class="qtext">Q28 &middot; problem noted</td><td class="ptext">can <b>prohibit students from actually realising their designs</b></td></tr>
+<tr><td class="qtext">Q29 &middot; greatest benefit</td><td class="ptext">'most significantly ... motivates students to <b>invest intellectually and emotionally</b> in the outcome'</td></tr>
+<tr><td class="qtext">Q32 &middot; building used for</td><td class="ptext">now it served as a place where <b>old furniture could be kept</b></td></tr>
+<tr><td class="qtext">Q34 &middot; learned to locate</td><td class="ptext">showed us <b>where to find local supplies</b> of sand and clay soil</td></tr>
+<tr><td class="qtext">Q37 &middot; price a drawback</td><td class="ptext">traditional materials ... are <b>cheap</b>, easy to work with</td></tr>
+<tr><td class="qtext">Q39 &middot; physical benefits</td><td class="ptext">solve problems, work with classmates, and <b>exercise muscles</b></td></tr>
+</table>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/catalog.js"></script>
+<script src="../assets/shared.js"></script>
+<script>
+const PASSAGE_ID = 'm6';
+const QUIZ = [{"id": 1, "type": "text", "answer": "farming"}, {"id": 2, "type": "text", "answer": ["wives and daughters", "wives & daughters"]}, {"id": 3, "type": "text", "answer": "Thomas High"}, {"id": 4, "type": "text", "answer": "wooden"}, {"id": 5, "type": "radio", "answer": "NOT GIVEN"}, {"id": 6, "type": "radio", "answer": "TRUE"}, {"id": 7, "type": "radio", "answer": "FALSE"}, {"id": 8, "type": "radio", "answer": "TRUE"}, {"id": 9, "type": "text", "answer": "cord"}, {"id": 10, "type": "text", "answer": "wheel"}, {"id": 11, "type": "text", "answer": "spindles"}, {"id": 12, "type": "text", "answer": "bars"}, {"id": 13, "type": "text", "answer": "pressing wire"}, {"id": 14, "type": "radio", "answer": "D"}, {"id": 15, "type": "radio", "answer": "B"}, {"id": 16, "type": "radio", "answer": "G"}, {"id": 17, "type": "radio", "answer": "C"}, {"id": 18, "type": "text", "answer": "symptoms"}, {"id": 19, "type": "text", "answer": "brain"}, {"id": 20, "type": "text", "answer": "morale"}, {"id": 21, "type": "text", "answer": "infection"}, {"id": 22, "type": "text", "answer": "tension"}, {"id": 23, "type": "text", "answer": "nocebo"}, {"id": 24, "type": "text", "answer": ["color", "colour"]}, {"id": 25, "type": "radio", "answer": "C"}, {"id": 26, "type": "radio", "answer": "D"}, {"id": 27, "type": "radio", "answer": "C"}, {"id": 28, "type": "radio", "answer": "B"}, {"id": 29, "type": "radio", "answer": "A"}, {"id": 30, "type": "radio", "answer": "B"}, {"id": 31, "type": "radio", "answer": "D"}, {"id": 32, "type": "text", "answer": ["storage", "D"]}, {"id": 33, "type": "text", "answer": ["design", "C"]}, {"id": 34, "type": "text", "answer": ["resources", "F"]}, {"id": 35, "type": "text", "answer": ["experts", "A"]}, {"id": 36, "type": "text", "answer": ["training", "G"]}, {"id": 37, "type": "radio", "answer": "NO"}, {"id": 38, "type": "radio", "answer": "NOT GIVEN"}, {"id": 39, "type": "radio", "answer": "YES"}, {"id": 40, "type": "radio", "answer": "NOT GIVEN"}];
+const GLOSSARY = [{"word": "spindle", "pos": "noun", "def": "A slender rod used in spinning to twist and wind thread.", "uz": "urchuq (yigirish asbobi)"}, {"word": "weaver", "pos": "noun", "def": "A person who makes cloth by interlacing threads.", "uz": "to'quvchi"}, {"word": "patent", "pos": "noun", "def": "An official right granted for an invention.", "uz": "patent (ixtiroga huquq)"}, {"word": "cottage industry", "pos": "noun", "def": "Small-scale production carried out in homes rather than factories.", "uz": "uy sanoati"}, {"word": "placebo", "pos": "noun", "def": "A substance with no therapeutic effect, used in medical trials.", "uz": "platsebo"}, {"word": "nocebo", "pos": "noun", "def": "A harmless substance that causes harmful effects due to negative expectations.", "uz": "notsebo"}, {"word": "cerebral cortex", "pos": "noun", "def": "The outer layer of the brain responsible for higher-order thinking.", "uz": "bosh miya po'stlog'i"}, {"word": "sedating", "pos": "adjective", "def": "Having a calming or sleep-inducing effect.", "uz": "tinchlantiruvchi"}, {"word": "adobe", "pos": "noun", "def": "A building material made of sun-dried earth and straw.", "uz": "loydan qurilgan g'isht (adob)"}, {"word": "stucco", "pos": "noun", "def": "A type of plaster used to coat walls.", "uz": "suvoq (stukko)"}, {"word": "preservation", "pos": "noun", "def": "The act of keeping something in its original condition.", "uz": "saqlash, konservatsiya"}, {"word": "feasible", "pos": "adjective", "def": "Possible to do easily or conveniently.", "uz": "amalga oshirish mumkin bo'lgan"}];
+
+ArbPlayer('#articleBody1 p', {playBtnId:'playBtn1', stopBtnId:'stopBtn1', titleId:'plTitle1', subId:'plSub1', rateId:'rateSelect1'});
+ArbPlayer('#articleBody2 p', {playBtnId:'playBtn2', stopBtnId:'stopBtn2', titleId:'plTitle2', subId:'plSub2', rateId:'rateSelect2'});
+ArbPlayer('#articleBody3 p', {playBtnId:'playBtn3', stopBtnId:'stopBtn3', titleId:'plTitle3', subId:'plSub3', rateId:'rateSelect3'});
+const timer = ArbTimer({minutes:60});
+ArbHighlighter(['articleBody1','articleBody2','articleBody3']);
+
+document.getElementById('glossaryList').innerHTML = GLOSSARY.map(w =>
+  '<div class="glossary-item"><span class="w">'+w.word+'</span> <span style="color:var(--muted);font-size:.8rem">'+ (w.pos||'') +'</span>' +
+  '<div style="font-size:.88rem;margin-top:2px">'+w.def+'</div><div class="uz">'+w.uz+'</div></div>'
+).join('');
+
+function showPassage(n) {
+  document.querySelectorAll('.mock-passage').forEach((el,i) => el.style.display = (i+1===n) ? '' : 'none');
+  document.querySelectorAll('.mock-tab').forEach((el,i) => el.classList.toggle('active', i+1===n));
+}
+
+function submitMock() {
+  const correct = ArbGradeQuiz(QUIZ, {});
+  const passMark = Math.ceil(QUIZ.length * 0.5);
+  arbSetItem(PASSAGE_ID, { quiz: correct >= passMark, vocab: true, score: correct, total: QUIZ.length });
+  checkAllDone();
+}
+function showKeyWords() {
+  document.getElementById('kwCard').style.display = 'block';
+  document.getElementById('kwCard').scrollIntoView({behavior:'smooth'});
+}
+function checkAllDone() {
+  if (arbIsComplete(PASSAGE_ID)) {
+    let banner = document.getElementById('unlockBanner');
+    if (!banner) {
+      banner = document.createElement('div');
+      banner.id = 'unlockBanner';
+      banner.className = 'score-banner show';
+      banner.style.marginTop = '20px';
+      banner.innerHTML = '<div class="big">🔓 Unlocked!</div><div style="color:var(--muted);font-size:.85rem;margin-top:4px">Great work — the next item is now open.</div><button class="btn btn-gold" style="margin-top:14px" onclick="location.href=\'../index.html\'">Back to map</button>';
+      document.querySelector('.wrap').appendChild(banner);
+    }
+  }
+}
+</script>
+</body>
+</html>

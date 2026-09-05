@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Full Mock Test 5 — Avazbek Reader Booster</title>
+<link rel="stylesheet" href="../assets/shared.css">
+<style>
+.mock-tabs{display:flex; gap:10px; margin-bottom:20px; flex-wrap:wrap;}
+.mock-tab{flex:1; min-width:140px; text-align:center; padding:12px; border-radius:10px; border:1px solid var(--ink-line); background:var(--ink-1); cursor:pointer; font-size:.85rem; font-weight:700;}
+.mock-tab.active{border-color:var(--gold); background:var(--gold-dim); color:var(--gold-soft);}
+.glossary-item{padding:10px 4px;border-bottom:1px solid var(--ink-line);}
+.glossary-item:last-child{border-bottom:none;}
+.glossary-item .w{font-family:var(--serif);color:var(--gold-soft);font-size:1.05rem;}
+.glossary-item .uz{color:var(--gold);font-size:.85rem;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand">
+      <div class="brand-ring"><img src="../assets/avazbek.png" alt="Avazbek"></div>
+      <div class="brand-text">
+        <h1>Avazbek <em>Reader Booster</em></h1>
+        <div class="tag">Full Mock Test</div>
+      </div>
+    </div>
+    <button class="back-btn" onclick="location.href='../index.html'">&larr; Home</button>
+  </div>
+
+  <div id="home" class="section active">
+    <div class="hero">
+      <div class="eyebrow">Full Mock Test 5 of 6</div>
+      <h1>Full Mock Test 5</h1>
+      <p class="byline">The Origin of Paper &middot; The Myth of the Eight-hour Sleep &middot; The Art of Deception</p>
+      <p class="passage-tag">3 passages &middot; <b>40</b> questions total &middot; ~60 minutes</p>
+    </div>
+    <div class="menu">
+      <div class="menu-card" onclick="arbGo('test')">
+        <div class="num">📝</div>
+        <h3>Start the Mock Test</h3>
+        <p>Read all three passages and answer all 40 questions.</p>
+      </div>
+      <div class="menu-card" onclick="arbGo('glossary')">
+        <div class="num">🗂️</div>
+        <h3>Key Vocabulary</h3>
+        <p>Review challenging words from all three passages before you start.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="glossary" class="section">
+    <div class="section-head">
+      <button class="back-btn" onclick="arbGo('home')">&larr; Back</button>
+      <h2>Key Vocabulary</h2>
+      <div class="sub">Challenging words from this mock test's three passages.</div>
+    </div>
+    <div class="card" id="glossaryList"></div>
+  </div>
+
+  <div id="test" class="section">
+    <div class="section-head">
+      <button class="back-btn" onclick="arbGo('home')">&larr; Back</button>
+      <h2>Full Mock Test 5</h2>
+    </div>
+    <div class="timer-bar">
+      <span id="timerDisplay">60:00</span>
+      <input class="timer-input" id="tMin" value="60"> min
+      <input class="timer-input" id="tSec" value="0"> sec
+      <button class="tbtn" onclick="timer.set()">Set</button>
+      <button class="tbtn" onclick="timer.start()">Start</button>
+      <button class="tbtn" onclick="timer.pause()">Pause</button>
+      <button class="tbtn" onclick="timer.reset()">Reset</button>
+      <div class="timeup-banner" id="timeupBanner">Time is up! Finish your answers and check your score.</div>
+    </div>
+    <div class="mock-tabs">
+      <div class="mock-tab active" onclick="showPassage(1)">Passage 1</div>
+      <div class="mock-tab" onclick="showPassage(2)">Passage 2</div>
+      <div class="mock-tab" onclick="showPassage(3)">Passage 3</div>
+    </div>
+
+  <div class="mock-passage" id="passage_1" style="">
+    <div class="player">
+      <button class="play-btn" id="playBtn1">&#9654;</button>
+      <button class="stop-btn" id="stopBtn1">&#9632;</button>
+      <div class="player-status">
+        <div class="pl-title" id="plTitle1">Listen to Passage 1</div>
+        <div class="pl-sub" id="plSub1">American accent &middot; tap play to start</div>
+      </div>
+      <select class="rate-select" id="rateSelect1">
+        <option value="0.8">0.8&times; slow</option>
+        <option value="1" selected>1&times; normal</option>
+        <option value="1.2">1.2&times; fast</option>
+      </select>
+    </div>
+    <div class="article" id="articleBody1">
+      <h1 style="font-size:1.5rem">The Origin of Paper</h1>
+      <div class="art-sub">The long journey of papermaking from ancient Egypt to modern Europe</div>
+      <p>The word paper derives from the Greek term for the ancient Egyptian writing material called papyrus. In about 2400 BC, the Egyptians discovered how to make a writing surface out of papyrus, a type of reed that grows along waterways in southern Europe and North Africa. The Egyptians cut the plant into strips which they softened in water. Papyrus was cross-woven into a mat and then pounded into a hard thin sheet.</p>
+      <p>As the papyrus plant requires subtropical conditions to grow, papyrus was not much used in Europe at that time; instead, the main material used for writing was parchment. This was made from animal skin and was extremely expensive. In fact, it has been estimated that a single book written on parchment required the skins of 300 sheep. The skins had to be specifically prepared by drying them and they were then stretched on a special frame. It is not known when parchment was first introduced, but it was the main writing material in Europe for hundreds of years.</p>
+      <p>Paper, which is made from pulp, rags, and fibers of plants, seems to have been invented in China and is considered to be one of the Four Great Inventions of Ancient China. In 105 AD, under the Han Dynasty emperor Ho-Ti, a government official in China named Ts'ai Lun was the first to start a papermaking industry. Ts'ai Lun seems to have made his paper by mixing finely chopped mulberry bark and hemp rags with water, mashing the mixture flat with a stone mortar, and then pressing out the water and letting it dry in the sun. He may have based his idea on bark cloth, which was very common in China and also made from mulberry.</p>
+      <p>Previously, during the Shang (1600-1050 BC) and Zhou (1050-256 BC) dynasties of Ancient China, documents were ordinarily written on bone or bamboo (on tablets or on bamboo strips sewn and rolled together into scrolls), making them very heavy and awkward to transport. The light material of silk was sometimes used, but was normally too expensive to consider. When it was first invented, paper was used for purposes of wrapping or padding protection for delicate bronze mirrors. Although paper used for writing became popular by the 3rd century AD, it continued to be used for wrapping and other purposes.</p>
+      <p>During the Tang Dynasty (618-907 AD) paper was folded and sewn into square bags to preserve the flavor of tea. During the same period, according to a written account, tea was served from baskets with multi-colored paper cups and paper napkins of different sizes and shapes. During the Chinese Song Dynasty (960-1279 AD) not only did the government produce the world's first known printed paper money, or banknote, but paper money bestowed as gifts was wrapped in special paper envelopes.</p>
+      <p>Paper spread slowly outside of China; other Asian cultures, even after seeing paper, could not make it themselves. Instruction in the manufacturing process was required, and the Chinese were reluctant to share their secrets. It made its true push westward in 751 AD when the Tang Dynasty was at war with the Islamic world. During a battle on the banks of the Tarus river, a Chinese caravan was captured which happened to include several papermakers. They were taken away to Samarkand, which was a good place to make paper because it had an abundant supply of hemp and flax. Samarkanders changed the technology of manufacturing paper. They began to prepare it in stone mills and Samarkand became an important papermaking center.</p>
+      <p>The rudimentary and laborious process of papermaking was refined and bulk manufacturing of paper began in Iran, where they invented a method to make a thicker sheet of paper, which helped transform papermaking from an art into an important business.</p>
+      <p>Gradually papermakers made their way further west through the Arab world — to Baghdad, Damascus and Cairo. Finally, when the Moors from North Africa invaded Spain and Portugal they brought the technology with them and so it was that papermaking entered Europe in the 12th century.</p>
+      <p>In Europe, the preferred medium for the artists and literati of the time was still the smooth and lustrous parchment. The notion of paper being used as a practical everyday item did not occur until the 15th century when Johannes Gutenberg perfected movable type printing, which included the use of metal molds and alloys, a special press, and oil-based inks, allowing the mass production of printed books. The birth of the modern paper and printing industry is commonly marked from this date.</p>
+      <p>Printing technology rapidly developed and created an ever-increasing demand for paper. The early European papers were made from recycled cotton and linen — and a huge trade quickly developed around the trading of old rags. It is said that the disease known as 'the Black Death' entered England from Europe on these old rags. Yet soon this source became insufficient and some curious attempts were made to find new materials. Experiments with fibers such as straw, cabbage, wasp nests and finally wood, resulted in inexpensive — and replaceable — materials for papermaking. Today, the long soft fibers of softwoods such as spruce have become the most suitable source of pulp for the mass production of paper.</p>
+    </div>
+    <div class="card" style="margin-top:24px">
+      <h2 style="font-family:var(--serif);font-weight:400;margin-top:0">Questions 1–13</h2>
+<div class="rubric"><b>Questions 1–7.</b> Do the following statements agree with the information given? Choose <b>TRUE</b>, <b>FALSE</b> or <b>NOT GIVEN</b>.</div>
+<div class="q-block" data-q="1">
+<div><span class="q-num">1.</span>In Ancient China, writing was occasionally done on silk.</div>
+<label class="opt-row"><input type="radio" name="q1" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q1" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q1" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="2">
+<div><span class="q-num">2.</span>Coloured paper was invented during the Tang Dynasty.</div>
+<label class="opt-row"><input type="radio" name="q2" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q2" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q2" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="3">
+<div><span class="q-num">3.</span>Papermakers from Samarkand were captured by the Chinese.</div>
+<label class="opt-row"><input type="radio" name="q3" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q3" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q3" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="4">
+<div><span class="q-num">4.</span>Papermaking as a large-scale industry originated in Iran.</div>
+<label class="opt-row"><input type="radio" name="q4" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q4" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q4" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="5">
+<div><span class="q-num">5.</span>Papermaking skills were brought to Europe via North Africa.</div>
+<label class="opt-row"><input type="radio" name="q5" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q5" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q5" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="6">
+<div><span class="q-num">6.</span>When Gutenberg invented movable type, paper materials were very expensive.</div>
+<label class="opt-row"><input type="radio" name="q6" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q6" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q6" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="7">
+<div><span class="q-num">7.</span>The end of the trade in rags was brought about by the difficulty of transporting them.</div>
+<label class="opt-row"><input type="radio" name="q7" value="TRUE"><span><b>TRUE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q7" value="FALSE"><span><b>FALSE</b> </span></label>
+<label class="opt-row"><input type="radio" name="q7" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="rubric"><b>Questions 8–13.</b> Complete the notes. Choose <b>ONE WORD ONLY</b> from the passage for each answer.</div>
+<div class="q-block" data-q="8">
+<div><span class="q-num">8.</span>Papyrus was cut into _____ and softened in water.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="9">
+<div><span class="q-num">9.</span>A single parchment book could require the skins of 300 _____.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="10">
+<div><span class="q-num">10.</span>Parchment skins were dried and then _____ on a special frame.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="11">
+<div><span class="q-num">11.</span>Ts'ai Lun mixed mulberry _____ and hemp rags with water to make paper.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="12">
+<div><span class="q-num">12.</span>Captured papermakers were taken to _____, where paper technology changed.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="13">
+<div><span class="q-num">13.</span>Samarkanders began preparing paper in _____ mills.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+    </div>
+  </div>
+
+  <div class="mock-passage" id="passage_2" style="display:none">
+    <div class="player">
+      <button class="play-btn" id="playBtn2">&#9654;</button>
+      <button class="stop-btn" id="stopBtn2">&#9632;</button>
+      <div class="player-status">
+        <div class="pl-title" id="plTitle2">Listen to Passage 2</div>
+        <div class="pl-sub" id="plSub2">American accent &middot; tap play to start</div>
+      </div>
+      <select class="rate-select" id="rateSelect2">
+        <option value="0.8">0.8&times; slow</option>
+        <option value="1" selected>1&times; normal</option>
+        <option value="1.2">1.2&times; fast</option>
+      </select>
+    </div>
+    <div class="article" id="articleBody2">
+      <h1 style="font-size:1.5rem">The Myth of the Eight-hour Sleep</h1>
+      <div class="art-sub">Historical and scientific evidence suggests humans once slept in two separate periods each night</div>
+      <p>A. We often worry about lying awake in the middle of the night — but it could be good for you. Indications from both science and history suggest that the eight-hour sleep may not be a natural or inborn pattern for humans. In the early 1990s, psychiatrist Thomas Wehr conducted research which implies just that. Wehr kept a group of people in a darkened room for 14 hours a day for a month. It took some time for their sleep to regulate, but by the fourth week the subjects had settled into a very distinct sleeping pattern. First they slept for four hours, then woke for one or two hours before falling into a second four-hour sleep. Though sleep scientists were impressed by the implications of the study, the idea that we must sleep for eight consecutive hours persists amongst the general public.</p>
+      <p>B. In 2001, historian Roger Ekirch of Virginia Tech University in the US published a paper drawn from 16 years of research, revealing historical evidence that humans used to sleep in two distinct periods of time each night. Ekirch's research found more than 500 references to a segmented sleeping pattern — in diaries, court records, medical books and literature, from the ancient Greeks to tribes in Nigeria. Much like Wehr's findings, these references describe a first sleep which began not long following sunset. Then there was a waking period of one or two hours and after that a second sleep. During the waking period, people could be quite active. They sometimes got up and moved around the house, although most people stayed in bed, and perhaps read or wrote if they had enough money for candles. In many historic accounts, Ekirch found that people used the time that they were awake between periods of sleep to think about and attempt to analyse their dreams. In his book, Evening's Empire, historian Craig Koslofsky suggests an explanation for this divided sleep pattern in Europe. 'Associations with night before the 17th century were not good,' he writes. He goes on to explain that the streets of the cities and towns at night were often populated by thieves or worse. The streets at night consequently scared many people. Even the wealthy, who could afford to light their way, had better things to spend their money on. There was no prestige or social value associated with staying up all night.</p>
+      <p>C. Ekirch found that references to the first and second sleep started to disappear during the late 17th century. The pattern began to alter first among the urban upper classes in northern Europe and, over the course of the next 200 years, began changing amongst the rest of Western society. By the 1920s, the idea of a first and second sleep had receded entirely from our social consciousness. Ekirch attributes the initial shift to improvements in street and home lighting. As the night became a time for all kinds of activity, the length of time people could dedicate to rest dwindled. In 1667, Paris became the first city in the world to light its streets, using wax candles in glass lamps. It was followed by another French city, Lille, in the same year and by Amsterdam in Holland two years later, where a much more efficient oil-powered lamp was developed. London didn't light its streets until 1684, but by the end of the 17th century, more than 50 of Europe's major towns and cities were lit at night. Coffee houses emerged as a fashionable phenomenon and many were open virtually around the clock. Going out at night became commonplace, and spending hours lying in bed was considered a waste of time. 'People were becoming increasingly time-conscious and sensitive to efficiency, certainly before the 19th century,' says Ekirch. 'But the Industrial Revolution intensified that attitude considerably.' Strong evidence of this shifting attitude is contained in a medical journal from 1829 which urged parents to force their children out of the pattern of first and second sleep.</p>
+      <p>D. Today, most people seem to have adapted quite well to the eight-hour sleep, but Ekirch believes many sleeping problems may have roots in the human body's natural preference for divided sleep, as well as in difficulties caused by extended exposure to artificial light in the modern world. This could be the cause of a condition called sleep maintenance insomnia, where people wake during the night and have trouble getting back to sleep. The condition first appears in literature at the end of the 19th century, at the same time as accounts of interrupted sleep disappear.</p>
+      <p>E. Sleep psychologist Gregg Jacobs says that the idea that we must sleep for an extended period of time could be damaging if it makes people who wake up in the night anxious, as this anxiety can itself discourage sleep and is likely to affect waking life too. Jacobs suggests that the waking period between sleeps, when people simply rested and relaxed, could have played an important part in the human capacity to regulate stress naturally. Russell Foster, a professor of circadian (body clock) neuroscience at Oxford University in the UK, shares this point of view. 'Over 30% of the medical problems that doctors are faced with stem directly or indirectly from sleep. But sleep has been ignored in medical training, and there are very few centres where sleep is studied,' Foster says. He feels this needs to change.</p>
+    </div>
+    <div class="card" style="margin-top:24px">
+      <h2 style="font-family:var(--serif);font-weight:400;margin-top:0">Questions 14–26</h2>
+<div class="rubric"><b>Questions 14–18.</b> Choose the correct heading for each section, A–E, from the list below. (There are more headings than sections.)</div>
+<div class="q-block" data-q="14">
+<div><span class="q-num">14.</span>Section A</div>
+<label class="opt-row"><input type="radio" name="q14" value="vii"><span><b>vii</b> Scientific evidence that divided sleep is a natural phenomenon</span></label>
+<label class="opt-row"><input type="radio" name="q14" value="v"><span><b>v</b> An analysis of old documents to discover sleep patterns</span></label>
+<label class="opt-row"><input type="radio" name="q14" value="i"><span><b>i</b> Historical reasons why interrupted sleep became uncommon</span></label>
+<label class="opt-row"><input type="radio" name="q14" value="iii"><span><b>iii</b> Potential health issues related to sleep</span></label>
+<label class="opt-row"><input type="radio" name="q14" value="ii"><span><b>ii</b> Brain structures involved in sleep patterns</span></label>
+<label class="opt-row"><input type="radio" name="q14" value="iv"><span><b>iv</b> Famous cases in literature of sleep problems</span></label>
+<label class="opt-row"><input type="radio" name="q14" value="vi"><span><b>vi</b> Biological and environmental factors preventing people from falling asleep again</span></label>
+</div>
+<div class="q-block" data-q="15">
+<div><span class="q-num">15.</span>Section B</div>
+<label class="opt-row"><input type="radio" name="q15" value="vii"><span><b>vii</b> Scientific evidence that divided sleep is a natural phenomenon</span></label>
+<label class="opt-row"><input type="radio" name="q15" value="v"><span><b>v</b> An analysis of old documents to discover sleep patterns</span></label>
+<label class="opt-row"><input type="radio" name="q15" value="i"><span><b>i</b> Historical reasons why interrupted sleep became uncommon</span></label>
+<label class="opt-row"><input type="radio" name="q15" value="iii"><span><b>iii</b> Potential health issues related to sleep</span></label>
+<label class="opt-row"><input type="radio" name="q15" value="ii"><span><b>ii</b> Brain structures involved in sleep patterns</span></label>
+<label class="opt-row"><input type="radio" name="q15" value="iv"><span><b>iv</b> Famous cases in literature of sleep problems</span></label>
+<label class="opt-row"><input type="radio" name="q15" value="vi"><span><b>vi</b> Biological and environmental factors preventing people from falling asleep again</span></label>
+</div>
+<div class="q-block" data-q="16">
+<div><span class="q-num">16.</span>Section C</div>
+<label class="opt-row"><input type="radio" name="q16" value="vii"><span><b>vii</b> Scientific evidence that divided sleep is a natural phenomenon</span></label>
+<label class="opt-row"><input type="radio" name="q16" value="v"><span><b>v</b> An analysis of old documents to discover sleep patterns</span></label>
+<label class="opt-row"><input type="radio" name="q16" value="i"><span><b>i</b> Historical reasons why interrupted sleep became uncommon</span></label>
+<label class="opt-row"><input type="radio" name="q16" value="iii"><span><b>iii</b> Potential health issues related to sleep</span></label>
+<label class="opt-row"><input type="radio" name="q16" value="ii"><span><b>ii</b> Brain structures involved in sleep patterns</span></label>
+<label class="opt-row"><input type="radio" name="q16" value="iv"><span><b>iv</b> Famous cases in literature of sleep problems</span></label>
+<label class="opt-row"><input type="radio" name="q16" value="vi"><span><b>vi</b> Biological and environmental factors preventing people from falling asleep again</span></label>
+</div>
+<div class="q-block" data-q="17">
+<div><span class="q-num">17.</span>Section D</div>
+<label class="opt-row"><input type="radio" name="q17" value="vii"><span><b>vii</b> Scientific evidence that divided sleep is a natural phenomenon</span></label>
+<label class="opt-row"><input type="radio" name="q17" value="v"><span><b>v</b> An analysis of old documents to discover sleep patterns</span></label>
+<label class="opt-row"><input type="radio" name="q17" value="i"><span><b>i</b> Historical reasons why interrupted sleep became uncommon</span></label>
+<label class="opt-row"><input type="radio" name="q17" value="iii"><span><b>iii</b> Potential health issues related to sleep</span></label>
+<label class="opt-row"><input type="radio" name="q17" value="ii"><span><b>ii</b> Brain structures involved in sleep patterns</span></label>
+<label class="opt-row"><input type="radio" name="q17" value="iv"><span><b>iv</b> Famous cases in literature of sleep problems</span></label>
+<label class="opt-row"><input type="radio" name="q17" value="vi"><span><b>vi</b> Biological and environmental factors preventing people from falling asleep again</span></label>
+</div>
+<div class="q-block" data-q="18">
+<div><span class="q-num">18.</span>Section E</div>
+<label class="opt-row"><input type="radio" name="q18" value="vii"><span><b>vii</b> Scientific evidence that divided sleep is a natural phenomenon</span></label>
+<label class="opt-row"><input type="radio" name="q18" value="v"><span><b>v</b> An analysis of old documents to discover sleep patterns</span></label>
+<label class="opt-row"><input type="radio" name="q18" value="i"><span><b>i</b> Historical reasons why interrupted sleep became uncommon</span></label>
+<label class="opt-row"><input type="radio" name="q18" value="iii"><span><b>iii</b> Potential health issues related to sleep</span></label>
+<label class="opt-row"><input type="radio" name="q18" value="ii"><span><b>ii</b> Brain structures involved in sleep patterns</span></label>
+<label class="opt-row"><input type="radio" name="q18" value="iv"><span><b>iv</b> Famous cases in literature of sleep problems</span></label>
+<label class="opt-row"><input type="radio" name="q18" value="vi"><span><b>vi</b> Biological and environmental factors preventing people from falling asleep again</span></label>
+</div>
+<div class="rubric"><b>Questions 19–23.</b> Match each statement with the correct researcher, A–E. <i>A Thomas Wehr, B Roger Ekirch, C Craig Koslofsky, D Gregg Jacobs, E Russell Foster.</i></div>
+<div class="q-block" data-q="19">
+<div><span class="q-num">19.</span>In certain historical periods, the threat of criminal danger led to segmented sleep.</div>
+<label class="opt-row"><input type="radio" name="q19" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q19" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q19" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q19" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q19" value="E"><span><b>E</b> </span></label>
+</div>
+<div class="q-block" data-q="20">
+<div><span class="q-num">20.</span>Physicians should learn more about treating people with sleeping difficulties.</div>
+<label class="opt-row"><input type="radio" name="q20" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q20" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q20" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q20" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q20" value="E"><span><b>E</b> </span></label>
+</div>
+<div class="q-block" data-q="21">
+<div><span class="q-num">21.</span>Historically, when people experienced interrupted sleep, they used the waking periods at night for different activities.</div>
+<label class="opt-row"><input type="radio" name="q21" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q21" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q21" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q21" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q21" value="E"><span><b>E</b> </span></label>
+</div>
+<div class="q-block" data-q="22">
+<div><span class="q-num">22.</span>Technological changes in Europe made people more likely to sleep through the night.</div>
+<label class="opt-row"><input type="radio" name="q22" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q22" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q22" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q22" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q22" value="E"><span><b>E</b> </span></label>
+</div>
+<div class="q-block" data-q="23">
+<div><span class="q-num">23.</span>The belief that humans should have a long continuous sleep can be psychologically harmful.</div>
+<label class="opt-row"><input type="radio" name="q23" value="A"><span><b>A</b> </span></label>
+<label class="opt-row"><input type="radio" name="q23" value="B"><span><b>B</b> </span></label>
+<label class="opt-row"><input type="radio" name="q23" value="C"><span><b>C</b> </span></label>
+<label class="opt-row"><input type="radio" name="q23" value="D"><span><b>D</b> </span></label>
+<label class="opt-row"><input type="radio" name="q23" value="E"><span><b>E</b> </span></label>
+</div>
+<div class="rubric"><b>Questions 24–26.</b> Complete the sentences. Choose <b>ONE WORD ONLY</b> from the passage for each answer.</div>
+<div class="q-block" data-q="24">
+<div><span class="q-num">24.</span>Historical references describe a first sleep beginning not long after _____.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="25">
+<div><span class="q-num">25.</span>People used their waking period at night to think about their _____.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="26">
+<div><span class="q-num">26.</span>At night, city and town streets were often populated by _____.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+    </div>
+  </div>
+
+  <div class="mock-passage" id="passage_3" style="display:none">
+    <div class="player">
+      <button class="play-btn" id="playBtn3">&#9654;</button>
+      <button class="stop-btn" id="stopBtn3">&#9632;</button>
+      <div class="player-status">
+        <div class="pl-title" id="plTitle3">Listen to Passage 3</div>
+        <div class="pl-sub" id="plSub3">American accent &middot; tap play to start</div>
+      </div>
+      <select class="rate-select" id="rateSelect3">
+        <option value="0.8">0.8&times; slow</option>
+        <option value="1" selected>1&times; normal</option>
+        <option value="1.2">1.2&times; fast</option>
+      </select>
+    </div>
+    <div class="article" id="articleBody3">
+      <h1 style="font-size:1.5rem">The Art of Deception</h1>
+      <div class="art-sub">Do tiny changes of facial expression show whether someone is telling lies?</div>
+      <p>Forty years ago, the research psychologist Dr Paul Ekman was addressing a group of young psychiatrists in training when he was asked a question, the answer to which has kept him busy ever since. Suppose, the group wanted to know, a particular patient swears they are telling the truth. They look and sound sincere. So here is the question: is there any way you can be sure they are telling the truth? Ekman did not know the answer then, but wanted to find out.</p>
+      <p>As part of his research, he had already filmed a series of 12-minute interviews with psychiatric patients. In a subsequent conversation, one of the patients told him that she had lied to him. So, Ekman sat and looked at the film but saw nothing noteworthy. Then he slowed it down and looked again. Then he slowed it even further. And suddenly, there, across just two frames of the film, he saw it: an intense expression of extreme anguish. It lasted less than a 15th of a second, but once he had spotted the first expression, he soon found three more examples in that same interview. He termed his discovery 'micro-expression': very rapid intense demonstrations of emotion that the subject intended to be concealed.</p>
+      <p>Over the course of the next four decades, Ekman successfully demonstrated a proposition first suggested by Charles Darwin: that the ways in which we express rage, disgust, contempt, fear, surprise, happiness and sadness are universal. The facial muscles triggered by those seven basic emotions are, he has shown, essentially standard, regardless of language and culture, from the US to Japan and Brazil to Papua New Guinea. What is more, expressions of emotion are impossible to suppress and, particularly when we are lying, micro-expressions of powerfully felt emotions will inevitably flit across our face before we get the chance to stop them.</p>
+      <p>Fortunately for liars, most people will fail to spot these fleeting signals of inner torment. Of the 15,000 Ekman has tested, only 50 people, whom he calls 'naturals', have been able to do it. But given a little more training, Ekman says, almost anyone can develop the skill. He should know, since these tests were completed in the mid-1980s and the first publication of his research, he has been called in by the FBI and CIA (among countless more law-enforcement and other agencies around the world), not just to solve cases, but to teach them how to use his technique for themselves. He has held workshops for defense and prosecution lawyers, health professionals, even jealous spouses, all of them wanting to know exactly when someone is not being 100 percent candid.</p>
+      <p>Most recently, Ekman's research has resulted in a new television series about the exploits of the fictional Dr Cal Lightman, a scientist who studies involuntary body language to discover not only if you are lying, but why you might have been motivated to do so. According to the publicity blurb, Lightman is a human lie detector, even more accurate than a polygraph test. Ekman concedes he was skeptical when the producer first approached him with the idea of turning his life's work into a TV series, and initially would have stopped the project if he could. In particular, he was fearful that the show would exaggerate the effectiveness of his techniques and create the quite inaccurate impression among audiences that criminals could no longer hope to get away with lying. In the worst-case scenario, he was concerned about unfair convictions, that one day someone not properly trained in his techniques might be sitting on a jury and wrongly find someone guilty of a crime simply on the basis of a television programme.</p>
+      <p>In the end though, he was won over because the series is unusual in several respects. It is the first time, as far as Ekman is aware, that a commercial TV drama has been based on the work of just one scientist. That scientist is also deeply involved in the project, talking through plot ideas and checking five successive drafts of each script to ensure details are correct. He was also impressed with the producer's manifestly serious and well-intentioned reasons for making the programme. Now that the first series has been completed, he believes probably 80-90 per cent of the show is based on fact and that's good enough for what it is, after all — a drama, not a documentary.</p>
+      <p>Ekman, incidentally, professes to have been a terrible liar ever since he was a small boy and observes that the ability to detect a lie and the ability to lie successfully are completely unrelated.</p>
+    </div>
+    <div class="card" style="margin-top:24px">
+      <h2 style="font-family:var(--serif);font-weight:400;margin-top:0">Questions 27–40</h2>
+<div class="rubric"><b>Questions 27–31.</b> Choose the correct letter, A, B, C or D.</div>
+<div class="q-block" data-q="27">
+<div><span class="q-num">27.</span>According to the writer, Ekman became interested in lying after a question from his</div>
+<label class="opt-row"><input type="radio" name="q27" value="A"><span><b>A</b> peers.</span></label>
+<label class="opt-row"><input type="radio" name="q27" value="B"><span><b>B</b> patients.</span></label>
+<label class="opt-row"><input type="radio" name="q27" value="C"><span><b>C</b> students.</span></label>
+<label class="opt-row"><input type="radio" name="q27" value="D"><span><b>D</b> teachers.</span></label>
+</div>
+<div class="q-block" data-q="28">
+<div><span class="q-num">28.</span>The writer refers to the 12-minute interviews in order to</div>
+<label class="opt-row"><input type="radio" name="q28" value="A"><span><b>A</b> illustrate how frequently patients lie.</span></label>
+<label class="opt-row"><input type="radio" name="q28" value="B"><span><b>B</b> describe the origins of Ekman's theories.</span></label>
+<label class="opt-row"><input type="radio" name="q28" value="C"><span><b>C</b> compare Ekman's research to previous studies.</span></label>
+<label class="opt-row"><input type="radio" name="q28" value="D"><span><b>D</b> show how patients' behaviour is affected by filming.</span></label>
+</div>
+<div class="q-block" data-q="29">
+<div><span class="q-num">29.</span>What is the writer's point in the third paragraph?</div>
+<label class="opt-row"><input type="radio" name="q29" value="A"><span><b>A</b> Micro-expressions are common to all people.</span></label>
+<label class="opt-row"><input type="radio" name="q29" value="B"><span><b>B</b> Recent research has refuted an old idea.</span></label>
+<label class="opt-row"><input type="radio" name="q29" value="C"><span><b>C</b> With practice we can learn to control our micro-expressions.</span></label>
+<label class="opt-row"><input type="radio" name="q29" value="D"><span><b>D</b> Human society is too complex to allow for generalisations.</span></label>
+</div>
+<div class="q-block" data-q="30">
+<div><span class="q-num">30.</span>What are we told about Ekman's conclusions from his tests?</div>
+<label class="opt-row"><input type="radio" name="q30" value="A"><span><b>A</b> It's natural for people to lie.</span></label>
+<label class="opt-row"><input type="radio" name="q30" value="B"><span><b>B</b> Few untrained people can detect lying.</span></label>
+<label class="opt-row"><input type="radio" name="q30" value="C"><span><b>C</b> Most liars suffer from periods of depression.</span></label>
+<label class="opt-row"><input type="radio" name="q30" value="D"><span><b>D</b> All of his subjects were trained to identify micro-expressions.</span></label>
+</div>
+<div class="q-block" data-q="31">
+<div><span class="q-num">31.</span>What point does the writer make about Ekman's techniques in the fourth paragraph?</div>
+<label class="opt-row"><input type="radio" name="q31" value="A"><span><b>A</b> They take a decade to teach.</span></label>
+<label class="opt-row"><input type="radio" name="q31" value="B"><span><b>B</b> They have been in great demand.</span></label>
+<label class="opt-row"><input type="radio" name="q31" value="C"><span><b>C</b> They have aroused the suspicions of some agencies.</span></label>
+<label class="opt-row"><input type="radio" name="q31" value="D"><span><b>D</b> They can be used by a limited range of occupations.</span></label>
+</div>
+<div class="rubric"><b>Questions 32–36.</b> Complete the summary using the word list: <i>A consequences, B crimes, C false beliefs, D motives, E justice, F accuracy, G acting, H research, I ratings.</i> Type the word itself.</div>
+<div class="q-block" data-q="32">
+<div><span class="q-num">32.</span>Ekman feared the show might encourage viewers' ___ about lie detection.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="33">
+<div><span class="q-num">33.</span>He worried the programme could one day result in ___ not being carried out.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="34">
+<div><span class="q-num">34.</span>There is no other comparable programme based on a single person's ___.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="35">
+<div><span class="q-num">35.</span>The producer's ___ for making the show were a pleasant surprise.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="q-block" data-q="36">
+<div><span class="q-num">36.</span>Ekman is happy with the show's overall ___.</div>
+<input type="text" placeholder="Type your answer">
+</div>
+<div class="rubric"><b>Questions 37–40.</b> Do the following statements agree with the views of the writer? Choose <b>YES</b>, <b>NO</b> or <b>NOT GIVEN</b>.</div>
+<div class="q-block" data-q="37">
+<div><span class="q-num">37.</span>Ekman has taught his technique to relationship counsellors.</div>
+<label class="opt-row"><input type="radio" name="q37" value="YES"><span><b>YES</b> </span></label>
+<label class="opt-row"><input type="radio" name="q37" value="NO"><span><b>NO</b> </span></label>
+<label class="opt-row"><input type="radio" name="q37" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="38">
+<div><span class="q-num">38.</span>Ekman regrets his involvement with the television series.</div>
+<label class="opt-row"><input type="radio" name="q38" value="YES"><span><b>YES</b> </span></label>
+<label class="opt-row"><input type="radio" name="q38" value="NO"><span><b>NO</b> </span></label>
+<label class="opt-row"><input type="radio" name="q38" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="39">
+<div><span class="q-num">39.</span>Ekman believes the TV series is entirely accurate.</div>
+<label class="opt-row"><input type="radio" name="q39" value="YES"><span><b>YES</b> </span></label>
+<label class="opt-row"><input type="radio" name="q39" value="NO"><span><b>NO</b> </span></label>
+<label class="opt-row"><input type="radio" name="q39" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+<div class="q-block" data-q="40">
+<div><span class="q-num">40.</span>Ekman considers himself to be a poor liar.</div>
+<label class="opt-row"><input type="radio" name="q40" value="YES"><span><b>YES</b> </span></label>
+<label class="opt-row"><input type="radio" name="q40" value="NO"><span><b>NO</b> </span></label>
+<label class="opt-row"><input type="radio" name="q40" value="NOT GIVEN"><span><b>NOT GIVEN</b> </span></label>
+</div>
+    </div>
+  </div>
+
+    <div class="submit-bar">
+      <button class="btn btn-gold" onclick="submitMock()">Check all answers</button>
+      <button class="btn" onclick="showKeyWords()">Key word table</button>
+    </div>
+    <div class="score-banner" id="scoreBanner"></div>
+    <div class="card" id="kwCard" style="margin-top:20px;display:none">
+      <h2 style="font-family:var(--serif);font-weight:400;margin-top:0">Key Word Table</h2>
+<table class="kw-table"><tr><th>In the question</th><th>In the passage</th></tr>
+<tr><td class="qtext">Q1 &middot; writing on silk</td><td class="ptext">the light material of <b>silk was sometimes used</b></td></tr>
+<tr><td class="qtext">Q3 &middot; Samarkand papermakers captured</td><td class="ptext">a Chinese caravan was captured which happened to include <b>several papermakers</b> (opposite direction)</td></tr>
+<tr><td class="qtext">Q4 &middot; large-scale industry from Iran</td><td class="ptext">bulk manufacturing of paper began in <b>Iran</b></td></tr>
+<tr><td class="qtext">Q5 &middot; via North Africa</td><td class="ptext">the Moors from <b>North Africa</b> invaded Spain and Portugal they brought the technology</td></tr>
+<tr><td class="qtext">Q7 &middot; end of rag trade, transport</td><td class="ptext">this source became <b>insufficient</b> (not because of transport difficulty)</td></tr>
+<tr><td class="qtext">Q8 &middot; papyrus cut into</td><td class="ptext">the Egyptians cut the plant into <b>strips</b></td></tr>
+<tr><td class="qtext">Q9 &middot; skins of 300 ...</td><td class="ptext">required the skins of 300 <b>sheep</b></td></tr>
+<tr><td class="qtext">Q10 &middot; dried and then ...</td><td class="ptext">they were then <b>stretched</b> on a special frame</td></tr>
+<tr><td class="qtext">Q11 &middot; mixed mulberry ...</td><td class="ptext">mixing finely chopped mulberry <b>bark</b> and hemp rags</td></tr>
+<tr><td class="qtext">Q12 &middot; taken to</td><td class="ptext">they were taken away to <b>Samarkand</b></td></tr>
+<tr><td class="qtext">Q13 &middot; prepare paper in ... mills</td><td class="ptext">they began to prepare it in <b>stone</b> mills</td></tr>
+<tr><td class="qtext">Q14 &middot; Section A heading</td><td class="ptext">the eight-hour sleep may not be a <b>natural or inborn pattern</b> ... research</td></tr>
+<tr><td class="qtext">Q15 &middot; Section B heading</td><td class="ptext">a paper drawn from <b>16 years of research</b> ... 500 references</td></tr>
+<tr><td class="qtext">Q16 &middot; Section C heading</td><td class="ptext">references ... started to <b>disappear during the late 17th century</b></td></tr>
+<tr><td class="qtext">Q19 &middot; criminal danger led to segmented sleep</td><td class="ptext">Koslofsky ... the streets ... were often populated by <b>thieves or worse</b></td></tr>
+<tr><td class="qtext">Q20 &middot; physicians should learn more</td><td class="ptext">Foster: 'sleep has been <b>ignored in medical training</b>'</td></tr>
+<tr><td class="qtext">Q21 &middot; used waking periods for activities</td><td class="ptext">Ekirch found ... people used the time ... to <b>think about and attempt to analyse their dreams</b></td></tr>
+<tr><td class="qtext">Q22 &middot; technology, sleep through night</td><td class="ptext">Ekirch attributes the initial shift to <b>improvements in street and home lighting</b></td></tr>
+<tr><td class="qtext">Q23 &middot; belief harmful</td><td class="ptext">Jacobs: the idea ... 'could be <b>damaging</b> if it makes people ... anxious'</td></tr>
+<tr><td class="qtext">Q24 &middot; first sleep began after</td><td class="ptext">a first sleep which began not long following <b>sunset</b></td></tr>
+<tr><td class="qtext">Q25 &middot; thought about their</td><td class="ptext">attempt to analyse their <b>dreams</b></td></tr>
+<tr><td class="qtext">Q26 &middot; streets populated by</td><td class="ptext">were often populated by <b>thieves</b> or worse</td></tr>
+<tr><td class="qtext">Q27 &middot; interested after question from</td><td class="ptext">addressing a group of <b>young psychiatrists in training</b> when he was asked a question</td></tr>
+<tr><td class="qtext">Q28 &middot; 12-minute interviews reference</td><td class="ptext">he had already filmed a series of 12-minute interviews ... <b>He termed his discovery 'micro-expression'</b></td></tr>
+<tr><td class="qtext">Q29 &middot; third paragraph point</td><td class="ptext">the facial muscles triggered ... are <b>essentially standard, regardless of language and culture</b></td></tr>
+<tr><td class="qtext">Q30 &middot; conclusions from tests</td><td class="ptext">of the 15,000 Ekman has tested, <b>only 50 people</b> ... have been able to do it</td></tr>
+<tr><td class="qtext">Q31 &middot; fourth paragraph point</td><td class="ptext">he has been called in by the <b>FBI and CIA</b> ... countless more law-enforcement and other agencies</td></tr>
+<tr><td class="qtext">Q32 &middot; encourage viewers'</td><td class="ptext">create the quite inaccurate impression among audiences that criminals could no longer hope to get away with lying</td></tr>
+<tr><td class="qtext">Q33 &middot; result in ... not carried out</td><td class="ptext">concerned about <b>unfair convictions</b></td></tr>
+<tr><td class="qtext">Q34 &middot; based on one person's</td><td class="ptext">based on the <b>work of just one scientist</b></td></tr>
+<tr><td class="qtext">Q35 &middot; producer's ... surprise</td><td class="ptext">impressed with the producer's <b>manifestly serious and well-intentioned reasons</b></td></tr>
+<tr><td class="qtext">Q36 &middot; happy with show's overall</td><td class="ptext">probably <b>80-90 per cent of the show is based on fact</b></td></tr>
+<tr><td class="qtext">Q40 &middot; considers himself poor liar</td><td class="ptext">professes to have been a <b>terrible liar</b> ever since he was a small boy</td></tr>
+</table>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/catalog.js"></script>
+<script src="../assets/shared.js"></script>
+<script>
+const PASSAGE_ID = 'm5';
+const QUIZ = [{"id": 1, "type": "radio", "answer": "TRUE"}, {"id": 2, "type": "radio", "answer": "NOT GIVEN"}, {"id": 3, "type": "radio", "answer": "FALSE"}, {"id": 4, "type": "radio", "answer": "TRUE"}, {"id": 5, "type": "radio", "answer": "TRUE"}, {"id": 6, "type": "radio", "answer": "NOT GIVEN"}, {"id": 7, "type": "radio", "answer": "FALSE"}, {"id": 8, "type": "text", "answer": "strips"}, {"id": 9, "type": "text", "answer": "sheep"}, {"id": 10, "type": "text", "answer": "stretched"}, {"id": 11, "type": "text", "answer": "bark"}, {"id": 12, "type": "text", "answer": "Samarkand"}, {"id": 13, "type": "text", "answer": "stone"}, {"id": 14, "type": "radio", "answer": "vii"}, {"id": 15, "type": "radio", "answer": "v"}, {"id": 16, "type": "radio", "answer": "i"}, {"id": 17, "type": "radio", "answer": "iii"}, {"id": 18, "type": "radio", "answer": "iii"}, {"id": 19, "type": "radio", "answer": "C"}, {"id": 20, "type": "radio", "answer": "E"}, {"id": 21, "type": "radio", "answer": "B"}, {"id": 22, "type": "radio", "answer": "B"}, {"id": 23, "type": "radio", "answer": "D"}, {"id": 24, "type": "text", "answer": "sunset"}, {"id": 25, "type": "text", "answer": "dreams"}, {"id": 26, "type": "text", "answer": "thieves"}, {"id": 27, "type": "radio", "answer": "C"}, {"id": 28, "type": "radio", "answer": "B"}, {"id": 29, "type": "radio", "answer": "A"}, {"id": 30, "type": "radio", "answer": "B"}, {"id": 31, "type": "radio", "answer": "B"}, {"id": 32, "type": "text", "answer": ["false beliefs", "C"]}, {"id": 33, "type": "text", "answer": ["justice", "E"]}, {"id": 34, "type": "text", "answer": ["research", "H"]}, {"id": 35, "type": "text", "answer": ["motives", "D"]}, {"id": 36, "type": "text", "answer": ["accuracy", "F"]}, {"id": 37, "type": "radio", "answer": "NOT GIVEN"}, {"id": 38, "type": "radio", "answer": "NO"}, {"id": 39, "type": "radio", "answer": "NOT GIVEN"}, {"id": 40, "type": "radio", "answer": "YES"}];
+const GLOSSARY = [{"word": "derive", "pos": "verb", "def": "To obtain or come from a particular source or origin.", "uz": "kelib chiqmoq, olmoq"}, {"word": "parchment", "pos": "noun", "def": "A writing material made from prepared animal skin.", "uz": "pergament"}, {"word": "pulp", "pos": "noun", "def": "A soft, wet mass of material used to make paper.", "uz": "qog'oz xamiri"}, {"word": "scroll", "pos": "noun", "def": "A rolled-up piece of paper or parchment for writing.", "uz": "o'ram, svitok"}, {"word": "abundant", "pos": "adjective", "def": "Existing in large quantities; plentiful.", "uz": "mo'l-ko'l, serob"}, {"word": "laborious", "pos": "adjective", "def": "Requiring a lot of time and hard effort.", "uz": "mashaqqatli, og'ir"}, {"word": "refine", "pos": "verb", "def": "To improve something by making small changes.", "uz": "takomillashtirmoq"}, {"word": "notion", "pos": "noun", "def": "An idea, belief, or concept.", "uz": "tushuncha, g'oya"}, {"word": "insufficient", "pos": "adjective", "def": "Not enough for a particular purpose.", "uz": "yetarli emas"}, {"word": "inborn", "pos": "adjective", "def": "Existing in a person from birth; natural.", "uz": "tug'ma, tabiiy"}, {"word": "regulate", "pos": "verb", "def": "To control or adjust something so it works properly.", "uz": "tartibga solmoq"}, {"word": "consecutive", "pos": "adjective", "def": "Following one after another without a break.", "uz": "ketma-ket, uzluksiz"}, {"word": "segmented", "pos": "adjective", "def": "Divided into separate parts or sections.", "uz": "bo'laklarga bo'lingan"}, {"word": "prestige", "pos": "noun", "def": "Widespread respect or admiration felt for someone or something.", "uz": "nufuz, obro'"}, {"word": "insomnia", "pos": "noun", "def": "The inability to sleep, especially on a regular basis.", "uz": "uyqusizlik"}, {"word": "anguish", "pos": "noun", "def": "Severe mental or physical suffering.", "uz": "qiynoq, iztirob"}, {"word": "conceal", "pos": "verb", "def": "To keep something hidden or secret.", "uz": "yashirmoq"}, {"word": "suppress", "pos": "verb", "def": "To prevent a feeling or reaction from being expressed.", "uz": "bostirmoq"}, {"word": "skeptical", "pos": "adjective", "def": "Having doubts about something.", "uz": "shubha bilan qaraydigan"}, {"word": "conviction", "pos": "noun", "def": "A formal declaration that someone is guilty of a crime.", "uz": "ayblov qarori"}];
+
+ArbPlayer('#articleBody1 p', {playBtnId:'playBtn1', stopBtnId:'stopBtn1', titleId:'plTitle1', subId:'plSub1', rateId:'rateSelect1'});
+ArbPlayer('#articleBody2 p', {playBtnId:'playBtn2', stopBtnId:'stopBtn2', titleId:'plTitle2', subId:'plSub2', rateId:'rateSelect2'});
+ArbPlayer('#articleBody3 p', {playBtnId:'playBtn3', stopBtnId:'stopBtn3', titleId:'plTitle3', subId:'plSub3', rateId:'rateSelect3'});
+const timer = ArbTimer({minutes:60});
+ArbHighlighter(['articleBody1','articleBody2','articleBody3']);
+
+document.getElementById('glossaryList').innerHTML = GLOSSARY.map(w =>
+  '<div class="glossary-item"><span class="w">'+w.word+'</span> <span style="color:var(--muted);font-size:.8rem">'+ (w.pos||'') +'</span>' +
+  '<div style="font-size:.88rem;margin-top:2px">'+w.def+'</div><div class="uz">'+w.uz+'</div></div>'
+).join('');
+
+function showPassage(n) {
+  document.querySelectorAll('.mock-passage').forEach((el,i) => el.style.display = (i+1===n) ? '' : 'none');
+  document.querySelectorAll('.mock-tab').forEach((el,i) => el.classList.toggle('active', i+1===n));
+}
+
+function submitMock() {
+  const correct = ArbGradeQuiz(QUIZ, {});
+  const passMark = Math.ceil(QUIZ.length * 0.5);
+  arbSetItem(PASSAGE_ID, { quiz: correct >= passMark, vocab: true, score: correct, total: QUIZ.length });
+  checkAllDone();
+}
+function showKeyWords() {
+  document.getElementById('kwCard').style.display = 'block';
+  document.getElementById('kwCard').scrollIntoView({behavior:'smooth'});
+}
+function checkAllDone() {
+  if (arbIsComplete(PASSAGE_ID)) {
+    let banner = document.getElementById('unlockBanner');
+    if (!banner) {
+      banner = document.createElement('div');
+      banner.id = 'unlockBanner';
+      banner.className = 'score-banner show';
+      banner.style.marginTop = '20px';
+      banner.innerHTML = '<div class="big">🔓 Unlocked!</div><div style="color:var(--muted);font-size:.85rem;margin-top:4px">Great work — the next item is now open.</div><button class="btn btn-gold" style="margin-top:14px" onclick="location.href=\'../index.html\'">Back to map</button>';
+      document.querySelector('.wrap').appendChild(banner);
+    }
+  }
+}
+</script>
+</body>
+</html>
